@@ -8,8 +8,9 @@ function App() {
       <h1>NEAR - NFT</h1>
       {/* <Provider store={store}> */}
       <Routes>
-        {/* <Route path="/welcome" element={<Home />} /> */}
-        <Route />
+
+        <Route path="/" element={<Home />} />
+
       </Routes>
       {/* </Provider> */}
     </>
