@@ -2,9 +2,9 @@
 @import "../../../Assets/Styles/partials";
 
 .home__main__wrapper{
-    background-color: #E5E5E5;
     padding-top: 35px;
-    height: 100%;
+    padding-bottom: 75px;
+    height: 100%; 
     .home__header{
         display:flex;
         justify-content: center;
@@ -46,13 +46,6 @@
                 justify-content: center;
                 button{
                     @include defaultButton($primary__color);
-                    span{
-                        color: white;
-                        padding-left: 10px;
-                        svg{
-                            height: 100%;
-                        }
-                    }
                 }
             }
             
@@ -136,7 +129,7 @@
             display:flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 10px;
+            margin-bottom: 23px;
             h5{
                 font-weight: bold;
                 font-size: 22px;
@@ -145,6 +138,52 @@
                 text-decoration: none;
                 font-size: 20px;
             }
+        }
+        .transaction__list__wrapper{
+            .transaction__list{
+                display:flex;
+                align-items: center;
+                width: 100%;
+                justify-content:space-between;
+                margin-bottom: 15px;
+                .transaction__action{
+                    display:flex;
+                    align-items: center;
+
+                    div{
+                        background: #FFFFFF;
+                        border: 1.2px solid #DEDEDE;
+                        box-shadow: 0px 4.8px 4.8px rgba(0, 0, 0, 0.04);
+                        border-radius: 50%;
+                        width: 45px;
+                        height: 45px;
+                        padding: 5px;
+                        display:flex;
+                        align-items: center;
+                        justify-content:center;
+                        svg{
+                            font-weight: bold;
+                        }
+                    }
+                    h6{
+                        padding-left: 15px;
+                        margin-bottom: 0px;
+                        font-weight: 600;
+                        font-size: 16.8px;
+                        span{
+                            color: $primary__color;
+                        }
+                    }
+                }
+                .transaction__time{
+                    p{
+                        font-weight: normal;
+                        font-size: 15.6px;
+                        color: #808080;
+                        margin-bottom: 0px;
+                    }
+                }
+            }   
         }
     }
 }

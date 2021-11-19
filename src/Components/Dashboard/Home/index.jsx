@@ -2,7 +2,6 @@ import React,{memo} from "react"
 import styles from "./Home.module.css"
 import {Container} from "react-bootstrap"
 import {IoIosArrowForward} from "react-icons/io"
-import CustomButton from "../../../Assets/FrequentlyUsedComponents/Button"
 
 import create_nft_left from "../../../Assets/Images/create-nft-left.png"
 import create_nft_right from "../../../Assets/Images/create-nft-right.png"
@@ -30,14 +29,14 @@ const Home = () => {
                         <div>
                             <h1>Start Creating Your <strong>NFTs</strong> Today</h1>
                             <div className={styles.btn__wrapper}>
-                                <CustomButton text={"Start Creating your NFTs Today"} icon={<IoIosArrowForward/>}/>
+                                <button>Start Creating your NFTs Today <span><IoIosArrowForward/></span></button>
                             </div>
                         </div>
                     </div>
                     <img src={create_nft_left} className={styles.create_nft_left} alt="Create NFT"/>
                     <img src={create_nft_right} alt="Create NFT" className={styles.create_nft_right}/>
                 </div>
-                
+
                 <MyNFT/>
                 <Transactions/>
                 

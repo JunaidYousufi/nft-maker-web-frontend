@@ -2,28 +2,42 @@ import React,{memo,Fragment} from "react"
 import styles from "./Home.module.css"
 import {Link} from "react-router-dom"
 import {nanoid} from "nanoid"
+
+import {BsArrowUpRight,BsArrowDownLeft} from "react-icons/bs"
 const Transactions = () => {
     const transaction = [
         {
-            image:"",
-            cat:"Digital Art",
-            title:"",
-            id:"",
-        }
+            transaction:"sent",
+            id:"#17372",
+            name:"michael.near",
+            time:"3 days ago",
+        },
+        {
+            transaction:"received",
+            id:"#3783",
+            name:"michael.near",
+            time:"1 week ago",
+        },
     ]
     return(
         <>
         <div className={styles.transaction__wrapper}>
             <div className={styles.transaction__header}>
                 <h5>Recent Transactions</h5>
-                <Link to="/all-transactions">See All</Link>
+                <Link to="/transactions">See All</Link>
             </div>
             <div className={styles.transaction__list__wrapper}>
                 {transaction.map((data)=>{
                     return(
                         <Fragment key={nanoid}>
                             <div className={styles.transaction__list}>
-                                
+                                <div className={styles.transaction__action}>
+                                    <div>{data.transaction === "sent" ? <BsArrowUpRight/> : <BsArrowDownLeft/>}</div>
+                                    <h6><span>{data.id}</span> {data.transaction === "sent" ? "Sent to" : "Received from"} <span>{data.name}</span></h6>
+                                </div>
+                                <div className={styles.transaction__time}>
+                                    <p>{data.time}</p>
+                                </div>
                             </div>
                         </Fragment>
                     )

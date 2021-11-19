@@ -1,11 +1,12 @@
 import React from "react";
 import { Outlet,useNavigate } from "react-router-dom";
-import styles from './PrivateRoute.module.css'
+import Menu from "../Components/Dashboard/Widgets/Menu";
 
 const Layout = ({ children }) => {
   return (
     <>
     <main>{children}</main>
+    <Menu/>
     </>
   );
 };

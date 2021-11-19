@@ -12,6 +12,7 @@ import PrivateRoute from "./layout/PrivateRoute"
 // import store from "./store";
 import SignUp from "./Pages/SignUp";
 import Dashboard from "./Pages/Dashboard";
+import Notfound from "./Pages/NotFound";
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
           <Route path='/signup' element={<PublicRoute/>}>
             <Route index element={<SignUp/>}/>
           </Route>
-
+          <Route path="*" element={<Notfound/>}/>
       </Routes>
       {/* </Provider> */}
     </>

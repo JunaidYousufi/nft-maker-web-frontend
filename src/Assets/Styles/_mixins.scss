@@ -14,4 +14,12 @@
     &:focus{
         outline: none;
     }
+    span{
+        color: white;
+        display: flex;
+        padding-left: 10px;
+        svg{
+            height: 100%;
+        }
+    }
 }
