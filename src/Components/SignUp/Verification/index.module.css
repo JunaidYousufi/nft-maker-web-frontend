@@ -1,0 +1,116 @@
+.half_container {
+  max-width: 50%;
+  background-color: white;
+  min-height: 100vh;
+  margin-left: auto;
+  text-align: center;
+}
+
+.childContainer {
+  min-height: 90vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.childContainer p {
+  font-size: 19.2px;
+  text-align: center;
+}
+
+.childContainer h2 {
+  margin-top: -10px;
+  color: #2f80ed;
+  font-size: 23.2px;
+}
+
+.childContainer h4 {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  color: black;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.childContainer .verficationContainer {
+  margin-bottom: 25px;
+}
+
+.childContainer .verficationContainer h4 {
+  color: #808080;
+  font-weight: normal;
+  font-size: 16.8px;
+  font-weight: normal;
+}
+
+.childContainer hr {
+  margin-top: 20px;
+  background-color: #e3e3e3;
+  width: 40%;
+}
+
+.childContainer .link {
+  text-decoration: none;
+  list-style: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: black;
+  cursor: pointer;
+  font-size: 17px;
+  color: #2f80ed;
+}
+
+.button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: white;
+  background-color: #bdbdbd;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 17px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  margin: 0px 5px;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button span {
+  color: white;
+  padding-left: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.button span svg {
+  height: 100%;
+}
+
+.verification {
+  font-size: 21px;
+  display: inline-block;
+  margin: 15px auto;
+  font-weight: 600;
+}
+/*# sourceMappingURL=index.module.css.map */

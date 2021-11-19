@@ -1,0 +1,10 @@
+.character {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border: 2px solid #bdbdbd !important;
+  border-radius: 8px !important;
+
+}
+.character--selected {
+  border: 2px solid #2f80ed !important;
+  outline: none !important;
+}

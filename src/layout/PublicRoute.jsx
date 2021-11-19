@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
     <div className={styles.background}>
       <img src={Logo} alt="Brand Logo" className={styles.logo} />
       <img src={Img} alt="Vector Graphics" className={styles.vector} />
-      <div></div>
+      {children}
     </div>
   );
 };

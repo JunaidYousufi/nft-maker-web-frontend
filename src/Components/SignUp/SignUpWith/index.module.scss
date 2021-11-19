@@ -1,0 +1,68 @@
+@import "../../../Assets/Styles/_mixins.scss";
+@import "../../../Assets/Styles/_partials.scss";
+.half_container {
+  max-width: 50%;
+  background-color: white;
+  min-height: 100vh;
+  margin-left: auto;
+  @include HorizontalAndVerticalCenter;
+  flex-direction: column;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+.button {
+  @include defaultButton($primary__color);
+  color: #828282;
+  margin: 0px 5px;
+  &:focus {
+    outline: none;
+  }
+}
+
+.secondary {
+  background-color: white !important;
+  color: #828282 !important;
+}
+
+.mainContainer {
+  @include HorizontalAndVerticalCenter;
+  flex-direction: column;
+  padding: 30px 0px;
+  min-width: 60%;
+  p {
+    text-align: center;
+    font-weight: lighter;
+    color: #565656;
+    span {
+      color: $primary__color;
+    }
+  }
+  hr {
+    background-color: #e3e3e3;
+    width: 90%;
+  }
+  .link {
+    text-decoration: none;
+    list-style: none;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: black;
+    font-weight: bold;
+  }
+}
+.button {
+  margin: 15px 0px;
+  @include defaultButton($primary__color);
+}
+
+.secondaryColor {
+  background-color: $secondary__color;
+}
+
+.active {
+  color: #4f4f4f !important;
+  background-color: #f2f2f2 !important;
+}

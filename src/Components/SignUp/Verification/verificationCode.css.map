@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,CAAC;EACT,UAAU,EAAE,mBAAmB,CAAC,UAAU;EAC1C,MAAM,EAAE,4BAA4B;EACpC,aAAa,EAAE,cAAc;CAE9B;;AACD,AAAA,oBAAoB,CAAC;EACnB,MAAM,EAAE,4BAA4B;EACpC,OAAO,EAAE,eAAe;CACzB",
+    "sources": [
+        "verificationCode.scss"
+    ],
+    "names": [],
+    "file": "verificationCode.css"
+}
