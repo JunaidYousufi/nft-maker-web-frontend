@@ -12,12 +12,6 @@ const Transactions = () => {
             name:"michael.near",
             time:"3 days ago",
         },
-        {
-            transaction:"received",
-            id:"#3783",
-            name:"michael.near",
-            time:"1 week ago",
-        },
     ]
     return(
         <>

@@ -5,10 +5,10 @@ import {IoIosArrowForward} from "react-icons/io"
 
 import create_nft_left from "../../../Assets/Images/create-nft-left.png"
 import create_nft_right from "../../../Assets/Images/create-nft-right.png"
-import user_icon from "../../../Assets/Images/user-icon.png"
 
 import MyNFT from "./MyNft";
-import Transactions from "./Transactions";
+import Transactions from "./RecentTransactions";
+import HomeHeader from "./HomeHeader"
 
 const Home = () => {
     return(
@@ -16,12 +16,7 @@ const Home = () => {
         <div className={styles.home__main__wrapper}>
             <Container>
                 {/* Home Header  */}
-                <div className={styles.home__header}>
-                    <div className={styles.user__icon}>
-                        <img src={user_icon} alt="User Name"/>
-                        <h6>john.near</h6>
-                    </div>
-                </div>
+                <HomeHeader/>
 
                 {/* Home Create NFT Container */}
                 <div className={styles.create__nft__container}>
@@ -37,7 +32,7 @@ const Home = () => {
                     <img src={create_nft_right} alt="Create NFT" className={styles.create_nft_right}/>
                 </div>
 
-                <MyNFT/>
+                <MyNFT isLink={true}/>
                 <Transactions/>
                 
             </Container>

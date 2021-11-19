@@ -2,13 +2,16 @@ import React,{Fragment, memo} from "react"
 import {nanoid} from "nanoid"
 import styles from "./Home.module.css"
 import {Link} from "react-router-dom"
-
+import PropTypes from 'prop-types';
+import {AiOutlinePlus} from "react-icons/ai"
 import {Row,Col} from "react-bootstrap"
 
 import image1 from "../../../Assets/Images/dummy-card1.png"
 import image2 from "../../../Assets/Images/dummy-card2.png"
 
-const MyNft = () => {
+import {useDispatch} from "react-redux"
+const MyNft = ({isLink}) => {
+    let dispatch = useDispatch() //Direct assigning right now
     const mynft = [
         {
             image:image1,
@@ -23,12 +26,15 @@ const MyNft = () => {
             id:"#3783",
         }
     ]
+    dispatch({type:"getNft",payload:mynft})
+    // const nft__data = useSelector((state)=> state.home__allnft) //Defined in reducer function
+
     return(
         <>
         <div className={styles.mynft__wrapper}>
             <div className={styles.mynft__header}>
                 <h5>My NFTs</h5>
-                <Link to="/all-nft">See All</Link>
+                {isLink ? <Link to="all-nft">See All</Link> : <button><span><AiOutlinePlus/></span>Create More</button>}
             </div>
             <div className={styles.mynft__box__wrapper}>
                 <Row>
@@ -62,3 +68,7 @@ const MyNft = () => {
     )
 }
 export default memo(MyNft);
+
+MyNft.propTypes = {
+    isLink: PropTypes.bool.isRequired,
+};

@@ -13,6 +13,8 @@ import store from "./store";
 import SignUp from "./Pages/SignUp";
 import Dashboard from "./Pages/Dashboard";
 import Notfound from "./Pages/NotFound";
+import Transactions from "./Pages/Transactions";
+import AllNft from "./Pages/AllNft";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
       <Routes>
           <Route path='/' element={<PrivateRoute/>}>
             <Route index element={<Dashboard/>}/>
+            <Route path="transactions" element={<Transactions/>}/>
+            <Route path="all-nft" element={<AllNft/>}/>
           </Route>
 
           <Route path='/signup' element={<PublicRoute/>}>
