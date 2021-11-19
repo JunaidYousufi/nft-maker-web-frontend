@@ -1,8 +1,7 @@
-// import {combineReducers} from 'redux'
+import {combineReducers} from 'redux'
 
 // -------These reducer files will be created in Reducers folder then will be imported here
-// import CounterReducer from './CounterReducer'
-// import SimpleTextReducer from './SimpleTextReducer'
+import Menu__ToolTip from './menu__tooltip'
 
 // Here all reducers will get combined
-// export default RootReducer({counter: CounterReducer, text: SimpleTextReducer})
+export default combineReducers({menu__tooltip: Menu__ToolTip})

@@ -41,4 +41,34 @@
 .menu__wrapper .menu__button .active svg {
   color: #2F80ED !important;
 }
+
+.menu__nft__overlay button {
+  padding: 10px 10px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 16px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.menu__nft__overlay button span {
+  color: white;
+  padding-right: 50px;
+}
+
+.menu__nft__overlay button span svg {
+  font-size: 17px;
+}
+
+.menu__nft__overlay button:focus {
+  outline: none;
+}
 /*# sourceMappingURL=menu.module.css.map */

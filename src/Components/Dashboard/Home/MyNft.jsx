@@ -34,7 +34,7 @@ const MyNft = () => {
                 <Row>
                     {mynft.map((data)=>{
                         return(
-                            <Fragment key={nanoid}>
+                            <Fragment key={nanoid()}>
                                 <Col md={3}>
                                     <div className={styles.mynft__box}>
                                         <div className={styles.mynft__box__image__wrapper}>

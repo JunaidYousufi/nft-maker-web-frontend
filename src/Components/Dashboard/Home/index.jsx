@@ -29,7 +29,7 @@ const Home = () => {
                         <div>
                             <h1>Start Creating Your <strong>NFTs</strong> Today</h1>
                             <div className={styles.btn__wrapper}>
-                                <button>Start Creating your NFTs Today <span><IoIosArrowForward/></span></button>
+                                <button>Create NFT <span><IoIosArrowForward/></span></button>
                             </div>
                         </div>
                     </div>

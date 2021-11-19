@@ -29,7 +29,7 @@ const Transactions = () => {
             <div className={styles.transaction__list__wrapper}>
                 {transaction.map((data)=>{
                     return(
-                        <Fragment key={nanoid}>
+                        <Fragment key={nanoid()}>
                             <div className={styles.transaction__list}>
                                 <div className={styles.transaction__action}>
                                     <div>{data.transaction === "sent" ? <BsArrowUpRight/> : <BsArrowDownLeft/>}</div>
