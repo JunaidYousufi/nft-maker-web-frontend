@@ -1,7 +1,9 @@
 import React from "react";
-import { Outlet,useNavigate } from "react-router-dom";
+import { Outlet,Navigate } from "react-router-dom";
 import Menu from "../Components/Dashboard/Widgets/Menu";
 import {useSelector} from "react-redux"
+import Cookies from 'js-cookie'
+import {cookieAuth} from "../Utils/config"
 const Layout = ({ children }) => {
   const tooltip_show = useSelector((state)=> state.menu__tooltip) //Defined in reducer function
   return (
@@ -12,12 +14,13 @@ const Layout = ({ children }) => {
   );
 };
 const LayoutRoute = () => {
-    let navigate = useNavigate()
-    let isAuth = true;
+    // let navigate = useNavigate()
+    let isAuth = Cookies.get(cookieAuth) || false // => 'value'
+
   return (
     <>
       <Layout>
-        {isAuth ? <Outlet /> : navigate("/signup")}
+        {isAuth ? <Outlet /> : <Navigate replace to="/signup" />}
       </Layout>
     </>
   );

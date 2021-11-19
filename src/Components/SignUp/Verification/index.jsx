@@ -5,11 +5,18 @@ import VerificationInput from "react-verification-input";
 import { Link } from '@material-ui/core';
 import './verificationCode.css'
 import { useSelector } from 'react-redux';
-
-
-
+import { cookieAuth } from '../../../Utils/config';
+import Cookies from 'js-cookie'
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 const Verification = () => {
     const loginMethodUsedByUser = useSelector(state => state.LoginFormMethod)
+    let navigate = useNavigate()
+    const tempLogIn = () => {
+        Cookies.set(cookieAuth, 'cookie')
+        navigate("/")
+        toast.success("Logged In Successfully")
+    }
     return (
         <div className={styles.half_container}>
             <span className={styles.verification}>Verification</span>
@@ -37,7 +44,7 @@ const Verification = () => {
 
                 </div>
 
-                <button className={`${styles.button} ${styles.secondaryColor}`}>
+                <button className={`${styles.button} ${styles.secondaryColor}`} onClick={()=>tempLogIn()}>
                     Continue
                     {<span><IoIosArrowForward /></span>}
                 </button>
