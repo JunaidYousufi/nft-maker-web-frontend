@@ -1,9 +1,9 @@
 import React from "react";
-import { Outlet,Navigate } from "react-router-dom";
+import { Outlet, Navigate } from "react-router-dom";
 import Menu from "../Components/Dashboard/Widgets/Menu";
 import {useSelector} from "react-redux"
-import Cookies from 'js-cookie'
-import {cookieAuth} from "../Utils/config"
+// import Cookies from 'js-cookie'
+// import {cookieAuth} from "../Utils/config"
 import CreateNftPopup from "../Components/Dashboard/CreateNFT/createNft";
 
 const Layout = ({ children }) => {
@@ -20,8 +20,10 @@ const Layout = ({ children }) => {
   );
 };
 const LayoutRoute = () => {
-    // let navigate = useNavigate()
-    let isAuth = Cookies.get(cookieAuth) || false // => 'value'
+  // let navigate = useNavigate()
+  // let isAuth = Cookies.get(cookieAuth) || false // => 'value'
+  let isAuth = true // => 'value'
+
 
   return (
     <>
