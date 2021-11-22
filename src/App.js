@@ -1,13 +1,13 @@
-import React from "react"
+import React from "react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 import { Routes, Route } from "react-router-dom";
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
 
 import PublicRoute from "./layout/PublicRoute";
-import PrivateRoute from "./layout/PrivateRoute"
+import PrivateRoute from "./layout/PrivateRoute";
 import { Provider } from "react-redux";
 import store from "./store";
 import SignUp from "./Pages/SignUp";
@@ -17,6 +17,7 @@ import Dashboard from "./Pages/Dashboard";
 import Notfound from "./Pages/NotFound";
 import Transactions from "./Pages/Transactions";
 import AllNft from "./Pages/AllNft";
+import CreateAnAccount from "./Components/SignUp/CreateAnAccount/CreateAnAccount";
 
 function App() {
   return (
@@ -33,21 +34,21 @@ function App() {
         This website uses cookies to enhance the user experience.{" "}
       </CookieConsent>
       <Provider store={store}>
-      <ToastContainer />
-      <Routes>
-        
-          <Route path='/' element={<PrivateRoute/>}>
-            <Route index element={<Dashboard/>}/>
-            <Route path="transactions" element={<Transactions/>}/>
-            <Route path="all-nft" element={<AllNft/>}/>
+        <ToastContainer />
+        <Routes>
+          <Route path="/" element={<PrivateRoute />}>
+            <Route index element={<Dashboard />} />
+            <Route path="transactions" element={<Transactions />} />
+            <Route path="all-nft" element={<AllNft />} />
           </Route>
 
-          <Route path='/signup' element={<PublicRoute/>}>
-            <Route index element={<SignUp/>}/>
+          <Route path="/signup" element={<PublicRoute />}>
+            <Route index element={<SignUp />} />
             <Route path="verification" element={<Verification />} />
+            <Route path="create-account" element={<CreateAnAccount />} />
           </Route>
-          <Route path="*" element={<Notfound/>}/>
-      </Routes>
+          <Route path="*" element={<Notfound />} />
+        </Routes>
       </Provider>
     </>
   );

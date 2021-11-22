@@ -1,0 +1,73 @@
+@import "../../../Assets/Styles/_mixins.scss";
+@import "../../../Assets/Styles/_partials.scss";
+.half_container {
+  max-width: 50%;
+  background-color: white;
+  min-height: 100vh;
+  margin-left: auto;
+  text-align: center;
+  .createAnAccount {
+    font-size: 21px;
+    display: inline-block;
+    margin: 15px auto;
+    margin-top: 25px;
+    font-weight: 600;
+  }
+}
+
+.childContainer {
+  min-height: 80vh;
+  @include HorizontalAndVerticalCenter;
+  flex-direction: column;
+  //   background-color: aqua;
+  p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16.8px;
+    color: #808080;
+    text-align: left;
+    span {
+      color: $primary__color;
+      cursor: pointer;
+    }
+  }
+  h6 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14.4px;
+    color: #808080;
+    text-align: left;
+    margin-bottom: 10px;
+    color: $primary__color;
+  }
+  .link {
+    text-decoration: none;
+    list-style: none;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  .textField {
+    margin: 15px auto;
+    min-width: 370px;
+  }
+}
+
+.secondary_button {
+  @include defaultButton($secondary__color);
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  transition: 0.5s;
+  &:hover {
+    background-color: black;
+  }
+}
+
+.primary_button {
+  @include defaultButton($primary__color);
+  color: white;
+  margin: 0px 5px;
+}

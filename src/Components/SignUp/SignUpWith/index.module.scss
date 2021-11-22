@@ -38,6 +38,7 @@
     color: #565656;
     span {
       color: $primary__color;
+      cursor: pointer;
     }
   }
   hr {
@@ -51,6 +52,7 @@
     margin-bottom: 10px;
     color: black;
     font-weight: bold;
+    font-size: 20px;
   }
 }
 .button {

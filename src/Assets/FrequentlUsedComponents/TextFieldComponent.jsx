@@ -27,8 +27,8 @@ const TextFieldComponent = ({ variant, label, placeholder, type }) => {
                 variant={variant}
                 label={label}
                 placeholder={placeholder}
-                className={classes.inputfield}
                 type={type}
+                className={classes.inputfield}
             />
         </>
     );

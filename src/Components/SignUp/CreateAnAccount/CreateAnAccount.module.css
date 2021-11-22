@@ -3,111 +3,58 @@
   background-color: white;
   min-height: 100vh;
   margin-left: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.buttonContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  color: white;
-  background-color: #2f80ed;
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-size: 17px;
-  cursor: pointer;
-  border: none;
-  color: #828282;
-  margin: 0px 5px;
-}
-
-.button:focus {
-  outline: none;
-}
-
-.button span {
-  color: white;
-  padding-left: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.button span svg {
-  height: 100%;
-}
-
-.button:focus {
-  outline: none;
-}
-
-.secondary {
-  background-color: white !important;
-  color: #828282 !important;
-}
-
-.mainContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 30px 0px;
-  min-width: 60%;
-}
-
-.mainContainer p {
   text-align: center;
-  font-weight: lighter;
-  color: #565656;
 }
 
-.mainContainer p span {
+.half_container .createAnAccount {
+  font-size: 21px;
+  display: inline-block;
+  margin: 15px auto;
+  margin-top: 25px;
+  font-weight: 600;
+}
+
+.childContainer {
+  min-height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.childContainer p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16.8px;
+  color: #808080;
+  text-align: left;
+}
+
+.childContainer p span {
   color: #2f80ed;
   cursor: pointer;
 }
 
-.mainContainer hr {
-  background-color: #e3e3e3;
-  width: 90%;
+.childContainer h6 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14.4px;
+  color: #808080;
+  text-align: left;
+  margin-bottom: 10px;
+  color: #2f80ed;
 }
 
-.mainContainer .link {
+.childContainer .link {
   text-decoration: none;
   list-style: none;
   margin-top: 20px;
@@ -117,8 +64,56 @@
   font-size: 20px;
 }
 
-.button {
-  margin: 15px 0px;
+.childContainer .textField {
+  margin: 15px auto;
+  min-width: 370px;
+}
+
+.secondary_button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: white;
+  background-color: #bdbdbd;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 17px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.secondary_button:focus {
+  outline: none;
+}
+
+.secondary_button span {
+  color: white;
+  padding-left: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.secondary_button span svg {
+  height: 100%;
+}
+
+.secondary_button:hover {
+  background-color: black;
+}
+
+.primary_button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -135,13 +130,15 @@
   font-size: 17px;
   cursor: pointer;
   border: none;
+  color: white;
+  margin: 0px 5px;
 }
 
-.button:focus {
+.primary_button:focus {
   outline: none;
 }
 
-.button span {
+.primary_button span {
   color: white;
   padding-left: 10px;
   display: -webkit-box;
@@ -149,16 +146,7 @@
   display: flex;
 }
 
-.button span svg {
+.primary_button span svg {
   height: 100%;
 }
-
-.secondaryColor {
-  background-color: #bdbdbd;
-}
-
-.active {
-  color: #4f4f4f !important;
-  background-color: #f2f2f2 !important;
-}
-/*# sourceMappingURL=index.module.css.map */
+/*# sourceMappingURL=CreateAnAccount.module.css.map */
