@@ -18,6 +18,7 @@ import Notfound from "./Pages/NotFound";
 import Transactions from "./Pages/Transactions";
 import AllNft from "./Pages/AllNft";
 import CreateAnAccount from "./Components/SignUp/CreateAnAccount/CreateAnAccount";
+import GiftAnNft from "./Components/GiftAnNft/GiftAnNft";
 
 function App() {
   return (
@@ -25,9 +26,9 @@ function App() {
       {/* COOKIE CONSENT */}
       <CookieConsent
         location="bottom"
-        buttonText="Sure man!!"
+        buttonText="Got it"
         cookieName="myAwesomeCookieName2"
-        style={{ background: "#2B373B" }}
+        style={{ background: "#2F80ED", color: "white", fontFamily: "Inter" }}
         buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
         expires={150}
       >
@@ -46,6 +47,7 @@ function App() {
             <Route index element={<SignUp />} />
             <Route path="verification" element={<Verification />} />
             <Route path="create-account" element={<CreateAnAccount />} />
+            <Route path="gift-nft" element={<GiftAnNft />} />
           </Route>
           <Route path="*" element={<Notfound />} />
         </Routes>

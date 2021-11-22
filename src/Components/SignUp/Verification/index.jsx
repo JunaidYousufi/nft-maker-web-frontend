@@ -2,20 +2,19 @@ import React from 'react'
 import styles from './index.module.css'
 import { IoIosArrowForward } from "react-icons/io"
 import VerificationInput from "react-verification-input";
-import { Link } from '@material-ui/core';
 import './verificationCode.css'
 import { useSelector } from 'react-redux';
 import { cookieAuth } from '../../../Utils/config';
 import Cookies from 'js-cookie'
-import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { useNavigate, Link } from 'react-router-dom';
+// import { toast } from 'react-toastify';
 const Verification = () => {
     const loginMethodUsedByUser = useSelector(state => state.LoginFormMethod)
     let navigate = useNavigate()
     const tempLogIn = () => {
         Cookies.set(cookieAuth, 'cookie')
-        navigate("/")
-        toast.success("Logged In Successfully")
+        navigate("/signup/create-account")
+        // toast.success("Logged In Successfully")
     }
     return (
         <div className={styles.half_container}>
@@ -44,7 +43,7 @@ const Verification = () => {
 
                 </div>
 
-                <button className={`${styles.button} ${styles.secondaryColor}`} onClick={()=>tempLogIn()}>
+                <button className={`${styles.button} ${styles.secondaryColor}`} onClick={() => tempLogIn()}>
                     Continue
                     {<span><IoIosArrowForward /></span>}
                 </button>
@@ -53,9 +52,9 @@ const Verification = () => {
 
                 <h4>Didn't receive your code?</h4>
 
-                <Link className={styles.link}>Send to a different phone number</Link>
+                <Link to='/signup' className={styles.link}>Send to a different phone number</Link>
 
-                <Link className={styles.link}>Resend your code</Link>
+                <Link to='.' className={styles.link}>Resend your code</Link>
             </div>
         </div >
     );
