@@ -39,12 +39,17 @@
                 border-bottom-right-radius: 15px;
             }
         }
-        a{
+        button{
             text-decoration: none;
             font-size: 20px;
             color: $primary__color;
+            background-color: transparent;
+            border: none;
             span{
                 margin-right: 10px;
+            }
+            &:focus{
+                outline: none;
             }
         }
     }

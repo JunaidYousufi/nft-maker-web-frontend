@@ -140,6 +140,7 @@
           box-shadow: 0px 4.8px 4.8px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   background-color: #fff;
+  cursor: pointer;
 }
 
 .mynft__wrapper .mynft__box__wrapper .mynft__box .mynft__box__image__wrapper {

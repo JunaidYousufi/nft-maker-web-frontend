@@ -50,14 +50,20 @@
   border-bottom-right-radius: 15px;
 }
 
-.transaction__wrapper .transaction__header a {
+.transaction__wrapper .transaction__header button {
   text-decoration: none;
   font-size: 20px;
   color: #2f80ed;
+  background-color: transparent;
+  border: none;
 }
 
-.transaction__wrapper .transaction__header a span {
+.transaction__wrapper .transaction__header button span {
   margin-right: 10px;
+}
+
+.transaction__wrapper .transaction__header button:focus {
+  outline: none;
 }
 
 .transaction__wrapper .transaction__list__wrapper .transaction__list {

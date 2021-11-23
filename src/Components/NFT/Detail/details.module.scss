@@ -1,0 +1,130 @@
+@import "../../../Assets/Styles/mixins";
+@import "../../../Assets/Styles/partials";
+
+.details__wrapper{
+    width: 50%;
+    background-color: #fff;
+    margin-left: auto;
+    min-height: 100vh;
+    padding: 50px 20px;
+    .details__back{
+        float: right;
+        button{
+            border: none;
+            background-color: transparent;
+           
+            &:focus{
+                outline: none;
+            }
+            svg{
+                font-size: 32px;
+            }
+        }
+    }
+    .details__head{
+        margin-top: 50px;
+        margin-bottom: 30px;
+        .details__cat{
+            background: #000000;
+            padding: 5px 10px; 
+            width: fit-content;
+            border-radius: 7.2px;
+            margin-bottom: 15px;
+            h6{
+                margin-bottom: 0px;
+                color: white;
+                font-weight: 600;
+                font-size: 16.8px;
+            }
+        }
+        h1{
+            font-weight: 600;
+            font-size: 25.2px;
+            margin-bottom: 0px;
+            color: #000000;
+            padding-bottom: 6px;
+        }
+        h6{
+            font-weight: 500;
+            font-size: 17.2px;
+            color: #2F80ED;
+        }
+    }
+    .details__info{
+        display:flex;
+        justify-content:space-between;
+        align-items: center;
+        margin-bottom: 50px;
+        .details__profile{
+            display:flex;
+            align-items: center;
+            .details__profile__picture{
+                background-image: url("../../../Assets/Images/placeholder.png");
+                background-repeat: no-repeat;
+                background-size: 100% auto;
+                background-position: center top;
+                background-color: white;
+                border-radius: 50%;
+                height: 48px;
+                width: 48px;
+                margin-right: 10px;
+            }
+            .details__user__info{
+                p{
+                    margin-bottom: 0px;
+                    font-weight: normal;
+                    font-size: 14.4px;
+                    color: #808080;
+                    padding-bottom: 2px;
+                }
+                h6{
+                    margin-bottom: 0px;
+                    font-weight: 600;
+                    font-size: 16.8px;
+                }
+            }
+        }
+        button{
+            @include defaultButton($primary__color);
+        }
+    }
+    .details__accords{
+        .accord{
+            margin-bottom: 20px;
+            button{
+                font-weight: 600;
+                font-size: 19.2px;
+                &:focus{
+                    outline: none;
+                    border:none;
+                }
+            }
+        }
+        .accord__body{
+            padding: 35px;
+            p{
+                font-weight: normal;
+                font-size: 16px;
+                margin-bottom: 0px;
+                color: #808080;
+            }
+            .nft__info{
+                display:flex;
+                align-items: center;
+                justify-content:space-between;
+                margin-bottom: 25px;
+                padding-bottom: 25px;
+                border-bottom: 1.2px solid #EFEFEF;
+                p{
+                    margin-bottom: 0px;
+                }
+                h6{
+                    margin-bottom: 0px;
+                    font-weight: normal;
+                    font-size: 16.8px;
+                    color: #0072CE;
+                }
+            }
+        }
+    }
+}

@@ -11,7 +11,7 @@ import FilePondPluginFileValidateType from "filepond-plugin-file-validate-type";
 import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
 import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import FilePondPluginFileEncode from "filepond-plugin-file-encode";
-
+import {toast} from "react-toastify"
 // Register the plugins
 registerPlugin(
   FilePondPluginImageExifOrientation,
@@ -44,7 +44,7 @@ const CreateNft = () => {
   };
 
   let addFormFields = () => {
-    setFormValues([...formValues, { name: "", email: "" }]);
+    setFormValues([...formValues, { name: "", value: "" }]);
   };
 
   //   let removeFormFields = (i) => {
@@ -72,16 +72,27 @@ const CreateNft = () => {
   const [nftMint, setNftMint] = useState(false);
 
   const handleNftForm = () => {
-    dispatch({ type: "createnft__close" });
-    setNftForm(true);
-    setNftPreview(false);
-    setNftMint(false);
+      if(image.files){
+        dispatch({ type: "createnft__close" });
+        setNftForm(true);
+        setNftPreview(false);
+        setNftMint(false);
+      }
+      else{
+        toast.error("File Cannot Be Empty")
+      }
+    
   };
   const handleNftPreview = () => {
-    dispatch({ type: "createnft__close" });
-    setNftForm(false);
-    setNftPreview(true);
-    setNftMint(false);
+      if(details.title && details.description && details.category ){
+        dispatch({ type: "createnft__close" });
+        setNftForm(false);
+        setNftPreview(true);
+        setNftMint(false);
+      }
+      else{
+          toast.error("All fields are required")
+      }
   };
 
   const handleNftMint = () => {

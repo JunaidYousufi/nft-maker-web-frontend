@@ -1,0 +1,242 @@
+.initial__nft__modal button:focus {
+  outline: none;
+}
+
+.initial__nft__modal .modal__header__wrapper {
+  border-bottom: none !important;
+}
+
+.initial__nft__modal .modal__header__wrapper .modal__header {
+  border: none;
+}
+
+.initial__nft__modal .modal__header__wrapper .modal__header h2 {
+  font-weight: 600;
+  font-size: 21px;
+  margin-bottom: 0px;
+}
+
+.initial__nft__modal .modal__body__wrapper {
+  margin: 25px 0px;
+}
+
+.initial__nft__modal .modal__body__wrapper h3 {
+  font-weight: bold;
+  font-size: 16.8px;
+  margin-bottom: 0px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.initial__nft__modal .modal__body__wrapper h6 {
+  font-weight: normal;
+  font-size: 19.2px;
+  padding-bottom: 20px;
+  color: #808080;
+  text-align: center;
+}
+
+.initial__nft__modal .modal__body__wrapper .mint__info__wrapper .mint__image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.initial__nft__modal .modal__body__wrapper .mint__info__wrapper .mint__image img {
+  width: 50%;
+  border-radius: 25px;
+}
+
+.initial__nft__modal .modal__body__wrapper .mint__info__wrapper h1 {
+  text-align: center;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.initial__nft__modal .modal__body__wrapper .mint__info__wrapper h6 {
+  font-size: 16.8px;
+}
+
+.initial__nft__modal .next__btn__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 15px 0px;
+}
+
+.initial__nft__modal .next__btn__wrapper .next__btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: white;
+  background-color: #2f80ed;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 17px;
+  cursor: pointer;
+  border: none;
+}
+
+.initial__nft__modal .next__btn__wrapper .next__btn:focus {
+  outline: none;
+}
+
+.initial__nft__modal .next__btn__wrapper .next__btn span {
+  color: white;
+  padding-left: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.initial__nft__modal .next__btn__wrapper .next__btn span svg {
+  height: 100%;
+}
+
+.initial__nft__modal .multiple__btn__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 15px 0px;
+}
+
+.initial__nft__modal .multiple__btn__wrapper .next__btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: white;
+  background-color: #2f80ed;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 17px;
+  cursor: pointer;
+  border: none;
+}
+
+.initial__nft__modal .multiple__btn__wrapper .next__btn:focus {
+  outline: none;
+}
+
+.initial__nft__modal .multiple__btn__wrapper .next__btn span {
+  color: white;
+  padding-left: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.initial__nft__modal .multiple__btn__wrapper .next__btn span svg {
+  height: 100%;
+}
+
+.initial__nft__modal .multiple__btn__wrapper .back__btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: white;
+  background-color: #2f80ed;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 17px;
+  cursor: pointer;
+  border: none;
+}
+
+.initial__nft__modal .multiple__btn__wrapper .back__btn:focus {
+  outline: none;
+}
+
+.initial__nft__modal .multiple__btn__wrapper .back__btn span {
+  color: white;
+  padding-left: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.initial__nft__modal .multiple__btn__wrapper .back__btn span svg {
+  height: 100%;
+}
+
+.initial__nft__modal .multiple__btn__wrapper .back__btn span {
+  padding-right: 10px;
+  padding-left: 0px !important;
+}
+
+.mynft__box__wrapper .mynft__box {
+  -webkit-box-shadow: 0px 4.8px 4.8px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 4.8px 4.8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  background-color: #fff;
+  margin: 0px 10px;
+  cursor: pointer;
+}
+
+.mynft__box__wrapper .mynft__box .mynft__box__image__wrapper {
+  position: relative;
+}
+
+.mynft__box__wrapper .mynft__box .mynft__box__image__wrapper .mynft__box__image img {
+  width: 100%;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+}
+
+.mynft__box__wrapper .mynft__box .mynft__box__image__wrapper .mynft__box__cat {
+  position: absolute;
+  left: 20px;
+  top: 15px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.mynft__box__wrapper .mynft__box .mynft__box__image__wrapper .mynft__box__cat h6 {
+  font-size: 16.8px;
+  font-weight: 600;
+  padding: 6px 10px;
+  margin-bottom: 0px;
+}
+
+.mynft__box__wrapper .mynft__box .mynft__box__description__wrapper {
+  padding: 25px 20px;
+}
+
+.mynft__box__wrapper .mynft__box .mynft__box__description__wrapper h2 {
+  font-size: 19.2px;
+  margin-bottom: 0px;
+  padding-bottom: 10px;
+}
+
+.mynft__box__wrapper .mynft__box .mynft__box__description__wrapper p {
+  font-size: 16.8px;
+  color: #808080;
+  margin-bottom: 0px;
+}
+/*# sourceMappingURL=sendNft.module.css.map */

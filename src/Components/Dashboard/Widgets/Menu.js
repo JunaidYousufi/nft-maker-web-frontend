@@ -15,8 +15,12 @@ const Menu = () => {
     
     const target = useRef(null);
 
-    const handleChange = () => {
+    const createNftModal = () => {
         dispatch({type:"createnft__open"})
+        dispatch({type:"handleTooltipClick__close"})
+    }
+    const sendNftModal = () => {
+        dispatch({type:"sendnft__open"})
         dispatch({type:"handleTooltipClick__close"})
     }
     return(
@@ -31,8 +35,8 @@ const Menu = () => {
             <Overlay target={target.current} show={tooltip_show} placement="top">
                 {(props) => (
                     <Tooltip className={styles.menu__nft__overlay} {...props}>
-                        <button onClick={handleChange}><span><IoIosAdd/></span> Create NFT</button>
-                        <button><span><BsArrowUpRight/></span> Send NFT</button>
+                        <button onClick={createNftModal}><span><IoIosAdd/></span> Create NFT</button>
+                        <button onClick={sendNftModal}><span><BsArrowUpRight/></span> Send NFT</button>
                     </Tooltip>
                 )}
             </Overlay>
