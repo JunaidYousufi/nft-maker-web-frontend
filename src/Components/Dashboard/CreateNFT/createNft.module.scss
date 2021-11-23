@@ -1,0 +1,177 @@
+@import "../../../Assets/Styles/partials";
+@import "../../../Assets/Styles/mixins";
+
+.initial__nft__modal {
+    button{
+        &:focus{
+            outline: none;
+        }
+    }
+    .modal__header__wrapper{
+        border-bottom: none !important;
+        .modal__header{
+            border: none;
+            h2{
+                font-weight: 600;
+                font-size: 21px;
+                margin-bottom: 0px;
+            }
+        }
+    }
+    .progress{
+        div{
+            height: 0.2rem;
+        }
+    }
+    .modal__body__wrapper{
+        margin: 100px 0px;
+        h3{
+            font-weight: bold;
+            font-size: 16.8px;
+            margin-bottom: 0px;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+    }
+    .next__btn__wrapper{
+        display:flex;
+        justify-content:center;
+        margin: 15px 0px;
+        .next__btn {
+            @include defaultButton($primary__color);
+        }
+        .back__btn{
+            @include defaultButton($primary__color);
+        }
+    }
+    .multiple__btn__wrapper{
+        display:flex;
+        justify-content:space-around;
+        margin: 15px 0px;
+        .next__btn {
+            @include defaultButton($primary__color);
+        }
+        .back__btn{
+            @include defaultButton($primary__color);
+            span{
+                padding-right: 10px;
+                padding-left: 0px !important;
+            }
+        }
+    }
+}
+
+.nft__form__modal{
+    .modal__body__wrapper{
+        margin: 25px 0px !important;
+        h6{
+            font-weight: normal;
+            font-size: 19.2px;
+            padding-bottom: 20px;
+            color: #808080;
+            text-align:center;
+        }
+        form{
+            .form__group{
+                display:flex;
+                flex-direction: column;
+                margin-bottom: 15px;
+                label{
+                    color: #808080;
+                    font-weight: normal;
+                    font-size: 14.4px;
+                    padding-bottom: 12px;
+                    margin-bottom: 0px;
+                }
+                input,textarea,select{
+                    padding: 15px 20px;
+                    background: rgba(0, 0, 0, 0.03);
+                    border: 1.2px solid #CFCFCF;
+                    border-radius: 7.2px;
+                    transition: 0.4s;
+                    &:focus{
+                        outline: none;
+                        border: 2.4px solid $primary__color;
+                    }
+                }
+                .form__group__inner{
+                    margin-bottom: 10px;
+                    display:flex;
+                    justify-content:space-between;
+                }
+                .addFieldsBtn{
+                    background-color: transparent;
+                    border: none;
+                    color: $primary__color;
+                    display:flex;
+                    align-items: center;
+                    span{
+                        display:flex;
+                        padding-right: 10px;
+                    }
+                }
+            }
+        }
+        .mynft__box{
+            box-shadow: 0px 4.8px 4.8px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            background-color: #fff;
+            margin-bottom: 10px;
+            .mynft__box__image__wrapper{
+                position: relative;
+                .mynft__box__image{
+                    img{
+                        width: 100%;
+                        border-top-right-radius: 12px;
+                        border-top-left-radius: 12px;
+                    }
+                }
+                .mynft__box__cat{
+                    position: absolute;
+                    left: 20px;
+                    top: 15px;
+                    background-color: #fff;
+                    border-radius: 10px;
+                    h6{
+                        font-size: 16.8px;
+                        font-weight: 600;
+                        padding: 6px 10px;
+                        margin-bottom: 0px;
+                    }
+                }
+            }
+            .mynft__box__description__wrapper{
+                padding: 25px 20px;
+                h2{
+                    font-size: 19.2px;
+                    margin-bottom: 0px;
+                    padding-bottom: 10px;
+                }
+                p{
+                    font-size: 16.8px;
+                    color: #808080;
+                    margin-bottom: 0px;
+                }
+            }
+        }
+        .mint__info__wrapper{
+            .mint__image{
+                display:flex;
+                margin-bottom: 10px;
+                justify-content:center;
+                img{
+                    width: 50%;
+                    border-radius: 25px;
+                }
+            }
+            h1{
+                text-align: center;
+                font-weight: 500;
+                font-size: 24px;
+            }
+            h6{
+                font-size: 16.8px;
+            }
+        }
+    }
+}

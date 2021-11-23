@@ -27,6 +27,9 @@ const MyNft = ({isLink}) => {
         }
     ]
     dispatch({type:"getNft",payload:mynft})
+    const handleChange = () => {
+        dispatch({type:"createnft__open"})
+    }
     // const nft__data = useSelector((state)=> state.home__allnft) //Defined in reducer function
 
     return(
@@ -34,7 +37,7 @@ const MyNft = ({isLink}) => {
         <div className={styles.mynft__wrapper}>
             <div className={styles.mynft__header}>
                 <h5>My NFTs</h5>
-                {isLink ? <Link to="all-nft">See All</Link> : <button><span><AiOutlinePlus/></span>Create More</button>}
+                {isLink ? <Link to="all-nft">See All</Link> : <button onClick={handleChange}><span><AiOutlinePlus/></span>Create More</button>}
             </div>
             <div className={styles.mynft__box__wrapper}>
                 <Row>

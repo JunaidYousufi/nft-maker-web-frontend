@@ -14,6 +14,11 @@ const Menu = () => {
     const tooltip_show = useSelector((state)=> state.menu__tooltip) //Defined in reducer function
     
     const target = useRef(null);
+
+    const handleChange = () => {
+        dispatch({type:"createnft__open"})
+        dispatch({type:"handleTooltipClick__close"})
+    }
     return(
         <>
         <div className={styles.menu__wrapper}>
@@ -26,7 +31,7 @@ const Menu = () => {
             <Overlay target={target.current} show={tooltip_show} placement="top">
                 {(props) => (
                     <Tooltip className={styles.menu__nft__overlay} {...props}>
-                        <button><span><IoIosAdd/></span> Create NFT</button>
+                        <button onClick={handleChange}><span><IoIosAdd/></span> Create NFT</button>
                         <button><span><BsArrowUpRight/></span> Send NFT</button>
                     </Tooltip>
                 )}

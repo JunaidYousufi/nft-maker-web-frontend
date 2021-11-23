@@ -2,6 +2,8 @@ import React from "react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
+import "filepond/dist/filepond.min.css";
+import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 
 import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
