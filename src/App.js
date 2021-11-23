@@ -24,10 +24,14 @@ import Notfound from "./Pages/NotFound";
 import Transactions from "./Pages/Transactions";
 import AllNft from "./Pages/AllNft";
 import CreateAnAccount from "./Components/SignUp/CreateAnAccount/CreateAnAccount";
-import GiftAnNft from "./Components/GiftAnNft/GiftAnNft";
+// import GiftAnNft from "./Components/GiftAnNft/GiftAnNft";
 import NFTDetail from "./Pages/NftDetail";
+import GiftAnNftDialog from "./Components/GiftAnNftDialog/GiftAnNft";
 
 function App() {
+  const something = () => {
+    alert("Gift Nft Button clicked");
+  };
   const nft__detail = useSelector((state) => state.nft__detail) //Single Nft Data
   return (
     <>
@@ -55,7 +59,15 @@ function App() {
             <Route index element={<SignUp />} />
             <Route path="verification" element={<Verification />} />
             <Route path="create-account" element={<CreateAnAccount />} />
-            <Route path="gift-nft" element={<GiftAnNft />} />
+            <Route
+              path="gift-nft"
+              element={
+                <GiftAnNftDialog
+                  closebutton={false}
+                  sendGiftButton={something}
+                />
+              }
+            />
           </Route>
 
           <Route path="/nft" element={<DetailRoute />}>

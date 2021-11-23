@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 import { Modal, ProgressBar } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./createNft.module.css";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { AiOutlinePlus } from "react-icons/ai";
 import { FilePond, registerPlugin } from "react-filepond";
@@ -21,6 +21,7 @@ registerPlugin(
 );
 
 const CreateNft = () => {
+  let navigate = useNavigate();
   const [image, setImage] = useState({
     files: "",
   });
@@ -29,22 +30,42 @@ const CreateNft = () => {
     description: "",
     category: "",
   });
-  let navigate = useNavigate()
-  const [formValues, setFormValues] = useState([{ name: "", value: "" }]);
+
+  const [formValues, setFormValues] = useState([
+    {
+      [`size_12345`]: "",
+      [`extension_12345`]: "",
+      id: "12345",
+    },
+  ]);
 
   const formInfo = {
     ...image,
     ...details,
     ...formValues,
   };
-  let handleChange = (i, e) => {
-    let newFormValues = [...formValues];
-    newFormValues[i][e.target.name] = e.target.value;
-    setFormValues(newFormValues);
+
+  let handleChange = (e, id) => {
+    // console.log(id, e.target.name, e.target.value);
+    const get_index = formValues.findIndex((value) => value.id == id);
+    formValues[get_index] = {
+      ...formValues[get_index],
+      [e.target.name]: e.target.value,
+    };
+    // console.log(formValues);
+    // console.log("after change", formValues);
   };
 
   let addFormFields = () => {
-    setFormValues([...formValues, { name: "", value: "" }]);
+    const id = nanoid();
+    setFormValues([
+      ...formValues,
+      {
+        [`size_${id}`]: "",
+        [`extension_${id}`]: "",
+        id: id,
+      },
+    ]);
   };
 
   //   let removeFormFields = (i) => {
@@ -116,8 +137,9 @@ const CreateNft = () => {
   };
 
   const openNftDesc = () => {
-      navigate("/nft-details")
-  }
+    navigate("/nft-details");
+  };
+
   return (
     <>
       {/* Initial Modal  */}
@@ -259,19 +281,21 @@ const CreateNft = () => {
                   <div className={styles.form__group__inner} key={nanoid()}>
                     <input
                       type="text"
-                      name="name"
-                      value={element.name || ""}
+                      value={element[`size_${element.id}`]}
+                      name={`size_${element.id}`}
                       placeholder="Ex. Size"
-                      onChange={(e) => handleChange(index, e)}
+                      onChange={(e) => handleChange(e, element.id)}
                     />
+
                     <div>
                       <input
                         type="text"
-                        name="value"
-                        value={element.value || ""}
+                        value={element[`extension_${element.id}`]}
+                        name={`extension_${element.id}`}
                         placeholder="Ex. 40"
-                        onChange={(e) => handleChange(index, e)}
+                        onChange={(e) => handleChange(e, element.id)}
                       />
+
                       {/* {
                                     index ? 
                                     <button type="button" className={`button remove`} onClick={() => removeFormFields(index)}>Remove</button> 
@@ -344,7 +368,7 @@ const CreateNft = () => {
         </div>
         <Modal.Body>
           <div className={styles.modal__body__wrapper}>
-              <h6>Preview</h6>
+            <h6>Preview</h6>
             <div className={styles.mynft__box}>
               <div className={styles.mynft__box__image__wrapper}>
                 <div className={styles.mynft__box__image}>
@@ -394,16 +418,20 @@ const CreateNft = () => {
         ></Modal.Header>
         <Modal.Body>
           <div className={styles.modal__body__wrapper}>
-              <div className={styles.mint__info__wrapper}>
-                    <div className={styles.mint__image}>
-                        <img src={formInfo.files} alt={formInfo.title} />
-                    </div>
-                    <h1>{formInfo.title} <br/> Successfully Minted</h1>
-                    <h6>NFT ID #27283</h6>
+            <div className={styles.mint__info__wrapper}>
+              <div className={styles.mint__image}>
+                <img src={formInfo.files} alt={formInfo.title} />
               </div>
+              <h1>
+                {formInfo.title} <br /> Successfully Minted
+              </h1>
+              <h6>NFT ID #27283</h6>
+            </div>
           </div>
           <div className={styles.multiple__btn__wrapper}>
-            <button onClick={openNftDesc} className={styles.next__btn}>Open</button>
+            <button onClick={openNftDesc} className={styles.next__btn}>
+              Open
+            </button>
           </div>
         </Modal.Body>
       </Modal>

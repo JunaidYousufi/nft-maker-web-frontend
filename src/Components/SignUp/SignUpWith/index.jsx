@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './index.module.css'
 import TextFieldComponent from '../../../Assets/FrequentlUsedComponents/TextFieldComponent';
 import { IoIosArrowForward } from "react-icons/io"
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 
@@ -56,7 +56,7 @@ const SignUpWith = () => {
 
                 <hr />
 
-                <Link to='/signin' className={styles.link}>Already have Near Account?</Link>
+                <h6 className={styles.link}>Already have Near Account?</h6>
 
                 <button className={styles.button}>
                     Login With NEAR
