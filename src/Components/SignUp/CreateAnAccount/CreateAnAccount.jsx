@@ -1,7 +1,6 @@
 import React from 'react'
 import styles from './CreateAnAccount.module.css'
 import { IoIosArrowForward } from "react-icons/io"
-import { Link } from 'react-router-dom';
 import TextFieldComponent from '../../../Assets/FrequentlUsedComponents/TextFieldComponent';
 
 
@@ -11,7 +10,7 @@ const CreateAnAccount = () => {
             <span className={styles.createAnAccount}>Create an NFT account</span>
 
             <div className={styles.childContainer}>
-                <p>Enter an Account ID to use with your NEAR <br />
+                <p className={styles.left}>Enter an Account ID to use with your NEAR <br />
                     account. Your Account ID will be used for all NEAR <br />
                     operations, including sending and receiving <br />
                     assets.
@@ -48,7 +47,7 @@ const CreateAnAccount = () => {
                     NEAR Wallet <span>Terms of Service</span> and <span>Privacy Policy</span>.
                 </p>
 
-                <Link to='/signin' className={styles.link}>Already have Near Account?</Link>
+                <h6 className={styles.link}>Already have Near Account?</h6>
 
                 <button className={styles.primary_button}>
                     Login With NEAR
