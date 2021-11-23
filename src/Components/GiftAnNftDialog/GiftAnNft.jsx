@@ -10,6 +10,7 @@ import { BsCheckCircleFill } from "react-icons/bs";
 import { IoIosArrowForward } from "react-icons/io"
 import { FaRegShareSquare } from "react-icons/fa";
 import { AiFillCloseCircle } from "react-icons/ai";
+import ImportGoogleContactsDialog from '../ImportGoogleContactsDialog/ImportGoogleContactsDialog';
 
 const useStyles = makeStyles((theme) => ({
     mainContainer: {
@@ -69,9 +70,21 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export default function GiftAnNft() {
     const classes = useStyles();
     const [data, setdata] = useState(dummyContacts)
+    const [importContactDialog, setimportContactDialog] = useState(false)
 
     const HandleClick = (id) => {
-        const sorted_value = (data.findIndex(value => Number(value.id) === Number(id)))
+        const find_index_of_clicked_item = (data.findIndex(value => Number(value.id) === Number(id)))
+        data[find_index_of_clicked_item] = { ...data[find_index_of_clicked_item], checked: !data[find_index_of_clicked_item].checked }
+        setdata([...data])
+    }
+
+    // this dialog is for import google contacts
+    const HandleDialogClose = () => {
+        setimportContactDialog(false)
+    }
+    const HandleDialogOpen = () => {
+        setimportContactDialog(true)
+
     }
 
     return (
@@ -104,7 +117,7 @@ export default function GiftAnNft() {
                             }}
                             inputProps={{ 'aria-label': 'search' }}
                         />
-                        <p>Import</p>
+                        <p onClick={HandleDialogOpen}>Import</p>
                     </div>
 
                     {/* DATA */}
@@ -112,6 +125,7 @@ export default function GiftAnNft() {
                         {
                             data.map((value) => (
                                 <div className={styles.data_row_container} key={value.id}>
+
                                     {/* AVATAR */}
                                     <div className={styles.avatar}>
                                         {value.avatar}
@@ -123,6 +137,7 @@ export default function GiftAnNft() {
                                     </div>
                                     {/* ICONS */}
                                     <div className={styles.icon} onClick={() => HandleClick(value.id)}>
+                                        {console.log('i m working')}
                                         {value.checked ? <BsCheckCircleFill className={styles.checked} /> : <GoPrimitiveDot className={styles.unchecked} />}
                                     </div>
                                 </div>
@@ -139,6 +154,8 @@ export default function GiftAnNft() {
                 </div>
 
             </Dialog>
+            {/* this dialog will open when import button is clicked */}
+            <ImportGoogleContactsDialog status={importContactDialog} callback={HandleDialogClose} />
         </div>
     );
 }
