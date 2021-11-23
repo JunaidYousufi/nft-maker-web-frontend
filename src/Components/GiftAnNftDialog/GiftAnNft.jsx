@@ -11,12 +11,13 @@ import { IoIosArrowForward } from "react-icons/io"
 import { FaRegShareSquare } from "react-icons/fa";
 import { AiFillCloseCircle } from "react-icons/ai";
 import ImportGoogleContactsDialog from '../ImportGoogleContactsDialog/ImportGoogleContactsDialog';
-
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import PropTypes from "prop-types"
 const useStyles = makeStyles((theme) => ({
     mainContainer: {
         margin: '20px 30px',
-        Height: '90vh',
-        overflow: 'hidden',
+        height: '90vh',
         position: 'relative',
         "& h4": {
             fontStyle: 'normal',
@@ -67,15 +68,23 @@ const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function GiftAnNft() {
+export default function GiftAnNft({ closebutton, sendGiftButton }) {
     const classes = useStyles();
     const [data, setdata] = useState(dummyContacts)
     const [importContactDialog, setimportContactDialog] = useState(false)
+    const dialogStatus = useSelector(state => state.GiftNFT_Dialog_Box)
+    const dispatch = useDispatch()
 
+    // for checked and unchecked items
     const HandleClick = (id) => {
         const find_index_of_clicked_item = (data.findIndex(value => Number(value.id) === Number(id)))
         data[find_index_of_clicked_item] = { ...data[find_index_of_clicked_item], checked: !data[find_index_of_clicked_item].checked }
         setdata([...data])
+    }
+
+    // this is for main dialog box
+    const handleClose = () => {
+        dispatch({ type: 'close_dialog_gift_nft' })
     }
 
     // this dialog is for import google contacts
@@ -86,11 +95,15 @@ export default function GiftAnNft() {
         setimportContactDialog(true)
 
     }
+    // for send gift button
+    // const HandleSendgift = (sendGiftButton) => {
+    //     console.log(sendGiftButton)
+    // }
 
     return (
         <div>
             <Dialog
-                open={true}
+                open={dialogStatus}
                 TransitionComponent={Transition}
                 keepMounted
                 fullWidth={true}
@@ -98,10 +111,12 @@ export default function GiftAnNft() {
                 PaperProps={{
                     style: { borderRadius: 20 }
                 }}
-            // onClose={handleClose}
             >
                 <div className={classes.mainContainer}>
-                    <AiFillCloseCircle className={styles.cross} />
+                    {closebutton ?
+                        <AiFillCloseCircle className={styles.cross} onClick={handleClose} />
+                        : null
+                    }
                     <h4>Gift an NFT</h4>
                     {/* SEARCH BAR */}
                     <div className={classes.childContainer} >
@@ -137,7 +152,6 @@ export default function GiftAnNft() {
                                     </div>
                                     {/* ICONS */}
                                     <div className={styles.icon} onClick={() => HandleClick(value.id)}>
-                                        {console.log('i m working')}
                                         {value.checked ? <BsCheckCircleFill className={styles.checked} /> : <GoPrimitiveDot className={styles.unchecked} />}
                                     </div>
                                 </div>
@@ -145,7 +159,7 @@ export default function GiftAnNft() {
                         }
                     </div>
                     <div className={styles.footer}>
-                        <button className={styles.primary_button}>
+                        <button className={styles.primary_button} onClick={sendGiftButton}>
                             Send Gift
                             {<span><IoIosArrowForward /></span>}
                         </button>
@@ -205,3 +219,7 @@ const dummyContacts = [
     },
 
 ]
+
+GiftAnNft.propTypes = {
+    sendGiftButton: PropTypes.func.isRequired
+}

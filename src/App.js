@@ -23,6 +23,9 @@ import CreateAnAccount from "./Components/SignUp/CreateAnAccount/CreateAnAccount
 import GiftAnNftDialog from "./Components/GiftAnNftDialog/GiftAnNft";
 
 function App() {
+  const something = () => {
+    alert("Gift Nft Button clicked");
+  };
   return (
     <>
       {/* COOKIE CONSENT */}
@@ -49,7 +52,15 @@ function App() {
             <Route index element={<SignUp />} />
             <Route path="verification" element={<Verification />} />
             <Route path="create-account" element={<CreateAnAccount />} />
-            <Route path="gift-nft" element={<GiftAnNftDialog />} />
+            <Route
+              path="gift-nft"
+              element={
+                <GiftAnNftDialog
+                  closebutton={false}
+                  sendGiftButton={something}
+                />
+              }
+            />
           </Route>
           <Route path="*" element={<Notfound />} />
         </Routes>
