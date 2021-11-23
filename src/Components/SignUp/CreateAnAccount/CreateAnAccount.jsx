@@ -2,9 +2,13 @@ import React from 'react'
 import styles from './CreateAnAccount.module.css'
 import { IoIosArrowForward } from "react-icons/io"
 import TextFieldComponent from '../../../Assets/FrequentlUsedComponents/TextFieldComponent';
-
+import {useNavigate} from "react-router-dom"
 
 const CreateAnAccount = () => {
+    let navigate = useNavigate()
+    const createAccount = () => {
+        navigate("/signup/gift-nft")
+    }
     return (
         <div className={styles.half_container}>
             <span className={styles.createAnAccount}>Create an NFT account</span>
@@ -37,7 +41,7 @@ const CreateAnAccount = () => {
                 </div>
 
                 {/* create account button */}
-                <button className={`${styles.secondary_button}`} >
+                <button onClick={createAccount} className={`${styles.secondary_button}`} >
                     Create an account
                     {<span><IoIosArrowForward /></span>}
                 </button>

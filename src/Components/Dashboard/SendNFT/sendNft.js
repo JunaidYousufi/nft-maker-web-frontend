@@ -1,10 +1,11 @@
 import React,{Fragment,useState} from "react"
 import {nanoid} from "nanoid"
 import styles from "./sendNft.module.css"
+import {useNavigate} from "react-router-dom"
 import {Modal} from "react-bootstrap"
 import Carousel from "react-multi-carousel";
 import {IoIosArrowForward} from "react-icons/io"
-// import GiftAnNft from "../../GiftAnNft/GiftAnNft.jsx";
+import GiftAnNft from "../../GiftAnNftDialog/GiftAnNft";
 import {useSelector,useDispatch} from "react-redux"
 import dummy__img from "../../../Assets/Images/dummy-card1.png"
 const responsive = {
@@ -27,8 +28,10 @@ const responsive = {
     }
   };
 const SendNft = () => {
+    let navigate = useNavigate()
     const dispatch = useDispatch()
     const [openPreview,setOpenPreview] = useState(false)
+    const [openGift,setOpenGift] = useState(false)
     // const [selected,setSelected] = useState({
     //     value:false,
     //     id:""
@@ -43,15 +46,19 @@ const SendNft = () => {
     }
     
     const handleNftGift = () => {
-        
+        dispatch({ type: "sendnft__close"})
+        setOpenGift(true)
+       setOpenPreview(false)
     }
     const handleNftPreview = () => {
          dispatch({ type: "sendnft__close"})
+         setOpenGift(false)
         setOpenPreview(true)
     }
 
     const openHistory = () => {
-
+        closeSendNft()
+        navigate("/transactions")
     }
 
     // const nftClicked = (id) => {
@@ -121,7 +128,7 @@ const SendNft = () => {
                 </div>
             </div>
             <div className={styles.multiple__btn__wrapper}>
-                <button onClick={handleNftPreview} className={styles.next__btn}>
+                <button onClick={handleNftGift} className={styles.next__btn}>
                 Next
                 <span>
                     <IoIosArrowForward />
@@ -132,7 +139,7 @@ const SendNft = () => {
         </Modal>
 
         {/* NFT Sender Modal */}      
-        {/* {sendnft__popup && <GiftAnNft/>} */}
+        {openGift && <GiftAnNft closebutton={true} sendGiftButton={handleNftPreview}/>}
 
         {/* NFT Preview Modal */}
         <Modal

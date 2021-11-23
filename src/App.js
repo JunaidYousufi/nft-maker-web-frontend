@@ -6,7 +6,7 @@ import "filepond/dist/filepond.min.css";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 import 'react-multi-carousel/lib/styles.css';
 
-import { Routes, Route,Navigate } from "react-router-dom";
+import { Routes, Route,Navigate,useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import CookieConsent from "react-cookie-consent";
 import { useSelector } from "react-redux";
@@ -29,8 +29,9 @@ import NFTDetail from "./Pages/NftDetail";
 import GiftAnNftDialog from "./Components/GiftAnNftDialog/GiftAnNft";
 
 function App() {
-  const something = () => {
-    alert("Gift Nft Button clicked");
+  let navigate = useNavigate()
+  const giftSent = () => {
+    navigate("/")
   };
   const nft__detail = useSelector((state) => state.nft__detail) //Single Nft Data
   return (
@@ -64,7 +65,7 @@ function App() {
               element={
                 <GiftAnNftDialog
                   closebutton={false}
-                  sendGiftButton={something}
+                  sendGiftButton={giftSent}
                 />
               }
             />

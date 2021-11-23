@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 import { Modal, ProgressBar } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./createNft.module.css";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { AiOutlinePlus } from "react-icons/ai";
 import { FilePond, registerPlugin } from "react-filepond";
@@ -21,7 +21,7 @@ registerPlugin(
 );
 
 const CreateNft = () => {
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
   const [image, setImage] = useState({
     files: "",
   });
@@ -136,9 +136,9 @@ const CreateNft = () => {
     }
   };
 
-  const openNftDesc = () => {
-    navigate("/nft-details");
-  };
+  // const openNftDesc = () => {
+  //   navigate("/nft-details");
+  // };
 
   return (
     <>
@@ -429,8 +429,8 @@ const CreateNft = () => {
             </div>
           </div>
           <div className={styles.multiple__btn__wrapper}>
-            <button onClick={openNftDesc} className={styles.next__btn}>
-              Open
+            <button onClick={() => setNftMint(false)} className={styles.next__btn}>
+              Close
             </button>
           </div>
         </Modal.Body>
