@@ -1,5 +1,13 @@
 @import "../../../Assets/Styles/_mixins.scss";
 @import "../../../Assets/Styles/_partials.scss";
+.cross {
+  position: absolute;
+  right: 15px;
+  top: 27px;
+  font-size: 25px;
+  color: #c2c4c6;
+  cursor: pointer;
+}
 .half_container {
   max-width: 50%;
   background-color: white;
@@ -46,9 +54,11 @@
     list-style: none;
     margin-top: 20px;
     margin-bottom: 10px;
-    color: black;
-    font-weight: bold;
-    font-size: 20px;
+    font-style: normal;
+    font-weight: normal;
+    color: #000000;
+    font-size: 19.2px;
+    margin: 20px;
   }
   .textField {
     margin: 15px auto;
@@ -75,4 +85,26 @@
 
 .left {
   text-align: left !important;
+}
+
+@media screen and (max-width: 800px) {
+  .half_container {
+    position: absolute;
+    top: 5vh;
+    max-width: 100%;
+    min-height: 100vh;
+    margin-left: 0;
+    right: 0;
+    left: 0;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .childContainer {
+    p {
+      font-size: 14.8px;
+    }
+  }
 }

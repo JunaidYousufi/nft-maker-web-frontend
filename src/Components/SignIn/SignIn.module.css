@@ -1,12 +1,3 @@
-.cross {
-  position: absolute;
-  right: 15px;
-  top: 27px;
-  font-size: 25px;
-  color: #c2c4c6;
-  cursor: pointer;
-}
-
 .half_container {
   max-width: 50%;
   background-color: white;
@@ -14,14 +5,6 @@
   margin-left: auto;
   text-align: center;
   padding-bottom: 20px;
-}
-
-.half_container .createAnAccount {
-  font-size: 21px;
-  display: inline-block;
-  margin: 15px auto;
-  margin-top: 25px;
-  font-weight: 600;
 }
 
 .childContainer {
@@ -41,44 +24,41 @@
           flex-direction: column;
 }
 
-.childContainer p {
+.childContainer .icon {
+  color: #808080;
+  font-size: 45px;
+  margin: 40px auto;
+}
+
+.childContainer .requestText {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26.4px;
+  line-height: 32px;
+  text-align: center;
+  color: #000000;
+  margin-bottom: 30px;
+}
+
+.childContainer .para {
   font-style: normal;
   font-weight: normal;
   font-size: 16.8px;
-  color: #808080;
+  line-height: 20px;
   text-align: center;
-}
-
-.childContainer p span {
-  color: #2f80ed;
-  cursor: pointer;
-}
-
-.childContainer h6 {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14.4px;
   color: #808080;
-  text-align: left;
-  margin-bottom: 10px;
-  color: #2f80ed;
+  margin-bottom: 20px;
 }
 
-.childContainer .link {
-  text-decoration: none;
-  list-style: none;
-  margin-top: 20px;
-  margin-bottom: 10px;
+.childContainer .MoreInfo {
   font-style: normal;
   font-weight: normal;
-  color: #000000;
-  font-size: 19.2px;
-  margin: 20px;
-}
-
-.childContainer .textField {
-  margin: 15px auto;
-  min-width: 370px;
+  font-size: 16.8px;
+  line-height: 20px;
+  text-align: center;
+  color: #2f80ed;
+  margin-top: 5px;
+  margin-bottom: 30px;
 }
 
 .secondary_button {
@@ -92,17 +72,18 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   color: white;
-  background-color: #bdbdbd;
+  background-color: #f2f2f2;
   padding: 10px 20px;
   border-radius: 10px;
   font-size: 17px;
   cursor: pointer;
   border: none;
-  color: white;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  color: black;
+  font-weight: 600;
+  font-size: 19.2px;
+  line-height: 23px;
+  padding: 15px 45px !important;
+  margin: 10px;
 }
 
 .secondary_button:focus {
@@ -119,10 +100,6 @@
 
 .secondary_button span svg {
   height: 100%;
-}
-
-.secondary_button:hover {
-  background-color: black;
 }
 
 .primary_button {
@@ -143,7 +120,11 @@
   cursor: pointer;
   border: none;
   color: white;
-  margin: 0px 5px;
+  font-weight: 600;
+  font-size: 19.2px;
+  line-height: 23px;
+  padding: 15px 45px !important;
+  margin: 10px;
 }
 
 .primary_button:focus {
@@ -162,27 +143,30 @@
   height: 100%;
 }
 
-.left {
-  text-align: left !important;
+.buttonContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin-top: 25px;
+}
+
+.textField {
+  margin: 15px auto;
+  min-width: 370px;
 }
 
 @media screen and (max-width: 800px) {
   .half_container {
     position: absolute;
-    top: 5vh;
+    top: 100vh;
     max-width: 100%;
     min-height: 100vh;
     margin-left: 0;
     right: 0;
     left: 0;
-    border-top-right-radius: 30px;
-    border-top-left-radius: 30px;
   }
 }
-
-@media screen and (max-width: 800px) {
-  .childContainer p {
-    font-size: 14.8px;
-  }
-}
-/*# sourceMappingURL=CreateAnAccount.module.css.map */
+/*# sourceMappingURL=SignIn.module.css.map */

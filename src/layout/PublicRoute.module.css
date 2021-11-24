@@ -3,6 +3,7 @@
   width: 100%;
   min-height: 100vh;
   position: relative;
+  overflow-x: hidden;
 }
 
 .background .vector {
@@ -20,21 +21,14 @@
 
 @media screen and (max-width: 800px) {
   .vector {
-    height: 50vh;
-    z-index: 4;
+    top: -120px;
+    left: -25px !important;
+    -webkit-transform: rotate(60deg);
+            transform: rotate(60deg);
   }
   .logo {
-    z-index: 4;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .vector {
-    height: 35vh;
-    z-index: 4;
-  }
-  .logo {
-    z-index: 4;
+    top: 88% !important;
+    left: 30% !important;
   }
 }
 /*# sourceMappingURL=PublicRoute.module.css.map */

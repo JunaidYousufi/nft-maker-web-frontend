@@ -3,6 +3,7 @@
   width: 100%;
   min-height: 100vh;
   position: relative;
+  overflow-x: hidden;
   .vector {
     position: absolute;
     bottom: 0;
@@ -18,20 +19,12 @@
 
 @media screen and (max-width: 800px) {
   .vector {
-    height: 50vh;
-    z-index: 4;
+    top: -120px;
+    left: -25px !important;
+    transform: rotate(60deg);
   }
   .logo {
-    z-index: 4;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .vector {
-    height: 35vh;
-    z-index: 4;
-  }
-  .logo {
-    z-index: 4;
+    top: 88% !important;
+    left: 30% !important;
   }
 }

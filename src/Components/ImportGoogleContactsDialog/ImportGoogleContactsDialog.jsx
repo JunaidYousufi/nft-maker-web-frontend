@@ -25,7 +25,10 @@ const useStyles = makeStyles((theme) => ({
             fontWeight: '500',
             fontSize: '20px',
             lineHeight: '19px',
-            color: '#0072CE'
+            color: '#0072CE',
+            [theme.breakpoints.down('md')]: {
+                fontSize: '15px',
+              },
         }
     },
     googleicon: {

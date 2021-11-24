@@ -7,6 +7,9 @@ import { useSelector } from 'react-redux';
 import { cookieAuth } from '../../../Utils/config';
 import Cookies from 'js-cookie'
 import { useNavigate, Link } from 'react-router-dom';
+import { AiFillCloseCircle } from "react-icons/ai";
+
+
 // import { toast } from 'react-toastify';
 const Verification = () => {
     const loginMethodUsedByUser = useSelector(state => state.LoginFormMethod)
@@ -14,10 +17,15 @@ const Verification = () => {
     const tempLogIn = () => {
         Cookies.set(cookieAuth, 'cookie')
         navigate("/signup/create-account")
-        // toast.success("Logged In Successfully")
+    }
+    // HandleClick for cancel button
+    const HandleClick = () => {
+        navigate("/signup")
+
     }
     return (
         <div className={styles.half_container}>
+            <AiFillCloseCircle className={styles.cross} onClick={HandleClick} />
             <span className={styles.verification}>Verification</span>
             <div className={styles.childContainer}>
                 <p>We've sent a 6-digit verification code to<br />
@@ -32,10 +40,12 @@ const Verification = () => {
 
 
                 <div className={styles.verficationContainer}>
-                    <h4>Enter Verification Code</h4>
+                    <p className={styles.enterCode}>Enter Verification Code</p>
                     <VerificationInput
                         autoFocus={true}
+                        placeholder=' '
                         classNames={{
+                            container: "container",
                             character: "character",
                             characterSelected: "character--selected",
                         }}

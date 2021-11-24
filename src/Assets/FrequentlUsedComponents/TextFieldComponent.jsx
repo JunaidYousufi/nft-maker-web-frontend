@@ -19,18 +19,10 @@ const CssTextField = withStyles({
     },
 })(TextField);
 
-const useStyles = makeStyles((theme)=>({
+const useStyles = makeStyles((theme) => ({
     inputfield: {
         width: '100%',
-    },
-    input: {
-        '&::placeholder': {
-            color: 'rgba(0, 0, 0, 0.5)',
-            [theme.breakpoints.down('md')]: {
-                color: 'white',
-            },
-        },
-
+        background: '#F9F9F9',
     },
 }));
 
@@ -44,9 +36,9 @@ const TextFieldComponent = ({ variant, label, placeholder, type }) => {
                 placeholder={placeholder}
                 type={type}
                 className={classes.inputfield}
-                InputProps={{
-                    classes: { input: classes.input }
-                }}
+            // InputProps={{
+            //     classes: { input: classes.input }
+            // }}
             />
         </>
     );

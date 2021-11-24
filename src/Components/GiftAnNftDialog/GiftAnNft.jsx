@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import Slide from '@material-ui/core/Slide';
 import SearchIcon from '@material-ui/icons/Search';
@@ -13,12 +13,14 @@ import { AiFillCloseCircle } from "react-icons/ai";
 import ImportGoogleContactsDialog from '../ImportGoogleContactsDialog/ImportGoogleContactsDialog';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types"
 const useStyles = makeStyles((theme) => ({
     mainContainer: {
         margin: '20px 30px',
-        height: '90vh',
+        height: '95vh !important',
         position: 'relative',
+        overflow:'hidden',
         "& h4": {
             fontStyle: 'normal',
             fontWeight: 600,
@@ -69,9 +71,10 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export default function GiftAnNft({ closebutton, sendGiftButton }) {
+    let navigate = useNavigate();
     const classes = useStyles();
     const [data, setdata] = useState(dummyContacts)
-    const [importContactDialog, setimportContactDialog] = useState(false)
+    const [importContactDialog, setimportContactDialog] = useState(true)
     const dialogStatus = useSelector(state => state.GiftNFT_Dialog_Box)
     const dispatch = useDispatch()
 
@@ -85,6 +88,7 @@ export default function GiftAnNft({ closebutton, sendGiftButton }) {
     // this is for main dialog box
     const handleClose = () => {
         dispatch({ type: 'close_dialog_gift_nft' })
+        navigate(`/`);
     }
 
     // this dialog is for import google contacts
@@ -95,10 +99,11 @@ export default function GiftAnNft({ closebutton, sendGiftButton }) {
         setimportContactDialog(true)
 
     }
-    // for send gift button
-    // const HandleSendgift = (sendGiftButton) => {
-    //     console.log(sendGiftButton)
-    // }
+
+    useEffect(() => {
+        dispatch({ type: 'open_dialog_gift_nft' })
+
+    }, [])
 
     return (
         <div>
@@ -109,7 +114,7 @@ export default function GiftAnNft({ closebutton, sendGiftButton }) {
                 fullWidth={true}
                 maxWidth={'sm'}
                 PaperProps={{
-                    style: { borderRadius: 20 }
+                    style: { borderRadius: 20 },
                 }}
             >
                 <div className={classes.mainContainer}>

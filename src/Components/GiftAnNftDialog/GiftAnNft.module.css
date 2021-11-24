@@ -57,7 +57,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-left: 20px;
+  margin-left: 2vw;
 }
 
 .data_row_container .textContainer h6,
@@ -68,7 +68,7 @@
 
 .data_row_container .textContainer h6 {
   font-weight: 500;
-  font-size: 16.8px;
+  font-size: 16.68px;
 }
 
 .data_row_container .icon {
@@ -147,5 +147,54 @@
   color: #2f80ed;
   padding: 5px 0px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+  .textContainer {
+    margin-left: 10px;
+  }
+  .textContainer h6 {
+    font-weight: 500;
+    font-size: 14px;
+  }
+  .textContainer p {
+    font-weight: 500;
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .textContainer {
+    margin-left: 8px;
+  }
+  .textContainer h6 {
+    font-weight: 500;
+    font-size: 11.68px !important;
+  }
+  .textContainer p {
+    font-weight: 500;
+    font-size: 9px;
+  }
+  .primary_button {
+    margin: 15px 5px;
+  }
+  .data_row_container .avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #ebedf0;
+    text-transform: uppercase;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    color: rgba(0, 0, 0, 0.55);
+    font-size: 12.8px;
+  }
 }
 /*# sourceMappingURL=GiftAnNft.module.css.map */

@@ -2,15 +2,28 @@ import React from 'react'
 import styles from './CreateAnAccount.module.css'
 import { IoIosArrowForward } from "react-icons/io"
 import TextFieldComponent from '../../../Assets/FrequentlUsedComponents/TextFieldComponent';
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import { AiFillCloseCircle } from "react-icons/ai";
+import { useDispatch } from 'react-redux';
+
+
 
 const CreateAnAccount = () => {
     let navigate = useNavigate()
+    const dispatch = useDispatch()
     const createAccount = () => {
         navigate("/signup/gift-nft")
+        dispatch({ type: 'open_dialog_gift_nft' })
     }
+    // HandleClick for cancel button
+    const HandleClick = () => {
+        navigate("/signup")
+
+    }
+
     return (
         <div className={styles.half_container}>
+            <AiFillCloseCircle className={styles.cross} onClick={HandleClick} />
             <span className={styles.createAnAccount}>Create an NFT account</span>
 
             <div className={styles.childContainer}>
