@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 import { Modal, ProgressBar } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./createNft.module.css";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { AiOutlinePlus } from "react-icons/ai";
 import { FilePond, registerPlugin } from "react-filepond";
@@ -11,7 +11,7 @@ import FilePondPluginFileValidateType from "filepond-plugin-file-validate-type";
 import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
 import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import FilePondPluginFileEncode from "filepond-plugin-file-encode";
-
+import {toast} from "react-toastify"
 // Register the plugins
 registerPlugin(
   FilePondPluginImageExifOrientation,
@@ -21,7 +21,7 @@ registerPlugin(
 );
 
 const CreateNft = () => {
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
   const [image, setImage] = useState({
     files: "",
   });
@@ -94,16 +94,27 @@ const CreateNft = () => {
   const [nftMint, setNftMint] = useState(false);
 
   const handleNftForm = () => {
-    dispatch({ type: "createnft__close" });
-    setNftForm(true);
-    setNftPreview(false);
-    setNftMint(false);
+      if(image.files){
+        dispatch({ type: "createnft__close" });
+        setNftForm(true);
+        setNftPreview(false);
+        setNftMint(false);
+      }
+      else{
+        toast.error("File Cannot Be Empty")
+      }
+    
   };
   const handleNftPreview = () => {
-    dispatch({ type: "createnft__close" });
-    setNftForm(false);
-    setNftPreview(true);
-    setNftMint(false);
+      if(details.title && details.description && details.category ){
+        dispatch({ type: "createnft__close" });
+        setNftForm(false);
+        setNftPreview(true);
+        setNftMint(false);
+      }
+      else{
+          toast.error("All fields are required")
+      }
   };
 
   const handleNftMint = () => {
@@ -126,9 +137,9 @@ const CreateNft = () => {
     }
   };
 
-  const openNftDesc = () => {
-    navigate("/nft-details");
-  };
+  // const openNftDesc = () => {
+  //   navigate("/nft-details");
+  // };
 
   return (
     <>
@@ -415,8 +426,8 @@ const CreateNft = () => {
             </div>
           </div>
           <div className={styles.multiple__btn__wrapper}>
-            <button onClick={openNftDesc} className={styles.next__btn}>
-              Open
+            <button onClick={() => setNftMint(false)} className={styles.next__btn}>
+              Close
             </button>
           </div>
         </Modal.Body>

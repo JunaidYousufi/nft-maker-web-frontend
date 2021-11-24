@@ -5,6 +5,8 @@ const CreateNFTData = (state = initialvalue,action) => {
         case "createnftdata__store":
             return [...state,action.payload];
 
+        case "createnftdata__override":
+            return [action.payload];
         default:
             return state;
     }

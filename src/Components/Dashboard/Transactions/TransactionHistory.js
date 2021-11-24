@@ -1,10 +1,12 @@
 import React,{memo,Fragment,useState} from "react"
 import styles from "./transactions.module.css"
 import {Link} from "react-router-dom"
+import {useDispatch} from "react-redux"
 import {nanoid} from "nanoid"
 import {BsArrowUpRight,BsArrowDownLeft} from "react-icons/bs"
 const TransactionHistory = () => {
     const [tabs,setTabs] = useState("all")
+    const dispatch = useDispatch()
     const alltransactions = [
         {
             transaction:"sent",
@@ -41,6 +43,9 @@ const TransactionHistory = () => {
     const handleTabClick = (e) =>{
         setTabs(e.target.value)
     }
+    const SendNft = () => {
+        dispatch({type:"sendnft__open"})
+    }
     return(
         <>
         <div className={styles.transaction__wrapper}>
@@ -51,7 +56,7 @@ const TransactionHistory = () => {
                     <button className={tabs === "sent" ? styles.active : ""} value="sent">Sent</button>
                     <button className={tabs === "received" ? styles.active : ""} value="received">Received</button>
                 </div>
-                <Link to="send-nft"><span><BsArrowUpRight/></span>Send NFT</Link>
+                <button onClick={SendNft}><span><BsArrowUpRight/></span>Send NFT</button>
             </div>
             <div className={styles.transaction__list__wrapper}>
                 {alltransactions

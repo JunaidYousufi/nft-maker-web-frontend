@@ -4,28 +4,36 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "filepond/dist/filepond.min.css";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
+import 'react-multi-carousel/lib/styles.css';
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route,Navigate,useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import CookieConsent from "react-cookie-consent";
+import { useSelector } from "react-redux";
 
+//Routes
+import DetailRoute from "./layout/DetailRoute"
 import PublicRoute from "./layout/PublicRoute";
 import PrivateRoute from "./layout/PrivateRoute";
-import { Provider } from "react-redux";
-import store from "./store";
+
+//Pages
 import SignUp from "./Pages/SignUp";
-import CookieConsent from "react-cookie-consent";
 import Verification from "./Components/SignUp/Verification";
 import Dashboard from "./Pages/Dashboard";
 import Notfound from "./Pages/NotFound";
 import Transactions from "./Pages/Transactions";
 import AllNft from "./Pages/AllNft";
 import CreateAnAccount from "./Components/SignUp/CreateAnAccount/CreateAnAccount";
+// import GiftAnNft from "./Components/GiftAnNft/GiftAnNft";
+import NFTDetail from "./Pages/NftDetail";
 import GiftAnNftDialog from "./Components/GiftAnNftDialog/GiftAnNft";
 
 function App() {
-  const something = () => {
-    alert("Gift Nft Button clicked");
+  let navigate = useNavigate()
+  const giftSent = () => {
+    navigate("/")
   };
+  const nft__detail = useSelector((state) => state.nft__detail) //Single Nft Data
   return (
     <>
       {/* COOKIE CONSENT */}
@@ -39,7 +47,7 @@ function App() {
       >
         This website uses cookies to enhance the user experience.{" "}
       </CookieConsent>
-      <Provider store={store}>
+      
         <ToastContainer />
         <Routes>
           <Route path="/" element={<PrivateRoute />}>
@@ -57,14 +65,18 @@ function App() {
               element={
                 <GiftAnNftDialog
                   closebutton={false}
-                  sendGiftButton={something}
+                  sendGiftButton={giftSent}
                 />
               }
             />
           </Route>
+
+          <Route path="/nft" element={<DetailRoute />}>
+            <Route path=":nftid" element={nft__detail.image ? <NFTDetail /> : <Navigate replace to="/" />} /> {/* Checking if nft detail image exists if not the detail page will redirect */}
+          </Route>
           <Route path="*" element={<Notfound />} />
         </Routes>
-      </Provider>
+      
     </>
   );
 }

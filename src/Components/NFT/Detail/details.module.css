@@ -1,0 +1,195 @@
+.details__wrapper {
+  width: 50%;
+  background-color: #fff;
+  margin-left: auto;
+  min-height: 100vh;
+  padding: 50px 20px;
+}
+
+.details__wrapper .details__back {
+  float: right;
+}
+
+.details__wrapper .details__back button {
+  border: none;
+  background-color: transparent;
+}
+
+.details__wrapper .details__back button:focus {
+  outline: none;
+}
+
+.details__wrapper .details__back button svg {
+  font-size: 32px;
+}
+
+.details__wrapper .details__head {
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.details__wrapper .details__head .details__cat {
+  background: #000000;
+  padding: 5px 10px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 7.2px;
+  margin-bottom: 15px;
+}
+
+.details__wrapper .details__head .details__cat h6 {
+  margin-bottom: 0px;
+  color: white;
+  font-weight: 600;
+  font-size: 16.8px;
+}
+
+.details__wrapper .details__head h1 {
+  font-weight: 600;
+  font-size: 25.2px;
+  margin-bottom: 0px;
+  color: #000000;
+  padding-bottom: 6px;
+}
+
+.details__wrapper .details__head h6 {
+  font-weight: 500;
+  font-size: 17.2px;
+  color: #2F80ED;
+}
+
+.details__wrapper .details__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 50px;
+}
+
+.details__wrapper .details__info .details__profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.details__wrapper .details__info .details__profile .details__profile__picture {
+  background-image: url("../../../Assets/Images/placeholder.png");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center top;
+  background-color: white;
+  border-radius: 50%;
+  height: 48px;
+  width: 48px;
+  margin-right: 10px;
+}
+
+.details__wrapper .details__info .details__profile .details__user__info p {
+  margin-bottom: 0px;
+  font-weight: normal;
+  font-size: 14.4px;
+  color: #808080;
+  padding-bottom: 2px;
+}
+
+.details__wrapper .details__info .details__profile .details__user__info h6 {
+  margin-bottom: 0px;
+  font-weight: 600;
+  font-size: 16.8px;
+}
+
+.details__wrapper .details__info button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: white;
+  background-color: #2f80ed;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 17px;
+  cursor: pointer;
+  border: none;
+}
+
+.details__wrapper .details__info button:focus {
+  outline: none;
+}
+
+.details__wrapper .details__info button span {
+  color: white;
+  padding-left: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.details__wrapper .details__info button span svg {
+  height: 100%;
+}
+
+.details__wrapper .details__accords .accord {
+  margin-bottom: 20px;
+}
+
+.details__wrapper .details__accords .accord button {
+  font-weight: 600;
+  font-size: 19.2px;
+}
+
+.details__wrapper .details__accords .accord button:focus {
+  outline: none;
+  border: none;
+}
+
+.details__wrapper .details__accords .accord__body {
+  padding: 35px;
+}
+
+.details__wrapper .details__accords .accord__body p {
+  font-weight: normal;
+  font-size: 16px;
+  margin-bottom: 0px;
+  color: #808080;
+}
+
+.details__wrapper .details__accords .accord__body .nft__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  border-bottom: 1.2px solid #EFEFEF;
+}
+
+.details__wrapper .details__accords .accord__body .nft__info p {
+  margin-bottom: 0px;
+}
+
+.details__wrapper .details__accords .accord__body .nft__info h6 {
+  margin-bottom: 0px;
+  font-weight: normal;
+  font-size: 16.8px;
+  color: #0072CE;
+}
+/*# sourceMappingURL=details.module.css.map */

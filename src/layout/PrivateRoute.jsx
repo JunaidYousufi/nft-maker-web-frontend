@@ -5,16 +5,18 @@ import {useSelector} from "react-redux"
 // import Cookies from 'js-cookie'
 // import {cookieAuth} from "../Utils/config"
 import CreateNftPopup from "../Components/Dashboard/CreateNFT/createNft";
+import SendNft from "../Components/Dashboard/SendNFT/sendNft";
 
 const Layout = ({ children }) => {
   const tooltip_show = useSelector((state)=> state.menu__tooltip) //Defined in reducer function
   const createnft__popup = useSelector((state)=> state.createnft__popup) //Defined in reducer function
+  const sendnft__popup = useSelector((state)=> state.sendnft__popup) //Defined in reducer function
   return (
     <>
     <CreateNftPopup/>
+    <SendNft/>
 
-
-    <main style={{opacity:`${tooltip_show || createnft__popup ? "0.5" : "1"}`,pointerEvents:`${tooltip_show ? "none" : "all"}`}}>{children}</main>
+    <main style={{opacity:`${tooltip_show || createnft__popup || sendnft__popup ? "0.5" : "1"}`,pointerEvents:`${tooltip_show ? "none" : "all"}`}}>{children}</main>
     <Menu/>
     </>
   );
