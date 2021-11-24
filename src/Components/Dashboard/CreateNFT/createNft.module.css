@@ -1,3 +1,15 @@
+@media only screen and (max-width: 767px) {
+  .modal__body__wrapper .form__group .form__group__inner {
+    display: block !important;
+  }
+  .modal__body__wrapper .form__group .form__group__inner input {
+    margin-bottom: 5px;
+  }
+  .modal__body__wrapper .form__group .form__group__inner .remove__btn {
+    right: 55px !important;
+  }
+}
+
 .initial__nft__modal button:focus {
   outline: none;
 }
@@ -271,6 +283,25 @@
           justify-content: space-between;
 }
 
+.nft__form__modal .modal__body__wrapper form .form__group .form__group__inner .remove__btn {
+  background-color: #000;
+  padding: 7px;
+  color: #fff;
+  font-size: 10px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+  right: 25px;
+  margin-top: 13px;
+  width: 28px;
+  height: 28px;
+  border: none;
+}
+
+.nft__form__modal .modal__body__wrapper form .form__group .form__group__inner .remove__btn:focus {
+  outline: none;
+}
+
 .nft__form__modal .modal__body__wrapper form .form__group .addFieldsBtn {
   background-color: transparent;
   border: none;
@@ -281,6 +312,9 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .nft__form__modal .modal__body__wrapper form .form__group .addFieldsBtn span {

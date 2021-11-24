@@ -1,6 +1,23 @@
 @import "../../../Assets/Styles/mixins";
 @import "../../../Assets/Styles/partials";
 
+@media only screen and (max-width: 767px) {
+    .create__nft__content{
+        h1{
+            text-align: left !important;
+        }
+        .btn__wrapper{
+            justify-content:flex-start !important; 
+        }
+    }
+    .create_nft_left{
+        display:none;
+    }
+    .create_nft_right{
+        top: 0 !important;
+    }
+  }
+
 .home__main__wrapper{
     
     padding-bottom: 75px;
@@ -119,6 +136,9 @@
                     margin-bottom: 0px;
                 }
             }
+        }
+        .mynft__small__screen{
+            margin:0px 10px 10px 10px;
         }
     }
 }

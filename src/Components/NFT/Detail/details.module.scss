@@ -1,6 +1,22 @@
 @import "../../../Assets/Styles/mixins";
 @import "../../../Assets/Styles/partials";
 
+@media only screen and (max-width:"767px"){
+    .details__wrapper{
+        width: 100% !important;
+        margin-left: 0px !important;
+    }
+}
+@media only screen and (max-width:"400px"){
+    .details__wrapper{
+        .details__info{
+            button{
+                width: 120px !important;
+            }
+        }
+    }
+}
+
 .details__wrapper{
     width: 50%;
     background-color: #fff;
@@ -10,14 +26,17 @@
     .details__back{
         float: right;
         button{
-            border: none;
-            background-color: transparent;
+            background-color: #F0F1F3;
+                        padding: 3px;
+                        color: #818C99;
+                        font-size: 12px;
+                        border-radius: 50%;
+                        width: 28px;
+                        height: 28px;
+                        border: none;
            
             &:focus{
                 outline: none;
-            }
-            svg{
-                font-size: 32px;
             }
         }
     }
@@ -86,6 +105,8 @@
         }
         button{
             @include defaultButton($primary__color);
+            width: 160px;
+            justify-content: center;
         }
     }
     .details__accords{
@@ -118,12 +139,18 @@
                 p{
                     margin-bottom: 0px;
                 }
-                h6{
+                a{
                     margin-bottom: 0px;
                     font-weight: normal;
                     font-size: 16.8px;
                     color: #0072CE;
+                    text-decoration: none;
                 }
+            }
+            .nft__info:nth-last-child(1){
+                border: none !important;
+                padding-bottom: 0px;
+                margin-bottom:0px;
             }
         }
     }

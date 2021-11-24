@@ -1,5 +1,5 @@
 import {nanoid} from "nanoid"
-import image1 from "../Assets/Images/nft__detail__1.png"
+import image1 from "../Assets/Images/dummy-card1.png"
 
 let initialvalue = {
     image:image1,

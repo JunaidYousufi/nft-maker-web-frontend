@@ -1,3 +1,20 @@
+@media only screen and (max-width: 767px) {
+  .create__nft__content h1 {
+    text-align: left !important;
+  }
+  .create__nft__content .btn__wrapper {
+    -webkit-box-pack: start !important;
+        -ms-flex-pack: start !important;
+            justify-content: flex-start !important;
+  }
+  .create_nft_left {
+    display: none;
+  }
+  .create_nft_right {
+    top: 0 !important;
+  }
+}
+
 .home__main__wrapper {
   padding-bottom: 75px;
   height: 100%;
@@ -182,6 +199,10 @@
   font-size: 16.8px;
   color: #808080;
   margin-bottom: 0px;
+}
+
+.mynft__wrapper .mynft__box__wrapper .mynft__small__screen {
+  margin: 0px 10px 10px 10px;
 }
 
 .home__header {

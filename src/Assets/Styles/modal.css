@@ -1,5 +1,6 @@
 .initial__modal .modal-content {
   border-radius: 20px;
+  border: none !important;
 }
 
 .initial__modal .modal-content .modal-header .modal__title__wrapper {

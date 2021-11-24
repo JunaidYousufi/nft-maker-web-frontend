@@ -190,13 +190,26 @@
   padding-left: 0px !important;
 }
 
+.initial__nft__modal .last__modal__btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.initial__nft__modal .last__modal__btn .next__btn {
+  width: 100%;
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+}
+
 .mynft__box__wrapper .mynft__box {
   -webkit-box-shadow: 0px 4.8px 4.8px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 4.8px 4.8px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   background-color: #fff;
-  margin: 0px 10px;
   cursor: pointer;
+  margin: 0px 10px 10px 10px;
 }
 
 .mynft__box__wrapper .mynft__box .mynft__box__image__wrapper {
@@ -238,5 +251,56 @@
   font-size: 16.8px;
   color: #808080;
   margin-bottom: 0px;
+}
+
+.mynft__box__wrapper .mynft__box .selected__mynft__box__description__wrapper {
+  padding: 25px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.mynft__box__wrapper .mynft__box .selected__mynft__box__description__wrapper .mynft__box__description h2 {
+  font-size: 19.2px;
+  margin-bottom: 0px;
+  padding-bottom: 10px;
+}
+
+.mynft__box__wrapper .mynft__box .selected__mynft__box__description__wrapper .mynft__box__description p {
+  font-size: 16.8px;
+  color: #808080;
+  margin-bottom: 0px;
+}
+
+.mynft__box__wrapper .mynft__box .selected__mynft__box__description__wrapper .checked {
+  background: #2f80ed;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mynft__box__wrapper .mynft__box .selected__mynft__box__description__wrapper .checked svg {
+  color: white;
+}
+
+.mynft__box__wrapper .selected__nft {
+  border: 2px solid #2f80ed;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 /*# sourceMappingURL=sendNft.module.css.map */

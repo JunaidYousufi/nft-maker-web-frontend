@@ -1,6 +1,33 @@
 @import "../../../Assets/Styles/mixins";
 @import "../../../Assets/Styles/partials";
 
+@media only screen and (max-width: 390px) {
+    .small__screen__transaction__wrapper{
+        .small__screen__transaction{
+            button{
+                font-size: 12px !important;
+                width: 90px !important;
+                padding: 5px !important;
+            }
+            .active{
+                background-color: $primary__color;
+                color: white;
+            }
+            button:nth-child(1){
+                border-top-left-radius: 15px;
+                border-bottom-left-radius: 15px;
+            }
+            button:nth-last-child(1){
+                border-top-right-radius: 15px;
+                border-bottom-right-radius: 15px;
+            }
+        }
+    }
+    
+  }
+
+
+
 .transaction__wrapper{
     margin-bottom: 25px;
     .transaction__header{
@@ -50,6 +77,39 @@
             }
             &:focus{
                 outline: none;
+            }
+        }
+    }
+    .small__screen__transaction__wrapper{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 23px;
+        .small__screen__transaction{
+            button{
+                border: 1px solid $primary__color;
+                background-color: transparent;
+                color: $primary__color;
+                width: 120px;
+                padding: 8px;
+                font-weight: 500;
+                font-size: 16.8px;
+                text-align: center;
+                &:focus{
+                    outline: none;
+                }
+            }
+            .active{
+                background-color: $primary__color;
+                color: white;
+            }
+            button:nth-child(1){
+                border-top-left-radius: 15px;
+                border-bottom-left-radius: 15px;
+            }
+            button:nth-last-child(1){
+                border-top-right-radius: 15px;
+                border-bottom-right-radius: 15px;
             }
         }
     }

@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import 'react-multi-carousel/lib/styles.css';
 import "./Assets/Styles/modal.css";
 import "./Assets/Styles/filepond.css";
-
+import "./Components/SignUp/Verification/verificationCode.css"
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import CookieConsent from "react-cookie-consent";

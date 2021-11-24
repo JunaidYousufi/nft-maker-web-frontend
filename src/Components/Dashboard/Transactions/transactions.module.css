@@ -1,3 +1,23 @@
+@media only screen and (max-width: 390px) {
+  .small__screen__transaction__wrapper .small__screen__transaction button {
+    font-size: 12px !important;
+    width: 90px !important;
+    padding: 5px !important;
+  }
+  .small__screen__transaction__wrapper .small__screen__transaction .active {
+    background-color: #2f80ed;
+    color: white;
+  }
+  .small__screen__transaction__wrapper .small__screen__transaction button:nth-child(1) {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+  .small__screen__transaction__wrapper .small__screen__transaction button:nth-last-child(1) {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+}
+
 .transaction__wrapper {
   margin-bottom: 25px;
 }
@@ -64,6 +84,49 @@
 
 .transaction__wrapper .transaction__header button:focus {
   outline: none;
+}
+
+.transaction__wrapper .small__screen__transaction__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 23px;
+}
+
+.transaction__wrapper .small__screen__transaction__wrapper .small__screen__transaction button {
+  border: 1px solid #2f80ed;
+  background-color: transparent;
+  color: #2f80ed;
+  width: 120px;
+  padding: 8px;
+  font-weight: 500;
+  font-size: 16.8px;
+  text-align: center;
+}
+
+.transaction__wrapper .small__screen__transaction__wrapper .small__screen__transaction button:focus {
+  outline: none;
+}
+
+.transaction__wrapper .small__screen__transaction__wrapper .small__screen__transaction .active {
+  background-color: #2f80ed;
+  color: white;
+}
+
+.transaction__wrapper .small__screen__transaction__wrapper .small__screen__transaction button:nth-child(1) {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.transaction__wrapper .small__screen__transaction__wrapper .small__screen__transaction button:nth-last-child(1) {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 .transaction__wrapper .transaction__list__wrapper .transaction__list {

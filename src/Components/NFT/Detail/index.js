@@ -5,6 +5,7 @@ import {BsArrowUpRight} from "react-icons/bs"
 import {Accordion} from "react-bootstrap"
 import {useSelector} from "react-redux"
 import {useNavigate} from "react-router-dom"
+import {MdCancel} from "react-icons/md"
 const Details = () => {
     let navigate = useNavigate()
     const nft__detail = useSelector((state) => state.nft__detail)
@@ -12,7 +13,7 @@ const Details = () => {
         <>
         <div className={styles.details__wrapper}>
             <div className={styles.details__back}>
-                <button onClick={() => navigate(-1)}><span><BiArrowBack/></span></button>
+                <button onClick={() => navigate("/")}><span>X</span></button>
             </div>
             <div className={styles.details__head}>
                 <div className={styles.details__cat}>
@@ -47,11 +48,11 @@ const Details = () => {
                             <Accordion.Body className={styles.accord__body}>
                                 <div className={styles.nft__info}>
                                     <p>Token ID</p>
-                                    <h6>38493</h6>
+                                    <a href="https://explorer.near.org/" target="_blank" rel="noreferrer">38493</a>
                                 </div>
                                 <div className={styles.nft__info}>
                                     <p>Contract Address</p>
-                                    <h6>d0xkedek..89reke</h6>
+                                    <a href="https://explorer.near.org/" target="_blank" rel="noreferrer">d0xkedek..89reke</a>
                                 </div>
                             </Accordion.Body>
                         </Accordion.Item>

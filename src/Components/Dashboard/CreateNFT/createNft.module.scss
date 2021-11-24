@@ -1,6 +1,23 @@
 @import "../../../Assets/Styles/partials";
 @import "../../../Assets/Styles/mixins";
 
+@media only screen and (max-width: 767px) {
+    .modal__body__wrapper{
+        .form__group{
+            .form__group__inner{
+                display:block !important;
+                input{
+                    margin-bottom: 5px;
+                }
+                .remove__btn{
+                    right: 55px !important;
+                }
+            }
+        }
+    }
+  }
+
+
 .initial__nft__modal {
     button{
         &:focus{
@@ -111,6 +128,23 @@
                     margin-bottom: 10px;
                     display:flex;
                     justify-content:space-between;
+                    .remove__btn{
+                        background-color: #000;
+                        padding: 7px;
+                        color: #fff;
+                        font-size: 10px;
+                        border-radius: 50%;
+                        position:absolute;
+                        z-index: 1;
+                        right: 25px;
+                        margin-top: 13px;
+                        width: 28px;
+                        height: 28px;
+                        border: none;
+                        &:focus{
+                            outline:none;
+                        }
+                    }
                 }
                 .addFieldsBtn{
                     background-color: transparent;
@@ -118,6 +152,7 @@
                     color: $primary__color;
                     display:flex;
                     align-items: center;
+                    width: fit-content;
                     span{
                         display:flex;
                         padding-right: 10px;

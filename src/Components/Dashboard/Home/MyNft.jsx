@@ -1,4 +1,4 @@
-import React,{Fragment, memo,useEffect} from "react"
+import React,{Fragment, memo,useEffect,useState} from "react"
 import {nanoid} from "nanoid"
 import styles from "./Home.module.css"
 import {Link} from "react-router-dom"
@@ -6,14 +6,42 @@ import {useNavigate} from "react-router"
 import PropTypes from 'prop-types';
 import {AiOutlinePlus} from "react-icons/ai"
 import {Row,Col} from "react-bootstrap"
+import Carousel from "react-multi-carousel";
 
 import image1 from "../../../Assets/Images/dummy-card1.png"
 import image2 from "../../../Assets/Images/dummy-card2.png"
 
 import {useDispatch} from "react-redux"
+
+const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 1.5
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 1.5
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 1.5
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1.5
+    }
+  };
 const MyNft = ({isLink}) => {
     let navigate = useNavigate()
     let dispatch = useDispatch() //Direct assigning right now
+    const [windowstate,setWindow] = useState(window.innerWidth < 767);
+    useEffect(()=>{
+        window.addEventListener('resize', () => {
+            const ismobile = window.innerWidth < 767;
+            if (ismobile !== windowstate) setWindow(ismobile)
+        }, false);
+    }, [windowstate])
     let mynft = [
         {
             image:image1,
@@ -56,31 +84,72 @@ const MyNft = ({isLink}) => {
                 {isLink ? <Link to="all-nft">See All</Link> : <button onClick={handleChange}><span><AiOutlinePlus/></span>Create More</button>}
             </div>
             <div className={styles.mynft__box__wrapper}>
-                <Row>
-                    {mynft.map((data,i)=>{
-                        return(
-                            <Fragment key={nanoid()}>
-                                <Col md={3}>
-                                    <div className={styles.mynft__box} onClick={() => detailPage(data.nftid,i)}>
-                                        <div className={styles.mynft__box__image__wrapper}>
-                                            <div className={styles.mynft__box__image}>
-                                                <img src={data.image} alt={data.title}/>
+                {windowstate ? (
+                    <>
+                     <Carousel removeArrowOnDeviceType={[
+                        "tablet",
+                        "mobile",
+                        "desktop",
+                        "superLargeDesktop",
+                        ]}
+                        responsive={responsive}
+                        autoPlay={false}
+                        infinite={false}
+                        swipeable={true}
+                        draggable={true}>
+                        {mynft.map((data,i)=>{
+                            return(
+                                <Fragment key={nanoid()}>
+                                        <div className={`${styles.mynft__box} ${styles.mynft__small__screen}`} onClick={() => detailPage(data.nftid,i)}>
+                                            <div className={styles.mynft__box__image__wrapper}>
+                                                <div className={styles.mynft__box__image}>
+                                                    <img src={data.image} alt={data.title}/>
+                                                </div>
+                                                <div className={styles.mynft__box__cat}>
+                                                    <h6>{data.cat}</h6>
+                                                </div>
                                             </div>
-                                            <div className={styles.mynft__box__cat}>
-                                                <h6>{data.cat}</h6>
+                                            <div className={styles.mynft__box__description__wrapper}>
+                                                <h2>{data.title}</h2>
+                                                <p>{data.id}</p>
                                             </div>
                                         </div>
-                                        <div className={styles.mynft__box__description__wrapper}>
-                                            <h2>{data.title}</h2>
-                                            <p>{data.id}</p>
+                                    
+                                </Fragment>
+                            )
+                        })}
+                        </Carousel>
+                    </>
+                ):(
+                    <>
+                    <Row>
+                        {mynft.map((data,i)=>{
+                            return(
+                                <Fragment key={nanoid()}>
+                                    <Col md={3}>
+                                        <div className={styles.mynft__box} onClick={() => detailPage(data.nftid,i)}>
+                                            <div className={styles.mynft__box__image__wrapper}>
+                                                <div className={styles.mynft__box__image}>
+                                                    <img src={data.image} alt={data.title}/>
+                                                </div>
+                                                <div className={styles.mynft__box__cat}>
+                                                    <h6>{data.cat}</h6>
+                                                </div>
+                                            </div>
+                                            <div className={styles.mynft__box__description__wrapper}>
+                                                <h2>{data.title}</h2>
+                                                <p>{data.id}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </Col>
-                                
-                            </Fragment>
-                        )
-                    })}
-                </Row>
+                                    </Col>
+                                    
+                                </Fragment>
+                            )
+                        })}
+                    </Row>
+                    </>
+                )}
+                
             </div>
         </div>
         </>

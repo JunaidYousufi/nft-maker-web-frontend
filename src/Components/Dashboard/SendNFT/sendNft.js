@@ -8,15 +8,16 @@ import {IoIosArrowForward} from "react-icons/io"
 import GiftAnNft from "../../GiftAnNftDialog/GiftAnNft";
 import {useSelector,useDispatch} from "react-redux"
 import dummy__img from "../../../Assets/Images/dummy-card1.png"
+import {AiOutlineCheck} from "react-icons/ai"
 const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 2
+      items: 1.5
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 2
+      items: 1.5
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -32,6 +33,7 @@ const SendNft = () => {
     const dispatch = useDispatch()
     const [openPreview,setOpenPreview] = useState(false)
     const [openGift,setOpenGift] = useState(false)
+    const [selected,setSelected] = useState("")
     // const [selected,setSelected] = useState({
     //     value:false,
     //     id:""
@@ -61,51 +63,55 @@ const SendNft = () => {
         navigate("/transactions")
     }
 
-    // const nftClicked = (id) => {
-    //     // for(let i=0;i<home__allnft.length;i++){
-
-    //     // }
-    //     // const find_index_of_clicked_item = (data.findIndex(value => value.nftid === id)) //Number(value.nftid) === Number(id)
-    //     // // console.log(find_index_of_clicked_item)
-    //     // data[find_index_of_clicked_item] = { ...data[find_index_of_clicked_item], selected: !data[find_index_of_clicked_item].selected }
-    //     // // // setdata([...data])
-    //     // dispatch({type:"createnftdata__override",payload:data})
-    //     // setdata(data)
-    //     // console.log(data);
-        
-    //     setSelected({value:true,id:id})
-    //     console.log(id)
-    //     console.log(selected.id)
-    // }
+    const nftClicked = (e, i) => {
+        if(selected === i){
+            setSelected("")
+        }
+        else{
+            setSelected(i)
+        }
+    }
 
     return(
         <>
         
         {/* NFT Selection Modal */}
         <Modal
-            className={`${styles.initial__nft__modal}`}
+            className={`${styles.initial__nft__modal} initial__modal`}
             show={sendnft__popup}
             onHide={closeSendNft}
             backdrop="static"
-            size="lg"
+            // size="lg"
             keyboard={false}
         >
             <Modal.Header className={styles.modal__header__wrapper} closeButton>
-            <Modal.Title>
-                <div className={styles.modal__header}>
-                <h2>Send Nft</h2>
-                </div>
-            </Modal.Title>
+            <div className="modal__title__wrapper">
+                <Modal.Title>
+                    <div className={styles.modal__header}>
+                        <h2>Send Nft</h2>
+                    </div>
+                </Modal.Title>
+            </div>
             </Modal.Header>
             <Modal.Body>
             <div className={styles.modal__body__wrapper}>
                 <h6>Select NFT you want to send</h6>
                 <div className={styles.mynft__box__wrapper}>
-                    <Carousel responsive={responsive}>
-                        {home__allnft.map((data)=>{
+                    <Carousel removeArrowOnDeviceType={[
+                        "tablet",
+                        "mobile",
+                        "desktop",
+                        "superLargeDesktop",
+                        ]}
+                        responsive={responsive}
+                        autoPlay={false}
+                        infinite={false}
+                        swipeable={true}
+                        draggable={true}>
+                        {home__allnft.map((data,i)=>{
                                 return(
                                     <Fragment key={nanoid()}>
-                                            <div className={`${styles.mynft__box}`}>
+                                            <div className={`${styles.mynft__box} ${selected === i ? styles.selected__nft : ""}`} onClick={e => nftClicked(e, i)}>
                                                 <div className={styles.mynft__box__image__wrapper}>
                                                     <div className={styles.mynft__box__image}>
                                                         <img src={data.image} alt={data.title}/>
@@ -114,10 +120,27 @@ const SendNft = () => {
                                                         <h6>{data.cat}</h6>
                                                     </div>
                                                 </div>
-                                                <div className={styles.mynft__box__description__wrapper}>
-                                                    <h2>{data.title}</h2>
-                                                    <p>{data.id}</p>
-                                                </div>
+                                               
+                                                    {selected === i ? (
+                                                        <>
+                                                         <div className={styles.selected__mynft__box__description__wrapper}>
+                                                            <div className={styles.mynft__box__description}>
+                                                                <h2>{data.title}</h2>
+                                                                <p>{data.id}</p>
+                                                            </div>
+                                                            <div className={styles.checked}><AiOutlineCheck/></div>
+                                                         </div>
+                                                        </>
+                                                    ):(
+                                                        <>
+                                                        <div className={styles.mynft__box__description__wrapper}>
+                                                            <h2>{data.title}</h2>
+                                                            <p>{data.id}</p>
+                                                        </div>
+                                                        </>
+                                                    )}
+                                                    
+                                                    
                                             </div>
                                         
                                     </Fragment>
@@ -143,18 +166,14 @@ const SendNft = () => {
 
         {/* NFT Preview Modal */}
         <Modal
-            className={`${styles.initial__nft__modal}`}
+            className={`${styles.initial__nft__modal} initial__modal`}
             show={openPreview}
             onHide={closeSendNft}
             backdrop="static"
             keyboard={false}
         >
             <Modal.Header className={styles.modal__header__wrapper} closeButton>
-            <Modal.Title>
-                <div className={styles.modal__header}>
-                    <h2>Send Nft</h2>
-                </div>
-            </Modal.Title>
+            
             </Modal.Header>
             <Modal.Body>
             <div className={styles.modal__body__wrapper}>
@@ -166,7 +185,7 @@ const SendNft = () => {
                     <h6>23 contacts</h6>
                 </div>
             </div>
-            <div className={styles.multiple__btn__wrapper}>
+            <div className={`${styles.multiple__btn__wrapper} ${styles.last__modal__btn}`}>
                 <button onClick={openHistory} className={styles.next__btn}>
                     Open History
                 </button>

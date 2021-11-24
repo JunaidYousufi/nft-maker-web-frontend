@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
         margin: '20px 30px',
         height: '95vh !important',
         position: 'relative',
-        overflow:'hidden',
+        // overflow:'hidden',
         "& h4": {
             fontStyle: 'normal',
             fontWeight: 600,

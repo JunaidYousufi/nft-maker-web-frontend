@@ -2,7 +2,6 @@ import React from 'react'
 import styles from './index.module.css'
 import { IoIosArrowForward } from "react-icons/io"
 import VerificationInput from "react-verification-input";
-import './verificationCode.css'
 import { useSelector } from 'react-redux';
 import { cookieAuth } from '../../../Utils/config';
 import Cookies from 'js-cookie'
@@ -45,7 +44,7 @@ const Verification = () => {
                         autoFocus={true}
                         placeholder=' '
                         classNames={{
-                            container: "container",
+                            container: "verification__container",
                             character: "character",
                             characterSelected: "character--selected",
                         }}

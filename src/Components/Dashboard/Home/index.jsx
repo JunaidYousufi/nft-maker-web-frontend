@@ -12,6 +12,8 @@ import HomeHeader from "./HomeHeader"
 import {useDispatch } from "react-redux"
 const Home = () => {
     const dispatch = useDispatch()
+    
+    
     return(
         <>
         <div className={styles.home__main__wrapper}>

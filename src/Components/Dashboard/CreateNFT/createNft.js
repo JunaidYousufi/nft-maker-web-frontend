@@ -68,11 +68,11 @@ const CreateNft = () => {
     navigate(`/nft/${nanoid()}`)
   }
 
-  //   let removeFormFields = (i) => {
-  //     let newFormValues = [...formValues];
-  //     newFormValues.splice(i, 1);
-  //     setFormValues(newFormValues);
-  //   };
+    let removeFormFields = (i) => {
+      let newFormValues = [...formValues];
+      newFormValues.splice(i, 1);
+      setFormValues(newFormValues);
+    };
 
   const dispatch = useDispatch();
   const createnft__popup = useSelector((state) => state.createnft__popup); //Defined in reducer function
@@ -106,17 +106,28 @@ const CreateNft = () => {
   };
   const handleNftPreview = () => {
       if(details.title && details.description && details.category ){
-        for(let i=0;i<formValues.length;i++){
-          let extension = `extension_${formValues[i].id}`;
-          let size = `size_${formValues[i].id}`
-          if(formValues[i][extension] && formValues[i][size]){
+        if(formValues.length <= 5){
+          for(let i=0;i<formValues.length;i++){
+            let extension = `extension_${formValues[i].id}`;
+            let size = `size_${formValues[i].id}`
+            var count=0;
+            if(!formValues[i][extension] && !formValues[i][size]){
+              count+=1;
+            }
+          }
+          if(count===0){
             dispatch({ type: "createnft__close" });
             setNftForm(false);
             setNftPreview(true);
             setNftMint(false);
           }
+          else{
+            toast.error("All fields are required")
+          }
         }
-        
+        else{
+          toast.error("Too Many Property Fields")
+        }
       }
       else{
           toast.error("All fields are required")
@@ -276,11 +287,7 @@ const CreateNft = () => {
                       onChange={handleChange(val.id, "extension")}
                     />
 
-                    {/* {
-                                    index ? 
-                                    <button type="button" className={`button remove`} onClick={() => removeFormFields(index)}>Remove</button> 
-                                    :null
-                                } */}
+                    {index ? <button type="button" className={styles.remove__btn} onClick={() => removeFormFields(index)}>X</button> :null}
                   </div>
                 ))}
                 <button
