@@ -17,4 +17,24 @@
   top: 5%;
   left: 2%;
 }
+
+@media screen and (max-width: 800px) {
+  .vector {
+    height: 50vh;
+    z-index: 4;
+  }
+  .logo {
+    z-index: 4;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .vector {
+    height: 35vh;
+    z-index: 4;
+  }
+  .logo {
+    z-index: 4;
+  }
+}
 /*# sourceMappingURL=PublicRoute.module.css.map */
