@@ -36,8 +36,7 @@ const CreateNft = () => {
 
   let handleChange = (id, clikedInput) => (e) => {
     // console.log(id, clikedInput);
-    const get_index = formValues.findIndex((value) => value.id == id);
-    console.log("cliked item", get_index);
+    const get_index = formValues.findIndex((value) => value.id === id);
     formValues[get_index] = {
       ...formValues[get_index],
       [`${clikedInput}_${id}`]: e.target.value,
@@ -107,10 +106,17 @@ const CreateNft = () => {
   };
   const handleNftPreview = () => {
       if(details.title && details.description && details.category ){
-        dispatch({ type: "createnft__close" });
-        setNftForm(false);
-        setNftPreview(true);
-        setNftMint(false);
+        for(let i=0;i<formValues.length;i++){
+          let extension = `extension_${formValues[i].id}`;
+          let size = `size_${formValues[i].id}`
+          if(formValues[i][extension] && formValues[i][size]){
+            dispatch({ type: "createnft__close" });
+            setNftForm(false);
+            setNftPreview(true);
+            setNftMint(false);
+          }
+        }
+        
       }
       else{
           toast.error("All fields are required")
