@@ -14,6 +14,10 @@ const SignUpWith = () => {
     const handleClick = (e) => {
         dispatch({ type: e.target.value, payload: e.target.value })
     }
+    // HandleLogin
+    const HandleLogin = () => {
+        navigate('/signin')
+    }
     return (
         <div className={styles.half_container}>
             {/* EMAIL AND PHONE SIGNUP CONATINER */}
@@ -58,7 +62,7 @@ const SignUpWith = () => {
 
                 <h6 className={styles.link}>Already have Near Account?</h6>
 
-                <button className={styles.button}>
+                <button className={styles.button} onClick={HandleLogin}>
                     Login With NEAR
                     {<span><IoIosArrowForward /></span>}
                 </button>

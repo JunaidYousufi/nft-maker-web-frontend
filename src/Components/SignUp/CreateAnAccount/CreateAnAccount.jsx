@@ -21,6 +21,10 @@ const CreateAnAccount = () => {
 
     }
 
+    // HandleLogin
+    const HandleLogin = () => {
+        navigate('/signin')
+    }
     return (
         <div className={styles.half_container}>
             <AiFillCloseCircle className={styles.cross} onClick={HandleClick} />
@@ -66,7 +70,7 @@ const CreateAnAccount = () => {
 
                 <h6 className={styles.link}>Already have Near Account?</h6>
 
-                <button className={styles.primary_button}>
+                <button className={styles.primary_button} onClick={HandleLogin}>
                     Login With NEAR
                     {<span><IoIosArrowForward /></span>}
                 </button>

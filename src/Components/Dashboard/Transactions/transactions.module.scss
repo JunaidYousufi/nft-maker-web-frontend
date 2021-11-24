@@ -87,6 +87,9 @@
                     span{
                         color: $primary__color;
                     }
+                    .transaction__name{
+                        font-weight: normal;
+                    }
                 }
             }
             .transaction__time{
