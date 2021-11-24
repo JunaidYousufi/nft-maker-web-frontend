@@ -45,21 +45,22 @@ const CreateNft = () => {
     ...formValues,
   };
 
-  let handleChange = (e, id) => {
-    console.log(id, e.target.name, e.target.value);
+  let handleChange = (id, clikedInput) => (e) => {
+    // console.log(id, clikedInput);
     const get_index = formValues.findIndex((value) => value.id == id);
+    console.log("cliked item", get_index);
     formValues[get_index] = {
       ...formValues[get_index],
-      [e.target.name]: e.target.value,
+      [`${clikedInput}_${id}`]: e.target.value,
     };
-    console.log(formValues);
-    // console.log("after change", formValues);
+    setFormValues([...formValues]);
   };
 
   let addFormFields = () => {
     const id = nanoid();
     setFormValues([
       ...formValues,
+      // generating unique keys for each object
       {
         [`size_${id}`]: "",
         [`extension_${id}`]: "",
@@ -266,31 +267,27 @@ const CreateNft = () => {
               </div>
               <div className={styles.form__group}>
                 <label>PROPERTIES</label>
-                {formValues.map((element, index) => (
-                  <div className={styles.form__group__inner} key={nanoid()}>
+                {formValues.map((val, index) => (
+                  <div className={styles.form__group__inner} key={index}>
                     <input
                       type="text"
-                      value={element[`size_${element.id}`]}
-                      name={`size_${element.id}`}
+                      value={val[`size_${val.id}`]}
                       placeholder="Ex. Size"
-                      onChange={(e) => handleChange(e, element.id)}
+                      onChange={handleChange(val.id, "size")}
                     />
 
-                    <div>
-                      <input
-                        type="text"
-                        value={element[`extension_${element.id}`]}
-                        name={`extension_${element.id}`}
-                        placeholder="Ex. 40"
-                        onChange={(e) => handleChange(e, element.id)}
-                      />
+                    <input
+                      type="text"
+                      value={val[`extension_${val.id}`]}
+                      placeholder="Ex. 40"
+                      onChange={handleChange(val.id, "extension")}
+                    />
 
-                      {/* {
+                    {/* {
                                     index ? 
                                     <button type="button" className={`button remove`} onClick={() => removeFormFields(index)}>Remove</button> 
                                     :null
                                 } */}
-                    </div>
                   </div>
                 ))}
                 <button
