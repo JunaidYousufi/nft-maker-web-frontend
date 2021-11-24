@@ -124,6 +124,10 @@
   color: #2f80ed;
 }
 
+.transaction__wrapper .transaction__list__wrapper .transaction__list .transaction__action h6 .transaction__name {
+  font-weight: normal;
+}
+
 .transaction__wrapper .transaction__list__wrapper .transaction__list .transaction__time p {
   font-weight: normal;
   font-size: 15.6px;

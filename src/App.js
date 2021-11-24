@@ -2,9 +2,9 @@ import React from "react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
-import "filepond/dist/filepond.min.css";
-import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 import 'react-multi-carousel/lib/styles.css';
+import "./Assets/Styles/modal.css";
+import "./Assets/Styles/filepond.css";
 
 import { Routes, Route,Navigate,useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";

@@ -214,6 +214,8 @@
 .home__header .user__icon h6 {
   margin-bottom: 0px;
   padding-left: 13px;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .transaction__wrapper {
@@ -299,6 +301,10 @@
 
 .transaction__wrapper .transaction__list__wrapper .transaction__list .transaction__action h6 span {
   color: #2f80ed;
+}
+
+.transaction__wrapper .transaction__list__wrapper .transaction__list .transaction__action h6 .transaction__name {
+  font-weight: normal;
 }
 
 .transaction__wrapper .transaction__list__wrapper .transaction__list .transaction__time p {

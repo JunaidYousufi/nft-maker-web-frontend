@@ -59,6 +59,13 @@
             }
         }
     }
+    .last__modal__btn{
+        display:flex;
+        .next__btn{
+            width: 100%;
+            justify-content:center !important;
+        }
+    }
 }
 
 .nft__form__modal{
@@ -93,6 +100,12 @@
                         outline: none;
                         border: 2.4px solid $primary__color;
                     }
+                }
+                select{
+                    width:250px;
+                    font-weight: 600;
+                    font-size: 16.8px;
+                    border: none !important;
                 }
                 .form__group__inner{
                     margin-bottom: 10px;
@@ -137,6 +150,7 @@
                         font-weight: 600;
                         padding: 6px 10px;
                         margin-bottom: 0px;
+                        color: black !important;
                     }
                 }
             }
@@ -150,7 +164,40 @@
                 p{
                     font-size: 16.8px;
                     color: #808080;
+                    font-weight: normal;
                     margin-bottom: 0px;
+                }
+                .mynft__box__profile__info{
+                    margin-top: 15px;
+                    display:flex;
+                    align-items: center;
+                    .details__profile__picture{
+                        background-image: url("../../../Assets/Images/placeholder.png");
+                        background-repeat: no-repeat;
+                        background-size: 100% auto;
+                        background-position: center top;
+                        background-color: white;
+                        border-radius: 50%;
+                        height: 48px;
+                        width: 48px;
+                        margin-right: 10px;
+                    }
+                    .details__user__info{
+                        p{
+                            margin-bottom: 0px;
+                            font-weight: normal;
+                            font-size: 14.4px;
+                            color: #808080;
+                            padding-bottom: 2px;
+                        }
+                        h6{
+                            margin-bottom: 0px;
+                            font-weight: 600;
+                            font-size: 16.8px;
+                            color: black;
+                            padding-bottom: 0px;
+                        }
+                    }
                 }
             }
         }

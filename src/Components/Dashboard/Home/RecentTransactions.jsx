@@ -27,7 +27,7 @@ const Transactions = () => {
                             <div className={styles.transaction__list}>
                                 <div className={styles.transaction__action}>
                                     <div>{data.transaction === "sent" ? <BsArrowUpRight/> : <BsArrowDownLeft/>}</div>
-                                    <h6><span>{data.id}</span> {data.transaction === "sent" ? "Sent to" : "Received from"} <span>{data.name}</span></h6>
+                                    <h6><span>{data.id}</span> {data.transaction === "sent" ? "Sent to" : "Received from"} <span className={styles.transaction__name}>{data.name}</span></h6>
                                 </div>
                                 <div className={styles.transaction__time}>
                                     <p>{data.time}</p>

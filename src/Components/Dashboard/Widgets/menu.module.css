@@ -14,24 +14,27 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 50%;
-  margin: auto;
 }
 
 .menu__wrapper .menu__button a, .menu__wrapper .menu__button button {
   border: none;
   background-color: transparent;
+  margin: 0px 50px;
 }
 
 .menu__wrapper .menu__button a svg, .menu__wrapper .menu__button button svg {
   color: black;
   font-size: 24px;
+}
+
+.menu__wrapper .menu__button a img, .menu__wrapper .menu__button button img {
+  width: 24px;
 }
 
 .menu__wrapper .menu__button a:focus, .menu__wrapper .menu__button button:focus {
@@ -42,8 +45,13 @@
   color: #2f80ed !important;
 }
 
+.menu__wrapper .menu__button .active img {
+  -webkit-filter: invert(52%) sepia(36%) saturate(6733%) hue-rotate(198deg) brightness(94%) contrast(97%);
+          filter: invert(52%) sepia(36%) saturate(6733%) hue-rotate(198deg) brightness(94%) contrast(97%);
+}
+
 .menu__nft__overlay button {
-  padding: 10px 10px;
+  padding: 10px 40px;
   background-color: transparent;
   border: none;
   color: white;
@@ -54,9 +62,8 @@
       -ms-flex-align: center;
           align-items: center;
   font-size: 16px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  font-weight: 600;
+  width: 100%;
 }
 
 .menu__nft__overlay button span {
@@ -64,8 +71,8 @@
   padding-right: 50px;
 }
 
-.menu__nft__overlay button span svg {
-  font-size: 17px;
+.menu__nft__overlay button span img {
+  width: 20px;
 }
 
 .menu__nft__overlay button:focus {

@@ -23,9 +23,7 @@ const Details = () => {
             </div>
             <div className={styles.details__info}>
                 <div className={styles.details__profile}>
-                    <div className={styles.details__profile__picture}>
-
-                    </div>
+                    <div className={styles.details__profile__picture}></div>
                     <div className={styles.details__user__info}>
                         <p>Creater</p>
                         <h6>john_doe</h6>

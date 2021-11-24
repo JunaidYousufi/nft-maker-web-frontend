@@ -196,6 +196,19 @@
   padding-left: 0px !important;
 }
 
+.initial__nft__modal .last__modal__btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.initial__nft__modal .last__modal__btn .next__btn {
+  width: 100%;
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+}
+
 .nft__form__modal .modal__body__wrapper {
   margin: 25px 0px !important;
 }
@@ -239,6 +252,13 @@
 .nft__form__modal .modal__body__wrapper form .form__group input:focus, .nft__form__modal .modal__body__wrapper form .form__group textarea:focus, .nft__form__modal .modal__body__wrapper form .form__group select:focus {
   outline: none;
   border: 2.4px solid #2f80ed;
+}
+
+.nft__form__modal .modal__body__wrapper form .form__group select {
+  width: 250px;
+  font-weight: 600;
+  font-size: 16.8px;
+  border: none !important;
 }
 
 .nft__form__modal .modal__body__wrapper form .form__group .form__group__inner {
@@ -301,6 +321,7 @@
   font-weight: 600;
   padding: 6px 10px;
   margin-bottom: 0px;
+  color: black !important;
 }
 
 .nft__form__modal .modal__body__wrapper .mynft__box .mynft__box__description__wrapper {
@@ -316,7 +337,46 @@
 .nft__form__modal .modal__body__wrapper .mynft__box .mynft__box__description__wrapper p {
   font-size: 16.8px;
   color: #808080;
+  font-weight: normal;
   margin-bottom: 0px;
+}
+
+.nft__form__modal .modal__body__wrapper .mynft__box .mynft__box__description__wrapper .mynft__box__profile__info {
+  margin-top: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nft__form__modal .modal__body__wrapper .mynft__box .mynft__box__description__wrapper .mynft__box__profile__info .details__profile__picture {
+  background-image: url("../../../Assets/Images/placeholder.png");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center top;
+  background-color: white;
+  border-radius: 50%;
+  height: 48px;
+  width: 48px;
+  margin-right: 10px;
+}
+
+.nft__form__modal .modal__body__wrapper .mynft__box .mynft__box__description__wrapper .mynft__box__profile__info .details__user__info p {
+  margin-bottom: 0px;
+  font-weight: normal;
+  font-size: 14.4px;
+  color: #808080;
+  padding-bottom: 2px;
+}
+
+.nft__form__modal .modal__body__wrapper .mynft__box .mynft__box__description__wrapper .mynft__box__profile__info .details__user__info h6 {
+  margin-bottom: 0px;
+  font-weight: 600;
+  font-size: 16.8px;
+  color: black;
+  padding-bottom: 0px;
 }
 
 .nft__form__modal .modal__body__wrapper .mint__info__wrapper .mint__image {
