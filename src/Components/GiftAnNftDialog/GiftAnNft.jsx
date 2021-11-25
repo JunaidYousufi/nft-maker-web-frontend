@@ -15,11 +15,31 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types"
+
+
 const useStyles = makeStyles((theme) => ({
     mainContainer: {
-        margin: '20px 30px',
-        height: '95vh !important',
+        margin: '30px auto',
+        padding: '25px 30px',
+        height: '92vh',
+        maxWidth: '600px',
         position: 'relative',
+        background: '#FFFFFF',
+        borderRadius: '20px',
+        [theme.breakpoints.down('md')]: {
+            position: 'absolute',
+            top: '5vh',
+            maxWidth: '100%',
+            minHeight: '95vh',
+            marginLeft: '0',
+            right: '0',
+            left: '0',
+            bottom: '0',
+            borderRadius: '0px',
+            borderTopRightRadius: '30px',
+            borderTopLeftRadius: '30px',
+        },
+
         // overflow:'hidden',
         "& h4": {
             fontStyle: 'normal',
@@ -48,11 +68,10 @@ const useStyles = makeStyles((theme) => ({
         position: 'absolute',
         pointerEvents: 'none',
         display: 'flex',
-        top: '60px',
+        top: '85px',
         justifyContent: 'center',
         color: '#818C99',
         zIndex: 20,
-
     },
     inputInput: {
         padding: '15px',
@@ -106,76 +125,65 @@ export default function GiftAnNft({ closebutton, sendGiftButton }) {
     }, [])
 
     return (
-        <div>
-            <Dialog
-                open={dialogStatus}
-                TransitionComponent={Transition}
-                keepMounted
-                fullWidth={true}
-                maxWidth={'sm'}
-                PaperProps={{
-                    style: { borderRadius: 20 },
-                }}
-            >
-                <div className={classes.mainContainer}>
-                    {closebutton ?
-                        <AiFillCloseCircle className={styles.cross} onClick={handleClose} />
-                        : null
-                    }
-                    <h4>Gift an NFT</h4>
-                    {/* SEARCH BAR */}
-                    <div className={classes.childContainer} >
-                        <div className={classes.searchIcon}>
-                            <SearchIcon />
-                        </div>
-                        <InputBase
-                            placeholder="Search People"
-                            fullWidth
-                            classes={{
-                                root: classes.inputRoot,
-                                input: classes.inputInput,
-                            }}
-                            inputProps={{ 'aria-label': 'search' }}
-                        />
-                        <p onClick={HandleDialogOpen}>Import</p>
+        <>
+            <div className={classes.mainContainer}>
+                {closebutton ?
+                    <AiFillCloseCircle className={styles.cross} onClick={handleClose} />
+                    : null
+                }
+                <h4>Gift an NFT</h4>
+                {/* SEARCH BAR */}
+                <div className={classes.childContainer} >
+                    <div className={classes.searchIcon}>
+                        <SearchIcon />
                     </div>
-
-                    {/* DATA */}
-                    <div className={styles.dataContainer}>
-                        {
-                            data.map((value) => (
-                                <div className={styles.data_row_container} key={value.id}>
-
-                                    {/* AVATAR */}
-                                    <div className={styles.avatar}>
-                                        {value.avatar}
-                                    </div>
-                                    {/* TEXT */}
-                                    <div className={styles.textContainer}>
-                                        <h6>{value.name}</h6>
-                                        <p>{value.username}</p>
-                                    </div>
-                                    {/* ICONS */}
-                                    <div className={styles.icon} onClick={() => HandleClick(value.id)}>
-                                        {value.checked ? <BsCheckCircleFill className={styles.checked} /> : <GoPrimitiveDot className={styles.unchecked} />}
-                                    </div>
-                                </div>
-                            ))
-                        }
-                    </div>
-                    <div className={styles.footer}>
-                        <button className={styles.primary_button} onClick={sendGiftButton}>
-                            Send Gift
-                            {<span><IoIosArrowForward /></span>}
-                        </button>
-                        <p>Share App <span><FaRegShareSquare /></span></p>
-                    </div>
+                    <InputBase
+                        placeholder="Search People"
+                        fullWidth
+                        classes={{
+                            root: classes.inputRoot,
+                            input: classes.inputInput,
+                        }}
+                        inputProps={{ 'aria-label': 'search' }}
+                    />
+                    <p onClick={HandleDialogOpen}>Import</p>
                 </div>
 
-            </Dialog>
+                {/* DATA */}
+                <div className={styles.dataContainer}>
+                    {
+                        data.map((value) => (
+                            <div className={styles.data_row_container} key={value.id}>
+
+                                {/* AVATAR */}
+                                <div className={styles.avatar}>
+                                    {value.avatar}
+                                </div>
+                                {/* TEXT */}
+                                <div className={styles.textContainer}>
+                                    <h6>{value.name}</h6>
+                                    <p>{value.username}</p>
+                                </div>
+                                {/* ICONS */}
+                                <div className={styles.icon} onClick={() => HandleClick(value.id)}>
+                                    {value.checked ? <BsCheckCircleFill className={styles.checked} /> : <GoPrimitiveDot className={styles.unchecked} />}
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+                <div className={styles.footer}>
+                    <button className={styles.primary_button} onClick={sendGiftButton}>
+                        Send Gift
+                        {<span><IoIosArrowForward /></span>}
+                    </button>
+                    <p>Share App <span><FaRegShareSquare /></span></p>
+                </div>
+            </div>
+
             {/* this dialog will open when import button is clicked */}
             <ImportGoogleContactsDialog status={importContactDialog} callback={HandleDialogClose} />
-        </div>
+        </>
     );
 }
 

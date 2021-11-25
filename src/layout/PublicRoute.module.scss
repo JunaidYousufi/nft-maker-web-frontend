@@ -22,9 +22,11 @@
     top: -120px;
     left: -25px !important;
     transform: rotate(60deg);
+    max-height: 60vh !important;
+    
   }
   .logo {
-    top: 88% !important;
+    top: 40% !important;
     left: 30% !important;
   }
 }

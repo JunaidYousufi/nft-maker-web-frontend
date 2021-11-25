@@ -2,14 +2,15 @@
 @import "../../Assets/Styles/_partials.scss";
 .cross {
   position: absolute;
-  right: 0;
-  top: 0px;
+  right: 10px;
+  top: 25px;
   font-size: 25px;
   color: #c2c4c6;
   cursor: pointer;
 }
 .dataContainer {
   height: 450px;
+  margin: 15px auto;
   overflow: scroll;
   overflow-x: hidden;
 }

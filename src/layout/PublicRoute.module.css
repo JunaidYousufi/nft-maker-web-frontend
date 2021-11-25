@@ -25,9 +25,10 @@
     left: -25px !important;
     -webkit-transform: rotate(60deg);
             transform: rotate(60deg);
+    max-height: 60vh !important;
   }
   .logo {
-    top: 88% !important;
+    top: 40% !important;
     left: 30% !important;
   }
 }

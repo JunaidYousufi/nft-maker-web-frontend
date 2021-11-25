@@ -42,8 +42,8 @@
     }
   }
   hr {
-    background-color: #e3e3e3;
     width: 90%;
+    border: 1px solid #e3e3e3;
   }
   .link {
     text-decoration: none;
@@ -66,19 +66,32 @@
   background-color: $secondary__color;
 }
 
+.primaryColor {
+  background-color: $primary__color;
+}
+
 .active {
   color: #4f4f4f !important;
   background-color: #f2f2f2 !important;
 }
 
 @media screen and (max-width: 800px) {
+  .mainContainer {
+    padding: 0px;
+  }
   .half_container {
     position: absolute;
-    top: 100vh;
+    top: 47vh;
     max-width: 100%;
-    min-height: 100vh;
+    min-height: 56vh;
     margin-left: 0;
     right: 0;
     left: 0;
+  }
+  .mainContainer {
+    .link {
+      margin-top: 9px;
+      margin-bottom: 2px;
+    }
   }
 }

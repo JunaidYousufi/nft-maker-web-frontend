@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './CreateAnAccount.module.css'
 import { IoIosArrowForward } from "react-icons/io"
 import TextFieldComponent from '../../../Assets/FrequentlUsedComponents/TextFieldComponent';
 import { useNavigate } from "react-router-dom"
 import { AiFillCloseCircle } from "react-icons/ai";
 import { useDispatch } from 'react-redux';
+import { BsInfoCircleFill } from "react-icons/bs";
 
 
 
 const CreateAnAccount = () => {
     let navigate = useNavigate()
     const dispatch = useDispatch()
+    const [info, setinfo] = useState('')
     const createAccount = () => {
         navigate("/signup/gift-nft")
         dispatch({ type: 'open_dialog_gift_nft' })
@@ -25,6 +27,13 @@ const CreateAnAccount = () => {
     const HandleLogin = () => {
         navigate('/signin')
     }
+
+    // HandleFocus for input 
+    const HandleFocus = (ClickedInput) => {
+        console.log('i m focused', ClickedInput)
+        setinfo(ClickedInput)
+    }
+
     return (
         <div className={styles.half_container}>
             <AiFillCloseCircle className={styles.cross} onClick={HandleClick} />
@@ -39,21 +48,26 @@ const CreateAnAccount = () => {
 
                 {/* input field for full name */}
                 <div className={styles.textField}>
-                    <h6>FULL NAME</h6>
+                    {info === 'name' ? <BsInfoCircleFill className={styles.infoIcon} /> : null}
                     <TextFieldComponent
+                        label="FULL NAME"
                         variant='outlined'
                         placeholder='Ex John Doe'
                         type='text'
+                        HandleFocus={() => HandleFocus('name')}
                     />
                 </div>
 
                 {/* input field for account id */}
                 <div className={styles.textField}>
-                    <h6>ACCOUNT ID</h6>
+                    {info === 'id' ? <BsInfoCircleFill className={styles.infoIcon} /> : null}
                     <TextFieldComponent
+                        label='ACCOUNT ID'
                         variant='outlined'
                         placeholder='yourname.near'
                         type='text'
+                        HandleFocus={() => HandleFocus('id')}
+
                     />
                 </div>
 

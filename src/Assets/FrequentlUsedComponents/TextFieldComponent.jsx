@@ -8,9 +8,13 @@ const CssTextField = withStyles({
         '& .MuiOutlinedInput-root': {
             '&.Mui-focused fieldset': {
                 borderColor: '#2F80ED',
+                marginTop: '3px'
+
             },
             '& fieldset': {
                 borderColor: '#BDBDBD',
+                marginTop: '3px'
+
             },
             '&:hover fieldset': {
                 borderColor: '#2F80ED',
@@ -20,13 +24,28 @@ const CssTextField = withStyles({
 })(TextField);
 
 const useStyles = makeStyles((theme) => ({
+    input: {
+        background: 'rgba(0, 0, 0, 0.03)'
+    },
     inputfield: {
         width: '100%',
-        background: '#F9F9F9',
+        margin: '10px 0px',
     },
+    formLabel: {
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: '18.4px',
+        color: '#808080',
+        top: '-22px',
+        left: '-13px',
+        '&.Mui-focused': {
+            color: '#2F80ED'
+        }
+    },
+
 }));
 
-const TextFieldComponent = ({ variant, label, placeholder, type }) => {
+const TextFieldComponent = ({ variant, label, placeholder, type, HandleFocus, InputValue, HandleInputChange }) => {
     const classes = useStyles();
     return (
         <>
@@ -35,10 +54,15 @@ const TextFieldComponent = ({ variant, label, placeholder, type }) => {
                 label={label}
                 placeholder={placeholder}
                 type={type}
-                className={classes.inputfield}
-            // InputProps={{
-            //     classes: { input: classes.input }
-            // }}
+                value={InputValue}
+                onChange={HandleInputChange}
+                className={`${classes.inputfield} ${classes.root}`}
+                InputLabelProps={{
+                    shrink: true,
+                    className: classes.formLabel
+                }}
+                onFocus={HandleFocus}
+                InputProps={{ className: classes.input }}
             />
         </>
     );

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './index.module.css'
 import TextFieldComponent from '../../../Assets/FrequentlUsedComponents/TextFieldComponent';
 import { IoIosArrowForward } from "react-icons/io"
@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 const SignUpWith = () => {
     const dispatch = useDispatch()
     const loginForm = useSelector(state => state.LoginFormMethod)
+    const [inputFields, setinputFields] = useState({ email: '', phone: '' })
     let navigate = useNavigate()
     // HANDLE CHANGE
     const handleClick = (e) => {
@@ -17,6 +18,10 @@ const SignUpWith = () => {
     // HandleLogin
     const HandleLogin = () => {
         navigate('/signin')
+    }
+    // HandleInputChange for text field component
+    const HandleInputChange = (field) => (e) => {
+        setinputFields({ ...inputFields, [field]: e.target.value })
     }
     return (
         <div className={styles.half_container}>
@@ -37,17 +42,17 @@ const SignUpWith = () => {
             <div className={styles.mainContainer}>
                 {/* LOGIN WITH PHONE */}
                 {
-                    loginForm === 'phone' && <TextFieldComponent variant='outlined' placeholder='Ex. (373) 378 8383' type={'tel'} />
+                    loginForm === 'phone' && <TextFieldComponent variant='outlined' placeholder='Ex. (373) 378 8383' type={'tel'} InputValue={inputFields.phone} HandleInputChange={HandleInputChange('phone')} />
                 }
 
                 {/* LOGIN WITH EMAIL */}
                 {
-                    loginForm === 'email' && <TextFieldComponent variant='outlined' placeholder='Ex. johdoe@gmail.com' type={'email'} />
+                    loginForm === 'email' && <TextFieldComponent variant='outlined' placeholder='Ex. johdoe@gmail.com' type={'email'} InputValue={inputFields.email} HandleInputChange={HandleInputChange('email')} />
 
 
 
                 }
-                <button onClick={() => navigate("verification")} className={`${styles.button} ${styles.secondaryColor}`}>
+                <button onClick={() => navigate("verification")} className={`${styles.button} ${inputFields.email ? styles.primaryColor : styles.secondaryColor}`}>
                     Continue
                     {<span><IoIosArrowForward /></span>}
                 </button>
