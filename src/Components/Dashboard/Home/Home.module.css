@@ -1,17 +1,29 @@
 @media only screen and (max-width: 767px) {
-  .create__nft__content h1 {
+  .create__nft__container {
+    overflow: hidden;
+  }
+  .create__nft__container .create__nft__content h1 {
     text-align: left !important;
   }
-  .create__nft__content .btn__wrapper {
+  .create__nft__container .create__nft__content .btn__wrapper {
     -webkit-box-pack: start !important;
         -ms-flex-pack: start !important;
             justify-content: flex-start !important;
   }
-  .create_nft_left {
+  .create__nft__container .create_nft_left {
+    right: -50px;
+    top: 15px;
+    left: auto !important;
+  }
+  .create__nft__container .create_nft_right {
     display: none;
   }
-  .create_nft_right {
-    top: 0 !important;
+}
+
+@media only screen and (max-width: 400px) {
+  .transaction__list__wrapper .transaction__list .transaction__action div {
+    width: 40px !important;
+    height: 40px !important;
   }
 }
 
@@ -107,6 +119,10 @@
   z-index: 1;
   bottom: 0;
   right: 0;
+}
+
+.mynft__page__wrapper {
+  margin-bottom: 100px !important;
 }
 
 .mynft__wrapper {

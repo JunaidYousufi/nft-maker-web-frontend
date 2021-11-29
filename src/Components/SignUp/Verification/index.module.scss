@@ -1,5 +1,10 @@
 @import "../../../Assets/Styles/_mixins.scss";
 @import "../../../Assets/Styles/_partials.scss";
+.progress{
+  div{
+      height: 0.2rem;
+  }
+}
 .cross {
   position: absolute;
   right: 15px;
@@ -69,7 +74,9 @@
   color: white;
   margin: 0px 5px;
 }
-
+.container__header{
+  margin-bottom: 15px;
+}
 .verification {
   font-size: 21px;
   display: inline-block;

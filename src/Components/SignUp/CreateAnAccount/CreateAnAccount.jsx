@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect} from 'react'
 import styles from './CreateAnAccount.module.css'
 import { IoIosArrowForward } from "react-icons/io"
 import TextFieldComponent from '../../../Assets/FrequentlUsedComponents/TextFieldComponent';
@@ -6,11 +6,18 @@ import { useNavigate } from "react-router-dom"
 import { AiFillCloseCircle } from "react-icons/ai";
 import { useDispatch } from 'react-redux';
 import { BsInfoCircleFill } from "react-icons/bs";
-
+import {ProgressBar} from "react-bootstrap"
 
 
 const CreateAnAccount = () => {
     let navigate = useNavigate()
+    const [windowstate,setWindow] = useState(window.innerWidth < 767);
+    useEffect(()=>{
+        window.addEventListener('resize', () => {
+            const ismobile = window.innerWidth < 767;
+            if (ismobile !== windowstate) setWindow(ismobile)
+        }, false);
+    }, [windowstate])
     const dispatch = useDispatch()
     const [info, setinfo] = useState('')
     const createAccount = () => {
@@ -37,8 +44,13 @@ const CreateAnAccount = () => {
     return (
         <div className={styles.half_container}>
             <AiFillCloseCircle className={styles.cross} onClick={HandleClick} />
-            <span className={styles.createAnAccount}>Create an NFT account</span>
-
+            <div className={styles.account__wrapper}>
+                <span className={styles.createAnAccount}>Create an NFT account</span>
+                {windowstate && <div className={styles.progress}>
+                        <ProgressBar now={(2 / 3) * 100} />
+                </div>}
+            </div>
+            
             <div className={styles.childContainer}>
                 <p className={styles.left}>Enter an Account ID to use with your NEAR <br />
                     account. Your Account ID will be used for all NEAR <br />

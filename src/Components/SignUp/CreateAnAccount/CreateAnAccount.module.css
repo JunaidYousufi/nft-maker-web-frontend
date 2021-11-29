@@ -1,3 +1,11 @@
+.progress div {
+  height: 0.2rem;
+}
+
+.account__wrapper {
+  margin-bottom: 15px;
+}
+
 .cross {
   position: absolute;
   right: 15px;
@@ -146,6 +154,8 @@
   border: none;
   color: white;
   margin: 0px 5px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .primary_button:focus {
@@ -162,6 +172,10 @@
 
 .primary_button span svg {
   height: 100%;
+}
+
+.primary_button:hover {
+  background-color: #000000;
 }
 
 .left {

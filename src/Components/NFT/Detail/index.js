@@ -1,11 +1,11 @@
 import React from "react"
 import styles from "./details.module.css"
-import {BiArrowBack} from "react-icons/bi"
+// import {BiArrowBack} from "react-icons/bi"
 import {BsArrowUpRight} from "react-icons/bs"
 import {Accordion} from "react-bootstrap"
 import {useSelector} from "react-redux"
 import {useNavigate} from "react-router-dom"
-import {MdCancel} from "react-icons/md"
+// import {MdCancel} from "react-icons/md"
 const Details = () => {
     let navigate = useNavigate()
     const nft__detail = useSelector((state) => state.nft__detail)

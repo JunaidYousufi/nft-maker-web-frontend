@@ -9,6 +9,9 @@
     position: relative !important;
     width: 100% !important;
   }
+  .background .nft__image__outer__wrapper .nft__image__wrapper img {
+    border-radius: 0px !important;
+  }
 }
 
 .background {

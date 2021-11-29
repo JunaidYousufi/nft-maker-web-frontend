@@ -1,3 +1,7 @@
+.progress div {
+  height: 0.2rem;
+}
+
 .cross {
   position: absolute;
   right: 15px;
@@ -116,6 +120,10 @@
 
 .button span svg {
   height: 100%;
+}
+
+.container__header {
+  margin-bottom: 15px;
 }
 
 .verification {

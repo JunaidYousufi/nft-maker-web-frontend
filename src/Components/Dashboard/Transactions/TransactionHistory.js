@@ -66,7 +66,7 @@ const TransactionHistory = () => {
                 <button onClick={SendNft}><span><BsArrowUpRight/></span>Send NFT</button>
             </div>
             {windowstate && <div className={styles.small__screen__transaction__wrapper}>
-                <div className={styles.small__screen__transaction}>
+                <div className={styles.small__screen__transaction} onClick={handleTabClick}>
                     <button className={tabs === "all" ? styles.active : ""} value="all">All</button>
                     <button className={tabs === "sent" ? styles.active : ""} value="sent">Sent</button>
                     <button className={tabs === "received" ? styles.active : ""} value="received">Received</button>
@@ -80,7 +80,7 @@ const TransactionHistory = () => {
                         <Fragment key={nanoid()}>
                             <div className={styles.transaction__list}>
                                 <div className={styles.transaction__action}>
-                                    <div>{data.transaction === "sent" ? <BsArrowUpRight/> : <BsArrowDownLeft/>}</div>
+                                    <div className={styles.icon__wrapper}>{data.transaction === "sent" ? <BsArrowUpRight/> : <BsArrowDownLeft/>}</div>
                                     <h6><span>{data.id}</span> {data.transaction === "sent" ? "Sent to" : "Received from"} <span className={styles.transaction__name}>{data.name}</span></h6>
                                 </div>
                                 <div className={styles.transaction__time}>

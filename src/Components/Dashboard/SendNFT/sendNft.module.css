@@ -1,3 +1,11 @@
+@media only screen and (max-width: 767px) {
+  .mynft__box__wrapper .selected__mynft__box__description__wrapper .checked {
+    width: 15px !important;
+    height: 15px !important;
+    padding: 3px;
+  }
+}
+
 .initial__nft__modal button:focus {
   outline: none;
 }

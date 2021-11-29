@@ -175,7 +175,7 @@ const CreateNft = () => {
     <>
       {/* Initial Modal  */}
       <Modal
-        className={`${styles.initial__nft__modal} initial__modal`}
+        className={`${styles.initial__nft__modal} nft__mobile__modal initial__modal`}
         show={createnft__popup}
         onHide={() => dispatch({ type: "createnft__close" })}
         backdrop="static"
@@ -219,7 +219,7 @@ const CreateNft = () => {
 
       {/* NFT Form Modal */}
       <Modal
-        className={`${styles.initial__nft__modal} ${styles.nft__form__modal} initial__modal`}
+        className={`${styles.initial__nft__modal} nft__mobile__modal ${styles.nft__form__modal} initial__modal`}
         show={nftForm}
         onHide={() => setNftForm(false)}
         backdrop="static"
@@ -327,7 +327,7 @@ const CreateNft = () => {
 
       {/* NFT Preview Modal */}
       <Modal
-        className={`${styles.initial__nft__modal} ${styles.nft__form__modal} initial__modal`}
+        className={`${styles.initial__nft__modal} ${styles.nft__form__modal} initial__modal nft__mobile__modal`}
         show={nftPreview}
         onHide={() => setNftPreview(false)}
         backdrop="static"
@@ -390,17 +390,18 @@ const CreateNft = () => {
 
       {/* NFT Mint Modal */}
       <Modal
-        className={`${styles.initial__nft__modal} ${styles.nft__form__modal} initial__modal`}
+        className={`${styles.initial__nft__modal} ${styles.nft__form__modal} nft__final__mobile__modal initial__modal`}
         show={nftMint}
         onHide={() => setNftMint(false)}
         backdrop="static"
         keyboard={false}
+        bottom
       >
         <Modal.Header
-          className={`${styles.modal__header__wrapper} last__modal__header`}
+          className={`${styles.modal__header__wrapper}  ${styles.modal__header__bottom} last__modal__header`}
         ><button onClick={allNft} className="btnclose">X</button></Modal.Header>
-        <Modal.Body>
-          <div className={styles.modal__body__wrapper}>
+        <Modal.Body className={styles.modal__body__top}>
+          <div className={`${styles.modal__body__wrapper}`}>
             <div className={styles.mint__info__wrapper}>
               <div className={styles.mint__image}>
                 <img src={formInfo.selectedFile} alt={formInfo.title} />

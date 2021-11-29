@@ -1,3 +1,36 @@
+@media only screen and (max-width: 767px) {
+  .nft__mobile__modal {
+    padding: 0px !important;
+  }
+  .nft__mobile__modal .modal-dialog {
+    margin: 0px !important;
+  }
+  .nft__mobile__modal .modal-dialog .modal-content {
+    border-radius: 0px !important;
+  }
+  .send__nft__mobile__modal {
+    padding: 0px !important;
+  }
+  .send__nft__mobile__modal .modal-dialog {
+    margin: 0px !important;
+    max-width: 100%;
+  }
+  .send__nft__mobile__modal .modal-dialog .modal-content {
+    border-radius: 0px !important;
+    min-height: 100vh !important;
+  }
+  .nft__final__mobile__modal .modal-dialog {
+    position: fixed;
+    bottom: 0;
+    left: 48%;
+    -webkit-transform: translate(-50%) !important;
+            transform: translate(-50%) !important;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+
 .initial__modal .modal-content {
   border-radius: 20px;
   border: none !important;

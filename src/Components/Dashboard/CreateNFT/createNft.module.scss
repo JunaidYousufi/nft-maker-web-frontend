@@ -1,13 +1,19 @@
 @import "../../../Assets/Styles/partials";
 @import "../../../Assets/Styles/mixins";
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 500px) {
     .modal__body__wrapper{
         .form__group{
             .form__group__inner{
-                display:block !important;
                 input{
+                    width: 100%;
                     margin-bottom: 5px;
+                }
+                input:nth-child(odd){
+                    margin-right: 5px;
+                }
+                input:nth-child(even){
+                    margin-left: 5px;
                 }
                 .remove__btn{
                     right: 55px !important;
@@ -15,7 +21,7 @@
             }
         }
     }
-  }
+}
 
 
 .initial__nft__modal {
@@ -38,6 +44,15 @@
     .progress{
         div{
             height: 0.2rem;
+        }
+    }
+    .modal__header__bottom{
+        padding-bottom: 0px !important;
+    }
+    .modal__body__top{
+        padding-top: 0px !important;
+        .modal__body__wrapper{
+            margin-top: 0px !important;
         }
     }
     .modal__body__wrapper{

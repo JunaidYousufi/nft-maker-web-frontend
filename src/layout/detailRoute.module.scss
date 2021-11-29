@@ -13,6 +13,11 @@
     .nft__image__outer__wrapper{
       position: relative !important;
       width: 100% !important;
+      .nft__image__wrapper{
+        img{
+          border-radius: 0px !important;
+        }
+      }
     }
   }
 }

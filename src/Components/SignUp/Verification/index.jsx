@@ -1,8 +1,9 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import styles from './index.module.css'
 import { IoIosArrowForward } from "react-icons/io"
 import VerificationInput from "react-verification-input";
 import { useSelector } from 'react-redux';
+import {ProgressBar} from "react-bootstrap"
 import { cookieAuth } from '../../../Utils/config';
 import Cookies from 'js-cookie'
 import { useNavigate, Link } from 'react-router-dom';
@@ -12,7 +13,15 @@ import { AiFillCloseCircle } from "react-icons/ai";
 // import { toast } from 'react-toastify';
 const Verification = () => {
     const loginMethodUsedByUser = useSelector(state => state.LoginFormMethod)
+    const [windowstate,setWindow] = useState(window.innerWidth < 767);
+    
     let navigate = useNavigate()
+    useEffect(()=>{
+        window.addEventListener('resize', () => {
+            const ismobile = window.innerWidth < 767;
+            if (ismobile !== windowstate) setWindow(ismobile)
+        }, false);
+    }, [windowstate])
     const tempLogIn = () => {
         Cookies.set(cookieAuth, 'cookie')
         navigate("/signup/create-account")
@@ -25,7 +34,14 @@ const Verification = () => {
     return (
         <div className={styles.half_container}>
             <AiFillCloseCircle className={styles.cross} onClick={HandleClick} />
-            <span className={styles.verification}>Verification</span>
+            <div className={styles.container__header}>
+                <span className={styles.verification}>Verification</span>
+                {windowstate && <div className={styles.progress}>
+                    <ProgressBar now={(1 / 3) * 100} />
+                </div>}
+            </div>
+            
+            
             <div className={styles.childContainer}>
                 <p>We've sent a 6-digit verification code to<br />
                     your email address

@@ -1,5 +1,13 @@
 @import "../../../Assets/Styles/_mixins.scss";
 @import "../../../Assets/Styles/_partials.scss";
+.progress{
+  div{
+    height: 0.2rem;
+  }
+}
+.account__wrapper{
+  margin-bottom: 15px;
+}
 .cross {
   position: absolute;
   right: 15px;
@@ -83,6 +91,10 @@
   @include defaultButton($primary__color);
   color: white;
   margin: 0px 5px;
+  transition:0.4s;
+  &:hover{
+    background-color:#000000;
+  }
 }
 
 .left {

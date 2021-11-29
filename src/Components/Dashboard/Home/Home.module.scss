@@ -2,19 +2,37 @@
 @import "../../../Assets/Styles/partials";
 
 @media only screen and (max-width: 767px) {
-    .create__nft__content{
-        h1{
-            text-align: left !important;
+    .create__nft__container{
+        overflow:hidden;
+        .create__nft__content{
+            h1{
+                text-align: left !important;
+            }
+            .btn__wrapper{
+                justify-content:flex-start !important; 
+            }
         }
-        .btn__wrapper{
-            justify-content:flex-start !important; 
+        .create_nft_left{
+            right: -50px;
+            top: 15px;
+            left: auto !important;
+        }
+        .create_nft_right{
+            display:none;
         }
     }
-    .create_nft_left{
-        display:none;
-    }
-    .create_nft_right{
-        top: 0 !important;
+    
+  }
+  @media only screen and (max-width:"400px"){
+    .transaction__list__wrapper{
+        .transaction__list{
+            .transaction__action{
+                div{
+                    width: 40px !important;
+                    height:40px !important;
+                }
+            }
+        }
     }
   }
 
@@ -65,6 +83,9 @@
 
 }
 
+.mynft__page__wrapper{
+    margin-bottom: 100px !important;
+}
 .mynft__wrapper{
     margin-bottom: 25px;
     .mynft__header{

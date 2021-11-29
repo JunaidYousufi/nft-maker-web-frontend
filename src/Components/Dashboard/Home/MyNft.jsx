@@ -24,12 +24,12 @@ const responsive = {
       items: 1.5
     },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
+      breakpoint: { max: 1024, min: 400 },
       items: 1.5
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1.5
+      breakpoint: { max: 400, min: 0 },
+      items: 1
     }
   };
 const MyNft = ({isLink}) => {
@@ -78,17 +78,17 @@ const MyNft = ({isLink}) => {
 
     return(
         <>
-        <div className={styles.mynft__wrapper}>
+        <div className={`${styles.mynft__wrapper} ${!isLink ? styles.mynft__page__wrapper : ""}`}>
             <div className={styles.mynft__header}>
                 <h5>My NFTs</h5>
                 {isLink ? <Link to="all-nft">See All</Link> : <button onClick={handleChange}><span><AiOutlinePlus/></span>Create More</button>}
             </div>
             <div className={styles.mynft__box__wrapper}>
-                {windowstate ? (
+                {windowstate && isLink ? (
                     <>
                      <Carousel removeArrowOnDeviceType={[
                         "tablet",
-                        "mobile",
+                        // "mobile",
                         "desktop",
                         "superLargeDesktop",
                         ]}
@@ -126,7 +126,7 @@ const MyNft = ({isLink}) => {
                         {mynft.map((data,i)=>{
                             return(
                                 <Fragment key={nanoid()}>
-                                    <Col md={3}>
+                                    <Col lg={3} md={4} sm={6} xs={12} style={{marginBottom:"15px"}}>
                                         <div className={styles.mynft__box} onClick={() => detailPage(data.nftid,i)}>
                                             <div className={styles.mynft__box__image__wrapper}>
                                                 <div className={styles.mynft__box__image}>

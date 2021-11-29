@@ -21,11 +21,11 @@ const responsive = {
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 1
+      items: 1.5
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 1
+      items: 1.5
     }
   };
 const SendNft = () => {
@@ -77,7 +77,7 @@ const SendNft = () => {
         
         {/* NFT Selection Modal */}
         <Modal
-            className={`${styles.initial__nft__modal} initial__modal`}
+            className={`${styles.initial__nft__modal} send__nft__mobile__modal initial__modal`}
             show={sendnft__popup}
             onHide={closeSendNft}
             backdrop="static"
@@ -151,7 +151,7 @@ const SendNft = () => {
                 </div>
             </div>
             <div className={styles.multiple__btn__wrapper}>
-                <button onClick={handleNftGift} className={styles.next__btn}>
+                <button onClick={handleNftPreview} className={styles.next__btn}>  {/*handleNftGift*/}
                 Next
                 <span>
                     <IoIosArrowForward />
@@ -166,7 +166,7 @@ const SendNft = () => {
 
         {/* NFT Preview Modal */}
         <Modal
-            className={`${styles.initial__nft__modal} initial__modal`}
+            className={`${styles.initial__nft__modal} nft__final__mobile__modal initial__modal`}
             show={openPreview}
             onHide={closeSendNft}
             backdrop="static"
