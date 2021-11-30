@@ -6,6 +6,7 @@ import detail__2 from "../Assets/Images/nft__detail__2.png"
 import styles from "./detailRoute.module.css"
 const Layout = ({ children }) => {
     const nft__detail = useSelector((state) => state.nft__detail)
+    const [claim,setClaim] = useState(false)
     const [windowstate,setWindow] = useState(window.innerWidth < 767);
     useEffect(()=>{
         window.addEventListener('resize', () => {
@@ -13,9 +14,14 @@ const Layout = ({ children }) => {
             if (ismobile !== windowstate) setWindow(ismobile)
         }, false);
     }, [windowstate])
+    useEffect(()=>{
+      if(window.location.pathname === "/nft/claim"){
+        setClaim(true)
+      }
+    },[])
   return (
     <>
-    <div className={styles.background}>
+    <div className={`${styles.background} ${claim ? styles.lightbg : ""}`}>
       {!windowstate && 
         <>
         <img src={detail__1} alt="Detail 1" className={styles.detail__1} />

@@ -26,6 +26,7 @@ import AllNft from "./Pages/AllNft";
 import CreateAnAccount from "./Components/SignUp/CreateAnAccount/CreateAnAccount";
 // import GiftAnNft from "./Components/GiftAnNft/GiftAnNft";
 import NFTDetail from "./Pages/NftDetail";
+import NFTClaim from "./Pages/NftClaim"
 import GiftAnNftDialog from "./Components/GiftAnNftDialog/GiftAnNft";
 import SignIn from "./Components/SignIn/SignIn";
 import Settings from "./Components/Dashboard/Settings";
@@ -67,6 +68,7 @@ function App() {
           <Route index element={<SignUp />} />
           <Route path="verification" element={<Verification />} />
           <Route path="create-account" element={<CreateAnAccount />} />
+          <Route path="create-account/:accId" element={<CreateAnAccount />} />
           <Route path="gift-nft" element={<GiftAnNftDialog closebutton={true} sendGiftButton={giftSent} />}/>
         </Route>
 
@@ -80,7 +82,14 @@ function App() {
             element={
               nft__detail.image ? <NFTDetail /> : <Navigate replace to="/" />
             }
-          />{" "}
+          />
+          <Route
+            path="claim"
+            element={
+              nft__detail.image ? <NFTClaim /> : <Navigate replace to="/" />
+            }
+          />
+          {" "}
           {/* Checking if nft detail image exists if not the detail page will redirect */}
         </Route>
         <Route path="*" element={<Notfound />} />

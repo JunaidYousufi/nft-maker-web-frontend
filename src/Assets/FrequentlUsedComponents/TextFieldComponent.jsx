@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-const TextFieldComponent = ({ variant, label, placeholder, type, HandleFocus, InputValue, HandleInputChange }) => {
+const TextFieldComponent = ({ variant, label, placeholder, type, HandleFocus, InputValue, HandleInputChange,name }) => {
     const classes = useStyles();
     return (
         <>
@@ -61,6 +61,7 @@ const TextFieldComponent = ({ variant, label, placeholder, type, HandleFocus, In
                     shrink: true,
                     className: classes.formLabel
                 }}
+                name={name}
                 onFocus={HandleFocus}
                 InputProps={{ className: classes.input }}
             />

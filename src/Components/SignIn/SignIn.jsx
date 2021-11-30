@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './SignIn.module.css'
+import {useNavigate,Link} from "react-router-dom"
 import { BsArrowLeftRight } from "react-icons/bs";
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -21,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 const SignIn = () => {
+    let navigate = useNavigate()
     const classes = useStyles();
 
     return (
@@ -71,13 +73,13 @@ const SignIn = () => {
 
                     {/* BUTTON CONTAINER */}
                     <div className={styles.buttonContainer}>
-                        <button className={styles.secondary_button}>
+                        <button onClick={() => navigate("/signup")} className={styles.secondary_button}>
                             Deny
                         </button>
 
-                        <button className={styles.primary_button}>
+                        <Link to={`/signup/create-account/${'Johndoe.near'}`} className={styles.primary_button}>
                             Allow
-                        </button>
+                        </Link>
                     </div>
 
                 </div>

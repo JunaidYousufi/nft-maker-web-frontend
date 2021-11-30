@@ -2,7 +2,7 @@ import React, { useState, useEffect} from 'react'
 import styles from './CreateAnAccount.module.css'
 import { IoIosArrowForward } from "react-icons/io"
 import TextFieldComponent from '../../../Assets/FrequentlUsedComponents/TextFieldComponent';
-import { useNavigate } from "react-router-dom"
+import { useNavigate,useParams } from "react-router-dom"
 import { AiFillCloseCircle } from "react-icons/ai";
 import { useDispatch } from 'react-redux';
 import { BsInfoCircleFill } from "react-icons/bs";
@@ -10,7 +10,11 @@ import {ProgressBar} from "react-bootstrap"
 
 
 const CreateAnAccount = () => {
+    const {accId} = useParams()
     let navigate = useNavigate()
+    const [details,setDetails] = useState({
+        id:`${accId ? accId : ""}`
+    })
     const [windowstate,setWindow] = useState(window.innerWidth < 767);
     useEffect(()=>{
         window.addEventListener('resize', () => {
@@ -37,10 +41,19 @@ const CreateAnAccount = () => {
 
     // HandleFocus for input 
     const HandleFocus = (ClickedInput) => {
-        console.log('i m focused', ClickedInput)
+        // console.log('i m focused', ClickedInput)
         setinfo(ClickedInput)
     }
-
+    const inputEvent = (e) => {
+        const { name, value } = e.target;
+    
+        setDetails((preValue) => {
+          return {
+            ...preValue,
+            [name]: value,
+          };
+        });
+      };
     return (
         <div className={styles.half_container}>
             <AiFillCloseCircle className={styles.cross} onClick={HandleClick} />
@@ -76,6 +89,9 @@ const CreateAnAccount = () => {
                     <TextFieldComponent
                         label='ACCOUNT ID'
                         variant='outlined'
+                        InputValue={details.id}
+                        name="id"
+                        HandleInputChange={inputEvent}
                         placeholder='yourname.near'
                         type='text'
                         HandleFocus={() => HandleFocus('id')}
@@ -94,12 +110,12 @@ const CreateAnAccount = () => {
                     NEAR Wallet <span>Terms of Service</span> and <span>Privacy Policy</span>.
                 </p>
 
-                <h6 className={styles.link}>Already have Near Account?</h6>
+                {!accId && <><h6 className={styles.link}>Already have Near Account?</h6>
 
                 <button className={styles.primary_button} onClick={HandleLogin}>
                     Login With NEAR
                     {<span><IoIosArrowForward /></span>}
-                </button>
+                </button></>}
             </div>
         </div>
     );

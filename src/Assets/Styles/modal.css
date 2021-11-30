@@ -31,6 +31,15 @@
   }
 }
 
+.claim__modal .modal-dialog {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%) !important;
+          transform: translate(-50%) !important;
+  width: 100%;
+}
+
 .initial__modal .modal-content {
   border-radius: 20px;
   border: none !important;

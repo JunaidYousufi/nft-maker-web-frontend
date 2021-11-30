@@ -6,12 +6,39 @@ import {AiOutlineCheck} from "react-icons/ai"
 import user_icon from "../../../Assets/Images/user-icon.png"
 import {Container,Row,Col,Modal} from "react-bootstrap"
 import {useNavigate} from "react-router-dom"
+import TextFieldComponent from '../../../Assets/FrequentlUsedComponents/TextFieldComponent';
+import { toast } from "react-toastify"
+
 const Settings = () => {
     const navigate = useNavigate()
     const [connectedModal,setConnectedModal] = useState(false)
+    const [changeInfo,setChangeInfo] = useState(false)
+    const [details,setDetails] = useState("")
     const [checked,setChecked] = useState(0)
+    const [enable2fa,setEnable2fa] = useState(false)
+    const [info, setinfo] = useState('')
+
+    const closeChangeInfo = () => {
+        setChangeInfo(false)
+    }
+    const openChangeInfo = (infovalue) => {
+        setChangeInfo(true)
+        setDetails(infovalue)
+    }
+    const savePersonalInfo = () => {
+        setChangeInfo(false)
+        toast.success("Settings Saved")
+    }
     const closeConnectedModal = () => {
         setConnectedModal(false)
+    }
+    const Authentication = (isEnable) => {
+        if(isEnable){
+            toast.success("2FA Enabled")
+        }
+        else{
+            toast.success("2FA Disabled")
+        }
     }
     const openConnectedModal = () => {
         setConnectedModal(true)
@@ -24,7 +51,10 @@ const Settings = () => {
             setChecked(i)
             setConnectedModal(false)
         }
-        
+    }
+    // HandleFocus for input 
+    const HandleFocus = (ClickedInput) => {
+        setinfo(ClickedInput)
     }
     return(
         <>
@@ -59,21 +89,21 @@ const Settings = () => {
                                                 <p>Name</p>
                                                 <h6>John Doe</h6>
                                             </div>
-                                            <button><IoIosArrowForward/></button>
+                                            <button onClick={() => openChangeInfo("Name")}><IoIosArrowForward/></button>
                                         </div>
                                         <div className={styles.settings__acc__content}>
                                             <div className={styles.personal__settings}>
                                                 <p>Email Address</p>
                                                 <h6>johndoe@gmail.com</h6>
                                             </div>
-                                            <button><IoIosArrowForward/></button>
+                                            <button onClick={() => openChangeInfo("Email")}><IoIosArrowForward/></button>
                                         </div>
                                         <div className={styles.settings__acc__content}>
                                             <div className={styles.personal__settings}>
                                                 <p>Phone number</p>
                                                 <h6>+1 748 485 9495</h6>
                                             </div>
-                                            <button><IoIosArrowForward/></button>
+                                            <button onClick={() => openChangeInfo("Number")}><IoIosArrowForward/></button>
                                         </div>
                                     </div>                
                                 </div>
@@ -87,7 +117,7 @@ const Settings = () => {
                                     <div className={styles.settings__name__info}>
                                         <h6>Add 2FA authentication</h6>
                                     </div>
-                                    <button><IoIosArrowForward/></button>
+                                    <button onClick={() => Authentication(true)}><IoIosArrowForward/></button>
                                 </div>
                             </div>
                         </Col>
@@ -125,6 +155,40 @@ const Settings = () => {
                 </div>
                 <div className={styles.btn__wrapper}>
                     <button onClick={addNewWallet} className={styles.next__btn}> 
+                        Add New Wallet
+                    </button>
+                </div>
+            </Modal.Body>
+        </Modal>
+
+        <Modal
+            className={`${styles.connection__modal} initial__modal`}
+            show={changeInfo}
+            onHide={closeChangeInfo}
+            backdrop="static"
+            centered
+            keyboard={false}
+        >
+            <Modal.Header className={styles.modal__header__wrapper} closeButton>
+            <div className="modal__title__wrapper">
+                <Modal.Title>
+                    <div className={styles.modal__header}>
+                        <h2>Change {details}</h2>
+                    </div>
+                </Modal.Title>
+            </div>
+            </Modal.Header>
+            <Modal.Body>
+                <div className={styles.input__body__wrapper}>
+                    <TextFieldComponent
+                        variant='outlined'
+                        placeholder={`${details === "Name" ? "Name" : details === "Email" ? "Email" : details === "Number" ? "Phone Number" : ""}`}
+                        type='text'
+                        HandleFocus={() => HandleFocus('name')}
+                    />
+                </div>
+                <div className={styles.btn__wrapper}>
+                    <button onClick={savePersonalInfo} className={styles.next__btn}> 
                         Add New Wallet
                     </button>
                 </div>

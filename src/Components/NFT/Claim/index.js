@@ -1,0 +1,107 @@
+import React,{useState} from "react"
+import styles from "./claim.module.css"
+import {Modal} from "react-bootstrap"
+// import {BiArrowBack} from "react-icons/bi"
+import {BsArrowUpRight} from "react-icons/bs"
+import {Accordion} from "react-bootstrap"
+import {useSelector} from "react-redux"
+import {useNavigate} from "react-router-dom"
+import {IoIosArrowForward} from "react-icons/io"
+// import {MdCancel} from "react-icons/md"
+const Claim = () => {
+    const [claimModal,setClaimModal] = useState(false)
+    let navigate = useNavigate()
+    const nft__detail = useSelector((state) => state.nft__detail)
+    const openClaimModal = () => {
+        setClaimModal(true)
+    }
+    const closeClaimModal = () => {
+        setClaimModal(false)
+    }
+    return(
+        <>
+        <div className={styles.details__wrapper}>
+            <div className={styles.details__back}>
+                <button onClick={() => navigate("/")}><span>X</span></button>
+            </div>
+            <div className={styles.details__head}>
+                <div className={styles.details__cat}>
+                    <h6>{nft__detail.cat}</h6>
+                </div>
+                <h1>{nft__detail.title}</h1>
+                <h6>{nft__detail.nftid}</h6>
+            </div>
+            <div className={styles.details__info}>
+                <div className={styles.details__profile}>
+                    <div className={styles.details__profile__picture}></div>
+                    <div className={styles.details__user__info}>
+                        <p>Creater</p>
+                        <h6>john_doe</h6>
+                    </div>
+                </div>
+                
+            </div>
+            <button className={styles.claim__btn} onClick={openClaimModal}>Claim <span><BsArrowUpRight/></span></button>
+            <div className={styles.details__accords}>
+                <Accordion>
+                    <div className={styles.accord}>
+                        <Accordion.Item eventKey="0">
+                            <Accordion.Header>Descriptions</Accordion.Header>
+                            <Accordion.Body className={styles.accord__body}>
+                                <p>{nft__detail.description}</p>
+                            </Accordion.Body>
+                        </Accordion.Item>
+                    </div>
+                    <div className={styles.accord}>
+                        <Accordion.Item eventKey="1">
+                            <Accordion.Header>NFT Info</Accordion.Header>
+                            <Accordion.Body className={styles.accord__body}>
+                                <div className={styles.nft__info}>
+                                    <p>Token ID</p>
+                                    <a href="https://explorer.near.org/" target="_blank" rel="noreferrer">38493</a>
+                                </div>
+                                <div className={styles.nft__info}>
+                                    <p>Contract Address</p>
+                                    <a href="https://explorer.near.org/" target="_blank" rel="noreferrer">d0xkedek..89reke</a>
+                                </div>
+                            </Accordion.Body>
+                        </Accordion.Item>
+                    </div>
+                    
+                </Accordion>
+            </div>
+
+
+            
+            <Modal
+                className={`${styles.claim__modal} initial__modal claim__modal`}
+                show={claimModal}
+                onHide={closeClaimModal}
+                backdrop="static"
+                keyboard={false}
+            >
+                <Modal.Header className={styles.modal__header__wrapper} closeButton>
+                    <div className="modal__title__wrapper">
+                        <Modal.Title>
+                            <div className={styles.modal__header}>
+                                <h2>Claim NFT</h2>
+                            </div>
+                        </Modal.Title>
+                    </div>
+                </Modal.Header>
+                <Modal.Body>
+                    <div className={styles.btn__wrapper}>
+                        <button onClick={()=>navigate("/signup")} className={styles.secondary__btn}> 
+                            Create New Wallet <span><IoIosArrowForward/></span>
+                        </button>
+                        <button onClick={()=>navigate("/signin")} className={styles.primary__btn}> 
+                            Login with NEAR wallet <span><IoIosArrowForward/></span>
+                        </button>
+                    </div>
+                </Modal.Body>
+            </Modal>
+        </div>
+        </>
+    )
+}
+export default Claim;
