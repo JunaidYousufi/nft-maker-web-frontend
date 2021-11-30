@@ -9,7 +9,13 @@
   cursor: pointer;
 }
 .dataContainer {
-  height: 450px;
+  height: 400px;
+  margin: 15px auto;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+.dashboardContainer{
+  height: 350px ;
   margin: 15px auto;
   overflow: scroll;
   overflow-x: hidden;
@@ -81,6 +87,7 @@
     color: $primary__color;
     padding: 5px 0px;
     cursor: pointer;
+    margin-bottom: 0px;
   }
 }
 

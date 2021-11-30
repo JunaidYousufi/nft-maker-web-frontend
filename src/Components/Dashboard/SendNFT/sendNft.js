@@ -1,4 +1,4 @@
-import React,{Fragment,useState} from "react"
+import React,{Fragment,useEffect,useState} from "react"
 import {nanoid} from "nanoid"
 import styles from "./sendNft.module.css"
 import {useNavigate} from "react-router-dom"
@@ -46,7 +46,7 @@ const SendNft = () => {
         dispatch({ type: "sendnft__close"})
         setOpenPreview(false)
     }
-    
+
     const handleNftGift = () => {
         dispatch({ type: "sendnft__close"})
         setOpenGift(true)
@@ -54,6 +54,7 @@ const SendNft = () => {
     }
     const handleNftPreview = () => {
          dispatch({ type: "sendnft__close"})
+         dispatch({ type: "close_dialog_gift_nft"})
          setOpenGift(false)
         setOpenPreview(true)
     }
@@ -71,7 +72,9 @@ const SendNft = () => {
             setSelected(i)
         }
     }
-
+    useEffect(()=>{
+        dispatch({ type: "close_dialog_gift_nft"})
+    },[])
     return(
         <>
         
@@ -151,7 +154,7 @@ const SendNft = () => {
                 </div>
             </div>
             <div className={styles.multiple__btn__wrapper}>
-                <button onClick={handleNftPreview} className={styles.next__btn}>  {/*handleNftGift*/}
+                <button onClick={handleNftGift} className={styles.next__btn}>  {/*handleNftGift*/}
                 Next
                 <span>
                     <IoIosArrowForward />
@@ -162,7 +165,7 @@ const SendNft = () => {
         </Modal>
 
         {/* NFT Sender Modal */}      
-        {openGift && <GiftAnNft closebutton={true} sendGiftButton={handleNftPreview}/>}
+        {openGift && <GiftAnNft dashboard={true} closebutton={true} sendGiftButton={handleNftPreview}/>}
 
         {/* NFT Preview Modal */}
         <Modal

@@ -233,6 +233,11 @@
   margin-bottom: 22px;
 }
 
+.home__header a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .home__header .user__icon {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -8,7 +8,14 @@
 }
 
 .dataContainer {
-  height: 450px;
+  height: 400px;
+  margin: 15px auto;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.dashboardContainer {
+  height: 350px;
   margin: 15px auto;
   overflow: scroll;
   overflow-x: hidden;
@@ -148,6 +155,7 @@
   color: #2f80ed;
   padding: 5px 0px;
   cursor: pointer;
+  margin-bottom: 0px;
 }
 
 @media screen and (max-width: 800px) {

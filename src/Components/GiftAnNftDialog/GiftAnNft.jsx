@@ -17,79 +17,80 @@ import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types"
 
 
-const useStyles = makeStyles((theme) => ({
-    mainContainer: {
-        margin: '30px auto',
-        padding: '25px 30px',
-        height: '92vh',
-        maxWidth: '600px',
-        position: 'relative',
-        background: '#FFFFFF',
-        borderRadius: '20px',
-        [theme.breakpoints.down('md')]: {
-            position: 'absolute',
-            top: '5vh',
-            maxWidth: '100%',
-            minHeight: '95vh',
-            marginLeft: '0',
-            right: '0',
-            left: '0',
-            bottom: '0',
-            borderRadius: '0px',
-            borderTopRightRadius: '30px',
-            borderTopLeftRadius: '30px',
-        },
 
-        // overflow:'hidden',
-        "& h4": {
-            fontStyle: 'normal',
-            fontWeight: 600,
-            fontSize: '21px',
-            textAlign: 'center',
-            marginBottom: '20px'
-        }
-    },
-    childContainer: {
-        display: 'flex',
-        "& p": {
-            fontStyle: 'normal',
-            fontWeight: 'normal',
-            fontSize: '20.4px',
-            letterSpacing: '-0.4896px',
-            color: '#2F80ED',
-            marginRight: '10px',
-            marginLeft: '20px',
-            marginTop: '5px',
-            cursor: 'pointer'
-        }
-    },
-    searchIcon: {
-        padding: theme.spacing(0, 2),
-        position: 'absolute',
-        pointerEvents: 'none',
-        display: 'flex',
-        top: '85px',
-        justifyContent: 'center',
-        color: '#818C99',
-        zIndex: 20,
-    },
-    inputInput: {
-        padding: '15px',
-        background: '#EBEDF0',
-        borderRadius: '12px',
-        paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-        transition: theme.transitions.create('width'),
-        maxWidth: '400px',
-        zIndex: 1
-
-    },
-}));
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function GiftAnNft({ closebutton, sendGiftButton }) {
+export default function GiftAnNft({ closebutton, sendGiftButton,dashboard }) {
+    const useStyles = makeStyles((theme) => ({
+        mainContainer: {
+            margin: '30px auto',
+            padding: '25px 30px',
+            height: `${dashboard ? '80vh' : '100%'}`,
+            maxWidth: '600px',
+            position: 'relative',
+            background: '#FFFFFF',
+            borderRadius: '20px',
+            [theme.breakpoints.down('md')]: {
+                // position: 'absolute',
+                // top: '5vh',
+                // maxWidth: '100%',
+                // minHeight: '95vh',
+                // marginLeft: '0',
+                // right: '0',
+                // left: '0',
+                // bottom: '0',
+                // borderRadius: '0px',
+                // borderTopRightRadius: '30px',
+                // borderTopLeftRadius: '30px',
+            },
+    
+            // overflow:'hidden',
+            "& h4": {
+                fontStyle: 'normal',
+                fontWeight: 600,
+                fontSize: '21px',
+                textAlign: 'center',
+                marginBottom: '20px'
+            }
+        },
+        childContainer: {
+            display: 'flex',
+            "& p": {
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontSize: '20.4px',
+                letterSpacing: '-0.4896px',
+                color: '#2F80ED',
+                marginRight: '10px',
+                marginLeft: '20px',
+                marginTop: '5px',
+                cursor: 'pointer'
+            }
+        },
+        searchIcon: {
+            padding: theme.spacing(0, 2),
+            position: 'absolute',
+            pointerEvents: 'none',
+            display: 'flex',
+            top: '85px',
+            justifyContent: 'center',
+            color: '#818C99',
+            zIndex: 20,
+        },
+        inputInput: {
+            padding: '15px',
+            background: '#EBEDF0',
+            borderRadius: '12px',
+            paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+            transition: theme.transitions.create('width'),
+            maxWidth: '400px',
+            zIndex: 1
+    
+        },
+    }));
     let navigate = useNavigate();
     const classes = useStyles();
     const [data, setdata] = useState(dummyContacts)
@@ -127,62 +128,68 @@ export default function GiftAnNft({ closebutton, sendGiftButton }) {
     return (
         <>
             <div className={classes.mainContainer}>
-                {closebutton ?
-                    <AiFillCloseCircle className={styles.cross} onClick={handleClose} />
-                    : null
-                }
-                <h4>Gift an NFT</h4>
-                {/* SEARCH BAR */}
-                <div className={classes.childContainer} >
-                    <div className={classes.searchIcon}>
-                        <SearchIcon />
+                <div>
+                    <div>
+                        {closebutton ?
+                            <AiFillCloseCircle className={styles.cross} onClick={handleClose} />
+                            : null
+                        }
+                        <h4>Gift an NFT</h4>
                     </div>
-                    <InputBase
-                        placeholder="Search People"
-                        fullWidth
-                        classes={{
-                            root: classes.inputRoot,
-                            input: classes.inputInput,
-                        }}
-                        inputProps={{ 'aria-label': 'search' }}
-                    />
-                    <p onClick={HandleDialogOpen}>Import</p>
-                </div>
+                    
+                    {/* SEARCH BAR */}
+                    <div className={classes.childContainer} >
+                        <div className={classes.searchIcon}>
+                            <SearchIcon />
+                        </div>
+                        <InputBase
+                            placeholder="Search People"
+                            fullWidth
+                            classes={{
+                                root: classes.inputRoot,
+                                input: classes.inputInput,
+                            }}
+                            inputProps={{ 'aria-label': 'search' }}
+                        />
+                        <p onClick={HandleDialogOpen}>Import</p>
+                    </div>
 
-                {/* DATA */}
-                <div className={styles.dataContainer}>
-                    {
-                        data.map((value) => (
-                            <div className={styles.data_row_container} key={value.id}>
+                    {/* DATA */}
+                    <div className={`${dashboard ? styles.dashboardContainer : styles.dataContainer}`}>
+                        {
+                            data.map((value) => (
+                                <div className={styles.data_row_container} key={value.id}>
 
-                                {/* AVATAR */}
-                                <div className={styles.avatar}>
-                                    {value.avatar}
+                                    {/* AVATAR */}
+                                    <div className={styles.avatar}>
+                                        {value.avatar}
+                                    </div>
+                                    {/* TEXT */}
+                                    <div className={styles.textContainer}>
+                                        <h6>{value.name}</h6>
+                                        <p>{value.username}</p>
+                                    </div>
+                                    {/* ICONS */}
+                                    <div className={styles.icon} onClick={() => HandleClick(value.id)}>
+                                        {value.checked ? <BsCheckCircleFill className={styles.checked} /> : <GoPrimitiveDot className={styles.unchecked} />}
+                                    </div>
                                 </div>
-                                {/* TEXT */}
-                                <div className={styles.textContainer}>
-                                    <h6>{value.name}</h6>
-                                    <p>{value.username}</p>
-                                </div>
-                                {/* ICONS */}
-                                <div className={styles.icon} onClick={() => HandleClick(value.id)}>
-                                    {value.checked ? <BsCheckCircleFill className={styles.checked} /> : <GoPrimitiveDot className={styles.unchecked} />}
-                                </div>
-                            </div>
-                        ))
-                    }
+                            ))
+                        }
+                    </div>
+                    <div className={styles.footer}>
+                        <button className={styles.primary_button} onClick={sendGiftButton}>
+                            Send Gift
+                            {<span><IoIosArrowForward /></span>}
+                        </button>
+                        {!dashboard && <p>Share App <span><FaRegShareSquare /></span></p>}
+                    </div>
                 </div>
-                <div className={styles.footer}>
-                    <button className={styles.primary_button} onClick={sendGiftButton}>
-                        Send Gift
-                        {<span><IoIosArrowForward /></span>}
-                    </button>
-                    <p>Share App <span><FaRegShareSquare /></span></p>
-                </div>
+                
             </div>
 
             {/* this dialog will open when import button is clicked */}
-            <ImportGoogleContactsDialog status={importContactDialog} callback={HandleDialogClose} />
+            {!dashboard && <ImportGoogleContactsDialog status={importContactDialog} callback={HandleDialogClose} />}
         </>
     );
 }

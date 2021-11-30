@@ -36,6 +36,10 @@
   border: none !important;
 }
 
+.initial__modal .modal-content .modal-header {
+  border: none !important;
+}
+
 .initial__modal .modal-content .modal-header .modal__title__wrapper {
   width: 100%;
   text-align: center;

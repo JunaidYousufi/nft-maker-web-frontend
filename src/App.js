@@ -15,7 +15,7 @@ import { useSelector } from "react-redux";
 import DetailRoute from "./layout/DetailRoute";
 import PublicRoute from "./layout/PublicRoute";
 import PrivateRoute from "./layout/PrivateRoute";
-
+import SettingsRoute from "./layout/SettingsRoute"
 //Pages
 import SignUp from "./Pages/SignUp";
 import Verification from "./Components/SignUp/Verification";
@@ -28,6 +28,7 @@ import CreateAnAccount from "./Components/SignUp/CreateAnAccount/CreateAnAccount
 import NFTDetail from "./Pages/NftDetail";
 import GiftAnNftDialog from "./Components/GiftAnNftDialog/GiftAnNft";
 import SignIn from "./Components/SignIn/SignIn";
+import Settings from "./Components/Dashboard/Settings";
 
 function App() {
   let navigate = useNavigate();
@@ -51,23 +52,22 @@ function App() {
 
       <ToastContainer />
       <Routes>
+
         <Route path="/" element={<PrivateRoute />}>
           <Route index element={<Dashboard />} />
           <Route path="transactions" element={<Transactions />} />
           <Route path="all-nft" element={<AllNft />} />
         </Route>
 
+        <Route path="/settings" element={<SettingsRoute />}>
+          <Route index element={<Settings />} />
+        </Route>
+
         <Route path="/signup" element={<PublicRoute />}>
           <Route index element={<SignUp />} />
           <Route path="verification" element={<Verification />} />
           <Route path="create-account" element={<CreateAnAccount />} />
-
-          <Route
-            path="gift-nft"
-            element={
-              <GiftAnNftDialog closebutton={true} sendGiftButton={giftSent} />
-            }
-          />
+          <Route path="gift-nft" element={<GiftAnNftDialog closebutton={true} sendGiftButton={giftSent} />}/>
         </Route>
 
         <Route path="/" element={<PublicRoute />}>

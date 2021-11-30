@@ -12,6 +12,7 @@ const Layout = ({ children }) => {
   const tooltip_show = useSelector((state)=> state.menu__tooltip) //Defined in reducer function
   const createnft__popup = useSelector((state)=> state.createnft__popup) //Defined in reducer function
   const sendnft__popup = useSelector((state)=> state.sendnft__popup) //Defined in reducer function
+  const GiftNFT_Dialog_Box = useSelector((state)=> state.GiftNFT_Dialog_Box) //Defined in reducer function
 
   const closeMenu = () => {
     if(tooltip_show){
@@ -24,7 +25,7 @@ const Layout = ({ children }) => {
     <CreateNftPopup/>
     <SendNft/>
     <div onClick={closeMenu}>
-      <main style={{opacity:`${tooltip_show || createnft__popup || sendnft__popup ? "0.5" : "1"}`,pointerEvents:`${tooltip_show ? "none" : "all"}`}}>{children}</main>
+      <main style={{opacity:`${tooltip_show || createnft__popup || sendnft__popup || GiftNFT_Dialog_Box ? "0.5" : "1"}`,pointerEvents:`${tooltip_show ? "none" : "all"}`}}>{children}</main>
       <Menu/>
     </div>
     
