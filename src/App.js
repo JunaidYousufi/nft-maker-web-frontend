@@ -84,7 +84,7 @@ function App() {
             }
           />
           <Route
-            path="claim"
+            path="detail/claim"
             element={
               nft__detail.image ? <NFTClaim /> : <Navigate replace to="/" />
             }
