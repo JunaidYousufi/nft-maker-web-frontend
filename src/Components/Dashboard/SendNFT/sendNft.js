@@ -9,6 +9,10 @@ import GiftAnNft from "../../GiftAnNftDialog/GiftAnNft";
 import {useSelector,useDispatch} from "react-redux"
 import dummy__img from "../../../Assets/Images/dummy-card1.png"
 import {AiOutlineCheck} from "react-icons/ai"
+import SearchIcon from '@material-ui/icons/Search';
+import { BsCheckCircleFill } from "react-icons/bs";
+import { GoPrimitiveDot } from "react-icons/go";
+
 const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -28,9 +32,60 @@ const responsive = {
       items: 1.5
     }
   };
+  
+const dummyContacts = [
+    {
+        id: 1,
+        avatar: 'DR',
+        name: 'Darlene Robertson',
+        username: '@johndoe',
+        checked: false
+    },
+    {
+        id: 2,
+        avatar: 'JJ',
+        name: 'Jacob Jones',
+        username: '@johndoe',
+        checked: false
+    },
+    {
+        id: 3,
+        avatar: 'JW',
+        name: 'Jenny Wilson',
+        username: '@johndoe',
+        checked: false
+    },
+    {
+        id: 4,
+        avatar: 'RR',
+        name: 'Ronald Richards',
+        username: '@johndoe',
+        checked: false
+    },
+    {
+        id: 5,
+        avatar: 'CW',
+        name: 'Cameron Williamson',
+        username: '@johndoe',
+        checked: false
+    },
+    {
+        id: 6,
+        avatar: 'DS',
+        name: 'Darrell Steward',
+        username: '@johndoe',
+        checked: false
+    },
+
+]
 const SendNft = () => {
     let navigate = useNavigate()
     const dispatch = useDispatch()
+    const [data, setdata] = useState(dummyContacts)
+    const [filteredData,setFilteredData] = useState(dummyContacts)
+    const [details,setDetails] = useState({
+        search:""
+    })
     const [openPreview,setOpenPreview] = useState(false)
     const [openGift,setOpenGift] = useState(false)
     const [selected,setSelected] = useState("")
@@ -47,6 +102,15 @@ const SendNft = () => {
         setOpenPreview(false)
     }
 
+        // for checked and unchecked items
+        const HandleClick = (id) => {
+            const find_index_of_clicked_item = (data.findIndex(value => Number(value.id) === Number(id)))
+            data[find_index_of_clicked_item] = { ...data[find_index_of_clicked_item], checked: !data[find_index_of_clicked_item].checked }
+            setdata([...data])
+        }
+    const closegiftNft = () => {
+        setOpenGift(false)
+    }
     const handleNftGift = () => {
         dispatch({ type: "sendnft__close"})
         setOpenGift(true)
@@ -57,6 +121,11 @@ const SendNft = () => {
          dispatch({ type: "close_dialog_gift_nft"})
          setOpenGift(false)
         setOpenPreview(true)
+    }
+    const openInitialSendNft = () => {
+        dispatch({ type: "sendnft__open"})
+        setOpenGift(false)
+        setOpenPreview(false)
     }
 
     const openHistory = () => {
@@ -75,6 +144,17 @@ const SendNft = () => {
     useEffect(()=>{
         dispatch({ type: "close_dialog_gift_nft"})
     },[])
+
+    const handleSearch = (event) =>{
+        let value = event.target.value.toLowerCase();
+        let result = [];
+        
+        result = data.filter((data) => {
+            return data.name.toLowerCase().search(value) !== -1;
+        });
+        setFilteredData(result);
+    }
+
     return(
         <>
         
@@ -85,6 +165,7 @@ const SendNft = () => {
             onHide={closeSendNft}
             backdrop="static"
             // size="lg"
+            centered
             keyboard={false}
         >
             <Modal.Header className={styles.modal__header__wrapper} closeButton>
@@ -163,9 +244,86 @@ const SendNft = () => {
             </div>
             </Modal.Body>
         </Modal>
+        
 
-        {/* NFT Sender Modal */}      
-        {openGift && <GiftAnNft dashboard={true} closebutton={true} sendGiftButton={handleNftPreview}/>}
+        {/* NFT Sender Modal */}              
+        {/* {openGift && <GiftAnNft dashboard={true} closebutton={true} sendGiftButton={handleNftPreview}/>} */}
+        <Modal
+            className={`${styles.initial__nft__modal} send__nft__mobile__modal initial__modal`}
+            show={openGift}
+            onHide={closegiftNft}
+            backdrop="static"
+            size="lg"
+            centered
+            keyboard={false}
+        >
+            <Modal.Header className={styles.modal__header__wrapper} closeButton>
+                <div className="modal__multiple__wrapper">
+                    <button
+                        onClick={openInitialSendNft}
+                        className="back__btn"
+                    >
+                    Back
+                    </button>
+                    <Modal.Title>
+                    <div className={styles.modal__header}>
+                        <h2>Send Nft</h2>
+                    </div>
+                    </Modal.Title>
+                </div>
+            </Modal.Header>
+            <Modal.Body>
+            <div className={styles.modal__body__wrapper}>
+                <div className={styles.search__wrapper}>
+                    <div className={styles.search__inner__wrapper}>
+
+                        <div className={styles.search__input}>
+                        <div className={styles.searchIcon}>
+                            <SearchIcon />
+                        </div>
+                        <input
+                            type="text"
+                            placeholder="Search People"
+                            onChange={handleSearch}   
+                        />
+                        </div>
+                    </div>
+                    <button>Import</button>
+                </div>
+                <div className={styles.data__wrapper}>
+                        {
+                            filteredData.map((value) => (
+                                <div className={styles.data_row_container} key={value.id}>
+
+                                    {/* AVATAR */}
+                                    <div className={styles.avatar}>
+                                        {value.avatar}
+                                    </div>
+                                    {/* TEXT */}
+                                    <div className={styles.textContainer}>
+                                        <h6>{value.name}</h6>
+                                        <p>{value.username}</p>
+                                    </div>
+                                    {/* ICONS */}
+                                    <div className={styles.icon} onClick={() => HandleClick(value.id)}>
+                                        {value.checked ? <BsCheckCircleFill className={styles.checked} /> : <GoPrimitiveDot className={styles.unchecked} />}
+                                    </div>
+                                </div>
+                            ))
+                        }
+                </div>
+            </div>
+            <div className={styles.multiple__btn__wrapper}>
+                <button onClick={handleNftPreview} className={styles.next__btn}>
+                Send Gift
+                <span>
+                    <IoIosArrowForward />
+                </span>
+                </button>
+            </div>
+            </Modal.Body>
+        </Modal>
+
 
         {/* NFT Preview Modal */}
         <Modal

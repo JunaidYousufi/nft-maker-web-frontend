@@ -94,6 +94,17 @@ export default function GiftAnNft({ closebutton, sendGiftButton,dashboard }) {
     let navigate = useNavigate();
     const classes = useStyles();
     const [data, setdata] = useState(dummyContacts)
+    const [filteredData,setFilteredData] = useState(dummyContacts)
+
+    const handleSearch = (event) =>{
+        let value = event.target.value.toLowerCase();
+        let result = [];
+        
+        result = data.filter((data) => {
+            return data.name.toLowerCase().search(value) !== -1;
+        });
+        setFilteredData(result);
+    }
     const [importContactDialog, setimportContactDialog] = useState(true)
     const dialogStatus = useSelector(state => state.GiftNFT_Dialog_Box)
     const dispatch = useDispatch()
@@ -149,6 +160,7 @@ export default function GiftAnNft({ closebutton, sendGiftButton,dashboard }) {
                                 root: classes.inputRoot,
                                 input: classes.inputInput,
                             }}
+                            onChange={handleSearch}
                             inputProps={{ 'aria-label': 'search' }}
                         />
                         <p onClick={HandleDialogOpen}>Import</p>
@@ -157,7 +169,7 @@ export default function GiftAnNft({ closebutton, sendGiftButton,dashboard }) {
                     {/* DATA */}
                     <div className={`${dashboard ? styles.dashboardContainer : styles.dataContainer}`}>
                         {
-                            data.map((value) => (
+                            filteredData.map((value) => (
                                 <div className={styles.data_row_container} key={value.id}>
 
                                     {/* AVATAR */}
