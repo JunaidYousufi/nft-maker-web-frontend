@@ -13,17 +13,46 @@ import { AiFillCloseCircle } from "react-icons/ai";
 import ImportGoogleContactsDialog from '../ImportGoogleContactsDialog/ImportGoogleContactsDialog';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import PropTypes from "prop-types"
+import axios from "axios"
+import Cookies from 'js-cookie'
+
+import {googleClientId,googleClientSecret,googleRedirectUrl,googleAccess,googleRefresh} from "../../Utils/config"
+import { nanoid } from 'nanoid';
 
 
-
-
-const Transition = React.forwardRef(function Transition(props, ref) {
-    return <Slide direction="up" ref={ref} {...props} />;
-});
+// const Transition = React.forwardRef(function Transition(props, ref) {
+//     return <Slide direction="up" ref={ref} {...props} />;
+// });
 
 export default function GiftAnNft({ closebutton, sendGiftButton,dashboard }) {
+    const search = useLocation().search;
+    const oauth__code = new URLSearchParams(search).get('code');
+    const [token,setToken] = useState({
+        access:"",
+        refresh:""
+    })
+    const [selected,setSelected] = useState()
+    const [contactsData,setContactsData] = useState([])
+    const [filteredContactData,setFilteredContactsData] = useState([])
+    useEffect(()=>{
+        localStorage.setItem("oauth",oauth__code)
+    },[])
+    const getGoogleToken = () => {
+        axios
+        .post(`https://accounts.google.com/o/oauth2/token?grant_type=authorization_code&code=${oauth__code}&client_id=${googleClientId}&client_secret=${googleClientSecret}&redirect_uri=${googleRedirectUrl}`)
+        .then((response)=>{
+            if(response.status===200){
+                Cookies.set(googleAccess, response.data.access_token)
+                Cookies.set(googleRefresh, response.data.refresh_token)
+                setToken({access:response.data.access_token,refresh:response.data.refresh_token})
+            }
+        })
+        .catch(()=>{
+            navigate("/signup")
+        })
+    }
     const useStyles = makeStyles((theme) => ({
         mainContainer: {
             margin: '30px auto',
@@ -93,27 +122,30 @@ export default function GiftAnNft({ closebutton, sendGiftButton,dashboard }) {
     }));
     let navigate = useNavigate();
     const classes = useStyles();
-    const [data, setdata] = useState(dummyContacts)
-    const [filteredData,setFilteredData] = useState(dummyContacts)
+    // const [filteredData,setFilteredData] = useState(dummyContacts)
 
     const handleSearch = (event) =>{
         let value = event.target.value.toLowerCase();
         let result = [];
         
-        result = data.filter((data) => {
-            return data.name.toLowerCase().search(value) !== -1;
+        result = contactsData.filter((data) => {
+            return data.names[0].displayName.toLowerCase().search(value) !== -1;
         });
-        setFilteredData(result);
+        setFilteredContactsData(result);
     }
     const [importContactDialog, setimportContactDialog] = useState(true)
     const dialogStatus = useSelector(state => state.GiftNFT_Dialog_Box)
     const dispatch = useDispatch()
 
     // for checked and unchecked items
-    const HandleClick = (id) => {
-        const find_index_of_clicked_item = (data.findIndex(value => Number(value.id) === Number(id)))
-        data[find_index_of_clicked_item] = { ...data[find_index_of_clicked_item], checked: !data[find_index_of_clicked_item].checked }
-        setdata([...data])
+    const [checkedState, setCheckedState] = useState(
+        new Array(filteredContactData.length).fill(true)
+    );
+    const handleOnChange = (position) => {
+        const updatedCheckedState = checkedState.map((item, index) =>
+          index === position ? !item : item
+        );
+        setCheckedState(updatedCheckedState);
     }
 
     // this is for main dialog box
@@ -126,12 +158,30 @@ export default function GiftAnNft({ closebutton, sendGiftButton,dashboard }) {
     const HandleDialogClose = () => {
         setimportContactDialog(false)
     }
+    const importGoogleContact =  () => {
+        axios
+        .get(`https://content-people.googleapis.com/v1/people/me/connections?personFields=names,photos`, {
+            headers: {
+              Authorization: 'Bearer ' + token.access //the token is a variable which holds the token
+            }
+        })
+        .then((response)=>{
+            if(response.status===200){
+                setContactsData(response.data.connections)
+                setFilteredContactsData(response.data.connections)
+                dispatch({type:"getGoogleContactData",payload:response.data.connections})
+                setCheckedState(new Array(response.data.connections.length).fill(true))
+                setimportContactDialog(false)
+            }
+        })
+    }
     const HandleDialogOpen = () => {
         setimportContactDialog(true)
 
     }
 
     useEffect(() => {
+        getGoogleToken()
         dispatch({ type: 'open_dialog_gift_nft' })
 
     }, [])
@@ -139,6 +189,7 @@ export default function GiftAnNft({ closebutton, sendGiftButton,dashboard }) {
     return (
         <>
             <div className={classes.mainContainer}>
+                
                 <div>
                     <div>
                         {closebutton ?
@@ -169,21 +220,28 @@ export default function GiftAnNft({ closebutton, sendGiftButton,dashboard }) {
                     {/* DATA */}
                     <div className={`${dashboard ? styles.dashboardContainer : styles.dataContainer}`}>
                         {
-                            filteredData.map((value) => (
-                                <div className={styles.data_row_container} key={value.id}>
+                            filteredContactData.map((value,index) => (
+                                <div className={styles.data_row_container} key={nanoid()}>
 
                                     {/* AVATAR */}
                                     <div className={styles.avatar}>
-                                        {value.avatar}
+                                        {/* {value.avatar} */}
+                                        <img src={value.photos[0].url} alt={value.names[0].displayName}/>
                                     </div>
                                     {/* TEXT */}
                                     <div className={styles.textContainer}>
-                                        <h6>{value.name}</h6>
-                                        <p>{value.username}</p>
+                                        <h6>{value.names[0].displayName}</h6>
+                                        <p>@{value.names[0].givenName}</p>
                                     </div>
                                     {/* ICONS */}
-                                    <div className={styles.icon} onClick={() => HandleClick(value.id)}>
-                                        {value.checked ? <BsCheckCircleFill className={styles.checked} /> : <GoPrimitiveDot className={styles.unchecked} />}
+                                    <div className={styles.icon} onClick={()=>handleOnChange(index)}>
+                                        {checkedState[index] ? <BsCheckCircleFill className={styles.checked} /> : <GoPrimitiveDot className={styles.unchecked} />}
+                                        {/* <input
+                                            className={styles.customCheck}
+                                            name="checkbox"
+                                            type="checkbox"
+                                            checked
+                                        /> */}
                                     </div>
                                 </div>
                             ))
@@ -201,7 +259,7 @@ export default function GiftAnNft({ closebutton, sendGiftButton,dashboard }) {
             </div>
 
             {/* this dialog will open when import button is clicked */}
-            {!dashboard && <ImportGoogleContactsDialog status={importContactDialog} callback={HandleDialogClose} />}
+            {!dashboard && <ImportGoogleContactsDialog onImport={importGoogleContact} status={importContactDialog} callback={HandleDialogClose} />}
         </>
     );
 }

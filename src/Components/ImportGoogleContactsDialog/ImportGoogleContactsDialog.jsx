@@ -38,10 +38,10 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-const ImportGoogleContactsDialog = ({ status, callback }) => {
+const ImportGoogleContactsDialog = ({ status, callback,onImport }) => {
     const classes = useStyles();
     return (
-        <div>
+        <div onClick={onImport}>
             <Dialog
                 open={status}
                 TransitionComponent={Transition}
@@ -49,13 +49,13 @@ const ImportGoogleContactsDialog = ({ status, callback }) => {
                 fullWidth={true}
                 maxWidth={'xs'}
                 PaperProps={{
-                    style: { borderRadius: 20 }
+                    style: { borderRadius: 20,cursor:"pointer" }
                 }}
                 onClose={callback}
             >
                 <div className={classes.mainContainer}>
                     <AiFillGoogleCircle className={classes.googleicon} />
-                    <p >  Import Gooogle Contacts</p>
+                    <p>  Import Gooogle Contacts</p>
                     <IoIosArrowForward className={classes.googleicon} />
                 </div>
             </Dialog>

@@ -111,6 +111,7 @@
   color: white;
   margin-top: 10px;
   margin-bottom: 20px;
+  text-decoration: none;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -132,6 +133,7 @@
 }
 
 .secondary_button:hover {
+  color: white;
   background-color: black;
 }
 

@@ -8,9 +8,10 @@ import CreateNft__Popup from "./createnft__popup";
 import SendNft__Popup from "./sendnft__popup"
 import NFT__Detail from "./nft__detail";
 import GiftNFT_Dialog_Box from "./GiftNFT_Dialog_Box";
-
+import giftNFT__contactData from "./giftNFT__contactData"
 // Here all reducers will get combined
 export default combineReducers({
+    giftNFT__contactData : giftNFT__contactData,
     menu__tooltip: Menu__ToolTip,
     home__allnft: Home__AllNft,
     LoginFormMethod: LoginFormMethod,

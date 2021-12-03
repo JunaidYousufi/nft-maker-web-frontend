@@ -7,7 +7,7 @@ import { AiFillCloseCircle } from "react-icons/ai";
 import { useDispatch } from 'react-redux';
 import { BsInfoCircleFill } from "react-icons/bs";
 import {ProgressBar} from "react-bootstrap"
-
+import {googleClientId,googleRedirectUrl} from "../../../Utils/config"
 
 const CreateAnAccount = () => {
     const {accId} = useParams()
@@ -25,8 +25,9 @@ const CreateAnAccount = () => {
     const dispatch = useDispatch()
     const [info, setinfo] = useState('')
     const createAccount = () => {
-        navigate("/signup/gift-nft")
-        dispatch({ type: 'open_dialog_gift_nft' })
+        // navigate("/signup/gift-nft")
+        // dispatch({ type: 'open_dialog_gift_nft' })
+
     }
     // HandleClick for cancel button
     const HandleClick = () => {
@@ -100,11 +101,14 @@ const CreateAnAccount = () => {
                 </div>
 
                 {/* create account button */}
-                <button onClick={createAccount} className={`${styles.secondary_button}`} >
+                {/* <button onClick={createAccount} className={`${styles.secondary_button}`} >
                     Create an account
                     {<span><IoIosArrowForward /></span>}
-                </button>
-
+                </button> */}
+                <a href={`https://accounts.google.com/o/oauth2/auth?response_type=code&redirect_uri=${googleRedirectUrl}&scope=https://www.googleapis.com/auth/contacts&client_id=${googleClientId}&access_type=offline&prompt=consent`} className={`${styles.secondary_button}`} >
+                Create an account
+                {<span><IoIosArrowForward /></span>}
+                </a>
 
                 <p>By creating a NEAR account, you agree to the <br />
                     NEAR Wallet <span>Terms of Service</span> and <span>Privacy Policy</span>.

@@ -37,6 +37,10 @@
     justify-content: center;
     color: rgba(0, 0, 0, 0.55);
     font-size: 16.8px;
+    img{
+      width: 100%;
+      border-radius: 50%;
+    }
   }
   .textContainer {
     display: flex;
