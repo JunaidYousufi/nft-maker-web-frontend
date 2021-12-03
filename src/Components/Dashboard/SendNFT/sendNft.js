@@ -81,8 +81,9 @@ const dummyContacts = [
 const SendNft = () => {
     let navigate = useNavigate()
     const dispatch = useDispatch()
-    const [data, setdata] = useState(dummyContacts)
-    const [filteredData,setFilteredData] = useState(dummyContacts)
+    const giftNFT__contactData = useSelector((state) => state.giftNFT__contactData)
+    // const [data, setdata] = useState(dummyContacts)
+    const [filteredData,setFilteredData] = useState(giftNFT__contactData ? giftNFT__contactData : [])
     const [details,setDetails] = useState({
         search:""
     })
@@ -101,12 +102,18 @@ const SendNft = () => {
         dispatch({ type: "sendnft__close"})
         setOpenPreview(false)
     }
-
+    const [checkedState, setCheckedState] = useState(
+        new Array(giftNFT__contactData.length).fill(true)
+    );
         // for checked and unchecked items
-        const HandleClick = (id) => {
-            const find_index_of_clicked_item = (data.findIndex(value => Number(value.id) === Number(id)))
-            data[find_index_of_clicked_item] = { ...data[find_index_of_clicked_item], checked: !data[find_index_of_clicked_item].checked }
-            setdata([...data])
+        const HandleClick = (position) => {
+            // const find_index_of_clicked_item = (data.findIndex(value => Number(value.id) === Number(id)))
+            // data[find_index_of_clicked_item] = { ...data[find_index_of_clicked_item], checked: !data[find_index_of_clicked_item].checked }
+            // setdata([...data])
+            const updatedCheckedState = checkedState.map((item, index) =>
+            index === position ? !item : item
+          );
+          setCheckedState(updatedCheckedState);
         }
     const closegiftNft = () => {
         setOpenGift(false)
@@ -149,7 +156,7 @@ const SendNft = () => {
         let value = event.target.value.toLowerCase();
         let result = [];
         
-        result = data.filter((data) => {
+        result = filteredData.filter((data) => {
             return data.name.toLowerCase().search(value) !== -1;
         });
         setFilteredData(result);
@@ -292,21 +299,21 @@ const SendNft = () => {
                 </div>
                 <div className={styles.data__wrapper}>
                         {
-                            filteredData.map((value) => (
-                                <div className={styles.data_row_container} key={value.id}>
+                            filteredData.map((value,index) => (
+                                <div className={styles.data_row_container} key={nanoid()}>
 
                                     {/* AVATAR */}
                                     <div className={styles.avatar}>
-                                        {value.avatar}
+                                        <img src={value.photos[0].url} alt={value.names[0].displayName}/>
                                     </div>
                                     {/* TEXT */}
                                     <div className={styles.textContainer}>
-                                        <h6>{value.name}</h6>
-                                        <p>{value.username}</p>
+                                        <h6>{value.names[0].displayName}</h6>
+                                        <p>@{value.names[0].givenName}</p>
                                     </div>
                                     {/* ICONS */}
-                                    <div className={styles.icon} onClick={() => HandleClick(value.id)}>
-                                        {value.checked ? <BsCheckCircleFill className={styles.checked} /> : <GoPrimitiveDot className={styles.unchecked} />}
+                                    <div className={styles.icon} onClick={() => HandleClick(index)}>
+                                        {checkedState[index] ? <BsCheckCircleFill className={styles.checked} /> : <GoPrimitiveDot className={styles.unchecked} />}
                                     </div>
                                 </div>
                             ))

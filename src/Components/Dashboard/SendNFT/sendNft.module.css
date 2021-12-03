@@ -162,6 +162,11 @@
   font-size: 16.8px;
 }
 
+.initial__nft__modal .modal__body__wrapper .data__wrapper .data_row_container .avatar img {
+  width: 100%;
+  border-radius: 50%;
+}
+
 .initial__nft__modal .modal__body__wrapper .data__wrapper .data_row_container .textContainer {
   display: -webkit-box;
   display: -ms-flexbox;
