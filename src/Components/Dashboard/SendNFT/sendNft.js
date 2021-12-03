@@ -157,7 +157,7 @@ const SendNft = () => {
         let result = [];
         
         result = filteredData.filter((data) => {
-            return data.name.toLowerCase().search(value) !== -1;
+            return data.names[0].displayName.toLowerCase().search(value) !== -1;
         });
         setFilteredData(result);
     }
