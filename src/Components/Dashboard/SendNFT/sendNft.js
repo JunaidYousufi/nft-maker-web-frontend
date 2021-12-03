@@ -156,7 +156,7 @@ const SendNft = () => {
         let value = event.target.value.toLowerCase();
         let result = [];
         
-        result = filteredData.filter((data) => {
+        result = giftNFT__contactData.filter((data) => {
             return data.names[0].displayName.toLowerCase().search(value) !== -1;
         });
         setFilteredData(result);
