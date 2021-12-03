@@ -12,7 +12,11 @@ import {AiOutlineCheck} from "react-icons/ai"
 import SearchIcon from '@material-ui/icons/Search';
 import { BsCheckCircleFill } from "react-icons/bs";
 import { GoPrimitiveDot } from "react-icons/go";
-
+import ImportGoogleContactsDialog from "../../ImportGoogleContactsDialog/ImportGoogleContactsDialog"
+import axios from "axios"
+import Cookies from "js-cookie"
+import {googleAccess} from "../../../Utils/config"
+import {toast} from "react-toastify"
 const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -161,7 +165,33 @@ const SendNft = () => {
         });
         setFilteredData(result);
     }
+    const [importContactDialog, setimportContactDialog] = useState(false)
+    const HandleDialogClose = () => {
+        setimportContactDialog(false)
+    }
+    const importGoogleContact =  () => {
+        axios
+        .get(`https://content-people.googleapis.com/v1/people/me/connections?personFields=names,photos`, {
+            headers: {
+              Authorization: 'Bearer ' + Cookies.get(googleAccess) 
+            }
+        })
+        .then((response)=>{
+            if(response.status===200){
+                setFilteredData(response.data.connections)
+                dispatch({type:"getGoogleContactData",payload:response.data.connections})
+                setCheckedState(new Array(response.data.connections.length).fill(true))
+                setimportContactDialog(false)
+            }
+        })
+        .catch(()=>{
+            toast.error("Something Went Wrong Fetching Contacts From Google")
+        })
+    }
+    const HandleDialogOpen = () => {
+        setimportContactDialog(true)
 
+    }
     return(
         <>
         
@@ -252,7 +282,7 @@ const SendNft = () => {
             </Modal.Body>
         </Modal>
         
-
+        <ImportGoogleContactsDialog onImport={importGoogleContact} status={importContactDialog} callback={HandleDialogClose} />
         {/* NFT Sender Modal */}              
         {/* {openGift && <GiftAnNft dashboard={true} closebutton={true} sendGiftButton={handleNftPreview}/>} */}
         <Modal
@@ -295,7 +325,8 @@ const SendNft = () => {
                         />
                         </div>
                     </div>
-                    <button>Import</button>
+                    <button onClick={HandleDialogOpen}>Import</button>
+                    
                 </div>
                 <div className={styles.data__wrapper}>
                         {
