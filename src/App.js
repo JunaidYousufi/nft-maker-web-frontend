@@ -30,9 +30,21 @@ import NFTClaim from "./Pages/NftClaim"
 import GiftAnNftDialog from "./Components/GiftAnNftDialog/GiftAnNft";
 import SignIn from "./Components/SignIn/SignIn";
 import Settings from "./Components/Dashboard/Settings";
+import TagManager from 'react-gtm-module'
+
+const tagManagerArgs = {
+  gtmId: 'GTM-55CK2WW'
+}
+TagManager.initialize(tagManagerArgs)
+
 
 function App() {
   let navigate = useNavigate();
+
+  window.dataLayer.push({
+    event: 'pageview'
+  });
+  
   const giftSent = () => {
     navigate("/");
   };

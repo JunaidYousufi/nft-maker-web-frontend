@@ -7,6 +7,13 @@ import { useDispatch, useSelector } from 'react-redux';
 
 
 const SignUpWith = () => {
+    window.dataLayer.push({
+        event: 'event',
+        eventProps: {
+            category: "Signup",
+            action: "Signed Up with credentials",
+        }
+      });
     const dispatch = useDispatch()
     const loginForm = useSelector(state => state.LoginFormMethod)
     const [inputFields, setinputFields] = useState({ email: '', phone: '' })
