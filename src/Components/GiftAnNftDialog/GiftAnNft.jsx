@@ -177,6 +177,7 @@ export default function GiftAnNft({ closebutton, sendGiftButton,dashboard }) {
                     eventProps: {
                         category: "Google Contacts",
                         action: "Successfully imported google contacts",
+                        value:response.data.connections
                     }
                   });
             }
