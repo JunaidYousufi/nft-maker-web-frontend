@@ -172,6 +172,13 @@ export default function GiftAnNft({ closebutton, sendGiftButton,dashboard }) {
                 dispatch({type:"getGoogleContactData",payload:response.data.connections})
                 setCheckedState(new Array(response.data.connections.length).fill(true))
                 setimportContactDialog(false)
+                window.dataLayer.push({
+                    event: 'event',
+                    eventProps: {
+                        category: "Google Contacts",
+                        action: "Successfully imported google contacts",
+                    }
+                  });
             }
         })
     }

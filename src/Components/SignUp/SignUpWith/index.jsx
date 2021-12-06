@@ -7,13 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 
 const SignUpWith = () => {
-    window.dataLayer.push({
-        event: 'event',
-        eventProps: {
-            category: "Signup",
-            action: "Signed Up with credentials",
-        }
-      });
+    
     const dispatch = useDispatch()
     const loginForm = useSelector(state => state.LoginFormMethod)
     const [inputFields, setinputFields] = useState({ email: '', phone: '' })
@@ -25,6 +19,19 @@ const SignUpWith = () => {
     // HandleLogin
     const HandleLogin = () => {
         navigate('/signin')
+    }
+
+    const handleSignup = () => {
+        window.dataLayer.push({
+            event: 'event',
+            eventProps: {
+                category: "Signup",
+                action: "Signed Up",
+                label:"Signup",
+                value:"Signup"
+            }
+          });
+          navigate("verification")
     }
     // HandleInputChange for text field component
     const HandleInputChange = (field) => (e) => {
@@ -59,7 +66,7 @@ const SignUpWith = () => {
 
 
                 }
-                <button onClick={() => navigate("verification")} className={`${styles.button} ${inputFields.email ? styles.primaryColor : styles.secondaryColor}`}>
+                <button onClick={handleSignup} className={`${styles.button} ${inputFields.email ? styles.primaryColor : styles.secondaryColor}`}>
                     Continue
                     {<span><IoIosArrowForward /></span>}
                 </button>
