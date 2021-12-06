@@ -3,10 +3,15 @@ import styles from "./details.module.css"
 // import {BiArrowBack} from "react-icons/bi"
 import {BsArrowUpRight} from "react-icons/bs"
 import {Accordion} from "react-bootstrap"
-import {useSelector} from "react-redux"
+import {useSelector,useDispatch} from "react-redux"
 import {useNavigate} from "react-router-dom"
 // import {MdCancel} from "react-icons/md"
 const Details = () => {
+    let dispatch = useDispatch()
+    const sendNft = () => {
+        dispatch({type:"sendnft__open"})
+        navigate("/")
+    }
     let navigate = useNavigate()
     const nft__detail = useSelector((state) => state.nft__detail)
     return(
@@ -20,7 +25,7 @@ const Details = () => {
                     <h6>{nft__detail.cat}</h6>
                 </div>
                 <h1>{nft__detail.title}</h1>
-                <h6>{nft__detail.nftid}</h6>
+                <a href="https://explorer.near.org/" target="_blank" rel="noreferrer">{nft__detail.nftid}</a>
             </div>
             <div className={styles.details__info}>
                 <div className={styles.details__profile}>
@@ -30,7 +35,7 @@ const Details = () => {
                         <h6>john_doe</h6>
                     </div>
                 </div>
-                <button>Send <span><BsArrowUpRight/></span></button>
+                <button onClick={() => sendNft()}>Send <span><BsArrowUpRight/></span></button>
             </div>
             <div className={styles.details__accords}>
                 <Accordion>
@@ -42,6 +47,10 @@ const Details = () => {
                             </Accordion.Body>
                         </Accordion.Item>
                     </div>
+                    
+                    
+                </Accordion>
+                <Accordion>
                     <div className={styles.accord}>
                         <Accordion.Item eventKey="1">
                             <Accordion.Header>NFT Info</Accordion.Header>
@@ -57,7 +66,6 @@ const Details = () => {
                             </Accordion.Body>
                         </Accordion.Item>
                     </div>
-                    
                 </Accordion>
             </div>
         </div>

@@ -4,8 +4,25 @@
     padding-top: 10px !important;
     margin-left: 0px !important;
   }
+  .details__wrapper .details__back {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  .details__wrapper .details__back button {
+    color: white !important;
+    background: rgba(255, 255, 255, 0.3) !important;
+  }
   .details__wrapper .details__head {
     margin-top: 20px !important;
+  }
+  .details__wrapper .details__head .details__cat {
+    position: absolute;
+    top: 20%;
+    background: white !important;
+  }
+  .details__wrapper .details__head .details__cat h6 {
+    color: black !important;
   }
   .details__wrapper .details__info {
     -webkit-box-orient: vertical;
@@ -64,11 +81,16 @@
   margin-bottom: 15px;
 }
 
-.details__wrapper .details__head .details__cat h6 {
+.details__wrapper .details__head .details__cat a, .details__wrapper .details__head .details__cat h6 {
   margin-bottom: 0px;
   color: white;
   font-weight: 600;
   font-size: 16.8px;
+  text-decoration: none;
+}
+
+.details__wrapper .details__head .details__cat a:hover, .details__wrapper .details__head .details__cat h6:hover {
+  color: white;
 }
 
 .details__wrapper .details__head h1 {
@@ -79,9 +101,14 @@
   padding-bottom: 6px;
 }
 
-.details__wrapper .details__head h6 {
+.details__wrapper .details__head a, .details__wrapper .details__head h6 {
   font-weight: 500;
   font-size: 17.2px;
+  color: #2F80ED;
+  text-decoration: none;
+}
+
+.details__wrapper .details__head a:hover, .details__wrapper .details__head h6:hover {
   color: #2F80ED;
 }
 

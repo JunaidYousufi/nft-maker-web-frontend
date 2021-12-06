@@ -347,6 +347,8 @@
 
 .transaction__wrapper .transaction__list__wrapper .transaction__list .transaction__action h6 .transaction__name {
   font-weight: normal;
+  color: #2f80ed;
+  text-decoration: none;
 }
 
 .transaction__wrapper .transaction__list__wrapper .transaction__list .transaction__time p {

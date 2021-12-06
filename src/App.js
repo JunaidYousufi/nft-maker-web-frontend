@@ -9,7 +9,7 @@ import "./Components/SignUp/Verification/verificationCode.css"
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import CookieConsent from "react-cookie-consent";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 
 //Routes
 import DetailRoute from "./layout/DetailRoute";
@@ -39,6 +39,7 @@ TagManager.initialize(tagManagerArgs)
 
 
 function App() {
+  let dispatch = useDispatch()
   let navigate = useNavigate();
 
   window.dataLayer.push({
@@ -46,6 +47,7 @@ function App() {
   });
   
   const giftSent = () => {
+    dispatch({ type: "createnft__open" })
     navigate("/");
   };
   const nft__detail = useSelector((state) => state.nft__detail); //Single Nft Data

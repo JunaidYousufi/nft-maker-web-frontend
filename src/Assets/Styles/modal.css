@@ -31,6 +31,14 @@
   }
 }
 
+@media only screen and (max-width: 600px) {
+  .claim__modal .modal-dialog {
+    -webkit-transform: translate(-51%) !important;
+            transform: translate(-51%) !important;
+    width: 80% !important;
+  }
+}
+
 .claim__modal .modal-dialog {
   position: fixed;
   bottom: 0;
@@ -121,5 +129,10 @@
 
 .initial__modal .modal-content .last__modal__header .btnclose:focus {
   outline: none;
+}
+
+.initial__modal .modal-content .modal__settings__wrapper .btn-close {
+  padding: 10px !important;
+  font-size: 12px !important;
 }
 /*# sourceMappingURL=modal.css.map */

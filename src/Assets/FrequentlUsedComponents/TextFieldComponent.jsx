@@ -25,11 +25,14 @@ const CssTextField = withStyles({
 
 const useStyles = makeStyles((theme) => ({
     input: {
-        background: 'rgba(0, 0, 0, 0.03)'
+        background: 'rgba(0, 0, 0, 0.03)',
+        borderRadius: "10px",
     },
+    
     inputfield: {
         width: '100%',
         margin: '10px 0px',
+        
     },
     formLabel: {
         fontStyle: 'normal',

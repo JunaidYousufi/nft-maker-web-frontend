@@ -185,7 +185,7 @@ const CreateNft = () => {
           <div className="modal__title__wrapper">
             <Modal.Title>
               <div className={styles.modal__header}>
-                <h2>Create An Nft</h2>
+                <h2>Create an Nft</h2>
               </div>
             </Modal.Title>
           </div>
@@ -200,10 +200,13 @@ const CreateNft = () => {
                 <div className="file__wrapper">
                   <input type="file" id="files"  name="file" onChange={changeHandler} accept="image/png, image/jpg, image/jpeg" style={{display:"none"}} required/>
                   <div className="file__upload__wrapper">
-                    <label for="files">Choose File</label>
+                    <label for="files">{selectedFile ? "Upload Another File" : "Choose File"}</label>
                   </div>
                   <p>PNG, JPEG, JPG, SVG. Max 50mb.</p>
                 </div>
+                {selectedFile && <div className="uploaded__file">
+                  <img src={selectedFile} alt="Uploaded File"/>
+                </div>}
 
           </div>
           <div className={styles.next__btn__wrapper}>
@@ -235,7 +238,7 @@ const CreateNft = () => {
             </button>
             <Modal.Title>
               <div className={styles.modal__header}>
-                <h2>Create An Nft</h2>
+                <h2>Create an Nft</h2>
               </div>
             </Modal.Title>
           </div>
@@ -343,7 +346,7 @@ const CreateNft = () => {
             </button>
             <Modal.Title>
               <div className={styles.modal__header}>
-                <h2>Create An Nft</h2>
+                <h2>Create an Nft</h2>
               </div>
             </Modal.Title>
             
@@ -395,11 +398,12 @@ const CreateNft = () => {
         onHide={() => setNftMint(false)}
         backdrop="static"
         keyboard={false}
-        bottom
+        centered
       >
         <Modal.Header
-          className={`${styles.modal__header__wrapper}  ${styles.modal__header__bottom} last__modal__header`}
-        ><button onClick={allNft} className="btnclose">X</button></Modal.Header>
+          className={`${styles.modal__header__wrapper}  ${styles.modal__header__bottom} last__modal__header`} closeButton
+        ></Modal.Header>
+        {/* <button onClick={allNft} className="btnclose">X</button> */}
         <Modal.Body className={styles.modal__body__top}>
           <div className={`${styles.modal__body__wrapper}`}>
             <div className={styles.mint__info__wrapper}>

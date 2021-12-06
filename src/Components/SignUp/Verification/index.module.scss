@@ -70,9 +70,13 @@
 }
 
 .button {
-  @include defaultButton($secondary__color);
+  @include defaultButton($primary__color);
   color: white;
   margin: 0px 5px;
+  &:disabled{
+    background-color: $secondary__color !important;
+    cursor:default;
+  }
 }
 .container__header{
   margin-bottom: 15px;

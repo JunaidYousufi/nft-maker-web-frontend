@@ -96,7 +96,7 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   color: white;
-  background-color: #bdbdbd;
+  background-color: #2f80ed;
   padding: 10px 20px;
   border-radius: 10px;
   font-size: 17px;
@@ -120,6 +120,11 @@
 
 .button span svg {
   height: 100%;
+}
+
+.button:disabled {
+  background-color: #bdbdbd !important;
+  cursor: default;
 }
 
 .container__header {

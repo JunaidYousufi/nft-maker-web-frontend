@@ -69,12 +69,12 @@ const Settings = () => {
                         <Col md={{span:8,offset:2}}>
                             <div className={styles.settings__acc__inner}>
                                 <h5>Connected Wallet</h5>
-                                <div className={styles.settings__acc}>
+                                <div className={styles.settings__acc} onClick={openConnectedModal}>
                                     <div className={styles.settings__name__info}>
                                         <img src={user_icon} alt="User Name" />
                                         <h6>john.near</h6>
                                     </div>
-                                    <button onClick={openConnectedModal}><IoIosArrowForward/></button>
+                                    <button><IoIosArrowForward/></button>
                                 </div>
                             </div>
                         </Col>
@@ -84,26 +84,26 @@ const Settings = () => {
                                 <h5>Profile Settings</h5>
                                 <div className={styles.settings__acc}>
                                     <div style={{width:"100%"}}>
-                                        <div className={styles.settings__acc__content}>
+                                        <div className={styles.settings__acc__content} onClick={() => openChangeInfo("Name")}>
                                             <div className={styles.personal__settings}>
                                                 <p>Name</p>
                                                 <h6>John Doe</h6>
                                             </div>
-                                            <button onClick={() => openChangeInfo("Name")}><IoIosArrowForward/></button>
+                                            <button ><IoIosArrowForward/></button>
                                         </div>
-                                        <div className={styles.settings__acc__content}>
+                                        <div className={styles.settings__acc__content} onClick={() => openChangeInfo("Email")}>
                                             <div className={styles.personal__settings}>
                                                 <p>Email Address</p>
                                                 <h6>johndoe@gmail.com</h6>
                                             </div>
-                                            <button onClick={() => openChangeInfo("Email")}><IoIosArrowForward/></button>
+                                            <button ><IoIosArrowForward/></button>
                                         </div>
-                                        <div className={styles.settings__acc__content}>
+                                        <div className={styles.settings__acc__content} onClick={() => openChangeInfo("Number")}>
                                             <div className={styles.personal__settings}>
                                                 <p>Phone number</p>
                                                 <h6>+1 748 485 9495</h6>
                                             </div>
-                                            <button onClick={() => openChangeInfo("Number")}><IoIosArrowForward/></button>
+                                            <button ><IoIosArrowForward/></button>
                                         </div>
                                     </div>                
                                 </div>
@@ -111,13 +111,13 @@ const Settings = () => {
                         </Col>
                         {/* Acc#03 */}
                         <Col md={{span:8,offset:2}}>
-                            <div className={styles.settings__acc__inner}>
+                            <div className={styles.settings__acc__inner} onClick={() => Authentication(true)}>
                                 <h5>Security</h5>
                                 <div className={styles.settings__acc}>
                                     <div className={styles.settings__name__info}>
                                         <h6>Add 2FA authentication</h6>
                                     </div>
-                                    <button onClick={() => Authentication(true)}><IoIosArrowForward/></button>
+                                    <button ><IoIosArrowForward/></button>
                                 </div>
                             </div>
                         </Col>
@@ -133,11 +133,11 @@ const Settings = () => {
             centered
             keyboard={false}
         >
-            <Modal.Header className={styles.modal__header__wrapper} closeButton>
-            <div className="modal__title__wrapper">
+            <Modal.Header className={`${styles.modal__header__wrapper} modal__settings__wrapper`} closeButton>
+            <div className="modal__title__wrapper ">
                 <Modal.Title>
                     <div className={styles.modal__header}>
-                        <h2>Select Connected Wrapper</h2>
+                        <h2>Select connected wallet</h2>
                     </div>
                 </Modal.Title>
             </div>
@@ -169,7 +169,7 @@ const Settings = () => {
             centered
             keyboard={false}
         >
-            <Modal.Header className={styles.modal__header__wrapper} closeButton>
+            <Modal.Header className={`${styles.modal__header__wrapper} modal__settings__wrapper`} closeButton>
             <div className="modal__title__wrapper">
                 <Modal.Title>
                     <div className={styles.modal__header}>

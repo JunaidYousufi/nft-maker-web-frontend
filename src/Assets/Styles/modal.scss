@@ -35,6 +35,14 @@
     }
 }
 
+@media only screen and (max-width:"600px"){
+    .claim__modal{
+        .modal-dialog{
+            transform: translate(-51%) !important;
+            width: 80% !important; 
+        }
+    }
+}
 
 
 .claim__modal{
@@ -108,6 +116,12 @@
                 &:focus{
                     outline: none;
                 }
+            }
+        }
+        .modal__settings__wrapper{
+            .btn-close{
+                padding: 10px !important;
+                font-size: 12px !important;
             }
         }
     }

@@ -14,7 +14,10 @@ import { AiFillCloseCircle } from "react-icons/ai";
 const Verification = () => {
     const loginMethodUsedByUser = useSelector(state => state.LoginFormMethod)
     const [windowstate,setWindow] = useState(window.innerWidth < 767);
-    
+    const [allowLogin,setAllowLogin] = useState(false)
+    const [details,setDetails] = useState({
+        verification:[]
+    })
     let navigate = useNavigate()
     useEffect(()=>{
         window.addEventListener('resize', () => {
@@ -31,6 +34,26 @@ const Verification = () => {
         navigate("/signup")
 
     }
+    const inputEvent = (e) => {
+        const { name, value } = e.target;
+            setDetails((preValue) => {
+                return {
+                  ...preValue,
+                  [name]: value,
+                };
+              });
+        
+    
+      };
+      useEffect(()=>{
+        if(details.verification.length >= 6){
+            setAllowLogin(true)
+        }
+        else{
+            setAllowLogin(false)
+        }
+        console.log(details.verification)
+      },[details.verification])
     return (
         <div className={styles.half_container}>
             <AiFillCloseCircle className={styles.cross} onClick={HandleClick} />
@@ -64,11 +87,19 @@ const Verification = () => {
                             character: "character",
                             characterSelected: "character--selected",
                         }}
+                        length={6}
+                        value={details.verification}
+                        inputProps={{
+                            value:details.verification,
+                            name:"verification",
+                            onChange:inputEvent
+                        }}
+                        
                     />
 
                 </div>
 
-                <button className={`${styles.button} ${styles.secondaryColor}`} onClick={() => tempLogIn()}>
+                <button className={`${styles.button} ${styles.secondaryColor}`} disabled={allowLogin ? false : true} onClick={() => tempLogIn()}>
                     Continue
                     {<span><IoIosArrowForward /></span>}
                 </button>

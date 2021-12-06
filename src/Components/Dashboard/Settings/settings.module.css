@@ -56,6 +56,7 @@
   border: 1px solid #DEDEDE;
   border-radius: 8px;
   padding: 25px 22px;
+  cursor: pointer;
 }
 
 .settings__wrapper .settings__acc__wrapper .settings__acc__inner .settings__acc .settings__name__info {
@@ -120,6 +121,10 @@
 
 .settings__wrapper .settings__acc__wrapper .settings__acc__inner .settings__acc .settings__acc__content:nth-last-child(1) {
   margin-bottom: 0px;
+}
+
+.connection__modal .modal__header h2 {
+  font-size: 24px;
 }
 
 .connection__modal .modal__body__wrapper {

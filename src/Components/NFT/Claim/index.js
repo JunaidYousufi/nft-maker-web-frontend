@@ -29,7 +29,7 @@ const Claim = () => {
                     <h6>{nft__detail.cat}</h6>
                 </div>
                 <h1>{nft__detail.title}</h1>
-                <h6>{nft__detail.nftid}</h6>
+                <a href="https://explorer.near.org/" target="_blank" rel="noreferrer">{nft__detail.nftid}</a>
             </div>
             <div className={styles.details__info}>
                 <div className={styles.details__profile}>
@@ -52,6 +52,10 @@ const Claim = () => {
                             </Accordion.Body>
                         </Accordion.Item>
                     </div>
+                    
+                    
+                </Accordion>
+                <Accordion>
                     <div className={styles.accord}>
                         <Accordion.Item eventKey="1">
                             <Accordion.Header>NFT Info</Accordion.Header>
@@ -67,7 +71,6 @@ const Claim = () => {
                             </Accordion.Body>
                         </Accordion.Item>
                     </div>
-                    
                 </Accordion>
             </div>
 

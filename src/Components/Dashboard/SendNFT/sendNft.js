@@ -197,7 +197,7 @@ const SendNft = () => {
         
         {/* NFT Selection Modal */}
         <Modal
-            className={`${styles.initial__nft__modal} send__nft__mobile__modal initial__modal`}
+            className={`${styles.initial__nft__modal} initial__modal`}
             show={sendnft__popup}
             onHide={closeSendNft}
             backdrop="static"
@@ -370,6 +370,7 @@ const SendNft = () => {
             onHide={closeSendNft}
             backdrop="static"
             keyboard={false}
+            centered
         >
             <Modal.Header className={styles.modal__header__wrapper} closeButton>
             

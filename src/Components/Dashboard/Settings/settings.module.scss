@@ -48,6 +48,7 @@
                 border: 1px solid #DEDEDE;
                 border-radius: 8px;
                 padding: 25px 22px;
+                cursor: pointer;
                 .settings__name__info{
                     display: flex;
                     align-items: center;
@@ -102,6 +103,11 @@
     
 }
 .connection__modal{
+    .modal__header{
+        h2{
+            font-size: 24px;
+        }
+    }
     .modal__body__wrapper{
         margin: 25px 40px 40px 40px; 
         .name__wrapper{
