@@ -33,7 +33,7 @@ import Settings from "./Components/Dashboard/Settings";
 import TagManager from 'react-gtm-module'
 
 const tagManagerArgs = {
-  gtmId: 'GTM-55CK2WW'
+  gtmId: 'GTM-TJSWG5R'
 }
 TagManager.initialize(tagManagerArgs)
 
