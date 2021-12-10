@@ -24,6 +24,7 @@ const Settings = () => {
     const openChangeInfo = (infovalue) => {
         setChangeInfo(true)
         setDetails(infovalue)
+        
     }
     const savePersonalInfo = () => {
         setChangeInfo(false)
@@ -35,6 +36,15 @@ const Settings = () => {
     const Authentication = (isEnable) => {
         if(isEnable){
             toast.success("2FA Enabled")
+            window.dataLayer.push({
+                event: 'event',
+                eventProps: {
+                    category: "Settings",
+                    action: "2FA Enabled",
+                    label:"Settings",
+                    value:"Settings"
+                }
+            });
         }
         else{
             toast.success("2FA Disabled")

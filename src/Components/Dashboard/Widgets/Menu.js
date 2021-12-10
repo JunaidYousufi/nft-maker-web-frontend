@@ -23,10 +23,28 @@ const Menu = () => {
     const createNftModal = () => {
         dispatch({type:"createnft__open"})
         dispatch({type:"handleTooltipClick__close"})
+        window.dataLayer.push({
+            event: 'event',
+            eventProps: {
+                category: "Menu",
+                action: "Create NFT Modal Opened",
+                label:"Menu",
+                value:"Menu"
+            }
+        });
     }
     const sendNftModal = () => {
         dispatch({type:"sendnft__open"})
         dispatch({type:"handleTooltipClick__close"})
+        window.dataLayer.push({
+            event: 'event',
+            eventProps: {
+                category: "Menu",
+                action: "Send NFT Modal Opened",
+                label:"Menu",
+                value:"Menu"
+            }
+        });
     }
     return(
         <>

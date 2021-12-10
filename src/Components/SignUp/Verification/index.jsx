@@ -28,6 +28,15 @@ const Verification = () => {
     const tempLogIn = () => {
         Cookies.set(cookieAuth, 'cookie')
         navigate("/signup/create-account")
+        window.dataLayer.push({
+            event: 'event',
+            eventProps: {
+                category: "Signup",
+                action: "User Verified",
+                label:"Signup",
+                value:"Signup"
+            }
+        });
     }
     // HandleClick for cancel button
     const HandleClick = () => {

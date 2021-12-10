@@ -18,6 +18,28 @@ const Claim = () => {
     const closeClaimModal = () => {
         setClaimModal(false)
     }
+    const Login = () => {
+        window.dataLayer.push({
+            event: 'event',
+            eventProps: {
+                category: "Claim NFT",
+                action: "Redirected To Login",
+                label:"Claim NFT",
+                value:"Claim NFT"
+            }
+        });
+    }
+    const createNewWallet = () => {
+        window.dataLayer.push({
+            event: 'event',
+            eventProps: {
+                category: "Claim NFT",
+                action: "Redirected To Signup",
+                label:"Claim NFT",
+                value:"Claim NFT"
+            }
+        });
+    }
     return(
         <>
         <div className={styles.details__wrapper}>
@@ -94,10 +116,10 @@ const Claim = () => {
                 </Modal.Header>
                 <Modal.Body>
                     <div className={styles.btn__wrapper}>
-                        <button onClick={()=>navigate("/signup")} className={styles.secondary__btn}> 
+                        <button onClick={createNewWallet} className={styles.secondary__btn}> 
                             Create New Wallet <span><IoIosArrowForward/></span>
                         </button>
-                        <button onClick={()=>navigate("/signin")} className={styles.primary__btn}> 
+                        <button onClick={Login} className={styles.primary__btn}> 
                             Login with NEAR wallet <span><IoIosArrowForward/></span>
                         </button>
                     </div>

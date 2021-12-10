@@ -5,6 +5,13 @@
     height: 0.2rem;
   }
 }
+.createAccountButton{
+  background-color: transparent;
+  border:none;
+  &:focus{
+    outline: none;
+  }
+}
 .account__wrapper{
   margin-bottom: 15px;
 }

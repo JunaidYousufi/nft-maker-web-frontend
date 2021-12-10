@@ -33,7 +33,7 @@ export default function GiftAnNft({ closebutton, sendGiftButton,dashboard }) {
         access:"",
         refresh:""
     })
-    const [selected,setSelected] = useState()
+    // const [selected,setSelected] = useState()
     const [contactsData,setContactsData] = useState([])
     const [filteredContactData,setFilteredContactsData] = useState([])
     useEffect(()=>{

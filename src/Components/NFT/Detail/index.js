@@ -11,6 +11,15 @@ const Details = () => {
     const sendNft = () => {
         dispatch({type:"sendnft__open"})
         navigate("/")
+        window.dataLayer.push({
+            event: 'event',
+            eventProps: {
+                category: "NFT Details",
+                action: "Send NFT",
+                label:"NFT Details",
+                value:"NFT Details"
+            }
+        });
     }
     let navigate = useNavigate()
     const nft__detail = useSelector((state) => state.nft__detail)

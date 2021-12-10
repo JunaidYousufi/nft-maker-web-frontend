@@ -22,12 +22,20 @@ const CreateAnAccount = () => {
             if (ismobile !== windowstate) setWindow(ismobile)
         }, false);
     }, [windowstate])
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
     const [info, setinfo] = useState('')
     const createAccount = () => {
         // navigate("/signup/gift-nft")
         // dispatch({ type: 'open_dialog_gift_nft' })
-
+        window.dataLayer.push({
+            event: 'event',
+            eventProps: {
+                category: "Signup",
+                action: "Created Account",
+                label:"Signup",
+                value:"Signup"
+            }
+        });
     }
     // HandleClick for cancel button
     const HandleClick = () => {
@@ -105,10 +113,13 @@ const CreateAnAccount = () => {
                     Create an account
                     {<span><IoIosArrowForward /></span>}
                 </button> */}
-                <a href={`https://accounts.google.com/o/oauth2/auth?response_type=code&redirect_uri=${googleRedirectUrl}&scope=https://www.googleapis.com/auth/contacts&client_id=${googleClientId}&access_type=offline&prompt=consent`} className={`${styles.secondary_button}`} >
-                Create an account
-                {<span><IoIosArrowForward /></span>}
-                </a>
+                <button onClick={createAccount} className={styles.createAccountButton}>
+                    <a href={`https://accounts.google.com/o/oauth2/auth?response_type=code&redirect_uri=${googleRedirectUrl}&scope=https://www.googleapis.com/auth/contacts&client_id=${googleClientId}&access_type=offline&prompt=consent`} className={`${styles.secondary_button}`} >
+                        Create an account
+                        {<span><IoIosArrowForward /></span>}
+                    </a>
+                </button>
+                
 
                 <p>By creating a NEAR account, you agree to the <br />
                     NEAR Wallet <span>Terms of Service</span> and <span>Privacy Policy</span>.
