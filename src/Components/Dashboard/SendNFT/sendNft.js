@@ -37,60 +37,14 @@ const responsive = {
     }
   };
   
-const dummyContacts = [
-    {
-        id: 1,
-        avatar: 'DR',
-        name: 'Darlene Robertson',
-        username: '@johndoe',
-        checked: false
-    },
-    {
-        id: 2,
-        avatar: 'JJ',
-        name: 'Jacob Jones',
-        username: '@johndoe',
-        checked: false
-    },
-    {
-        id: 3,
-        avatar: 'JW',
-        name: 'Jenny Wilson',
-        username: '@johndoe',
-        checked: false
-    },
-    {
-        id: 4,
-        avatar: 'RR',
-        name: 'Ronald Richards',
-        username: '@johndoe',
-        checked: false
-    },
-    {
-        id: 5,
-        avatar: 'CW',
-        name: 'Cameron Williamson',
-        username: '@johndoe',
-        checked: false
-    },
-    {
-        id: 6,
-        avatar: 'DS',
-        name: 'Darrell Steward',
-        username: '@johndoe',
-        checked: false
-    },
 
-]
 const SendNft = () => {
     let navigate = useNavigate()
     const dispatch = useDispatch()
     const giftNFT__contactData = useSelector((state) => state.giftNFT__contactData)
     // const [data, setdata] = useState(dummyContacts)
     const [filteredData,setFilteredData] = useState(giftNFT__contactData ? giftNFT__contactData : [])
-    const [details,setDetails] = useState({
-        search:""
-    })
+
     const [openPreview,setOpenPreview] = useState(false)
     const [openGift,setOpenGift] = useState(false)
     const [selected,setSelected] = useState("")
